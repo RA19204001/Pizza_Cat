@@ -12,7 +12,7 @@ public abstract class AbstractDaoFactory {
 
 		    try{
 		    	resorce=ResourceBundle.getBundle("property\\dao");
-		        String name=resorce.getString("doa");
+		        String name=resorce.getString("dao");
 
 		      Class c = Class.forName(name);
 
