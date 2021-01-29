@@ -23,7 +23,7 @@ try{
 
 
 %>
-<h1>会員登録をしてね</h1>
+<h1>TOP画面</h1>
 <p><a href="addUser">会員登録画面へ</a></p>
 <p><a href="login">ログイン</a></p>
 <p><a href="logout" style=display:none>ログアウト</a></p>
