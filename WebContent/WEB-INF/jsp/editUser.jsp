@@ -17,6 +17,7 @@
     電話番号<input type='text' maxlength='11' pattern="^[0-9]+$" title="半角数字で入力して下さい。" name='phoneNumber' required value="${sessionScope.loginuser.phoneNumber}"><br><br>
     <input type='submit' value='変更する'>
 </form>
+<p><a href="addCard">カード登録画面へ</a></p>
 <p>${sessionScope.loginuser.id}でログイン中</p>
 
 </body>
