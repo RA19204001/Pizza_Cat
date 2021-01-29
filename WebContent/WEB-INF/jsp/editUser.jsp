@@ -22,5 +22,6 @@
 <p><a href="addCard">カード登録画面へ</a></p>
 <p>${sessionScope.loginuser.id}でログイン中</p>
 
+<p><a href="/PizzaCat/">TOPへ</a></p>
 </body>
 </html>
