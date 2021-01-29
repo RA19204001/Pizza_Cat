@@ -1,10 +1,14 @@
+//1/29 いが
+
+
 package dao;
 
 import java.util.Properties;
 import java.util.ResourceBundle;
 
 public abstract class AbstractDaoFactory {
-	  public static AbstractDaoFactory getFactory(){
+
+	public static AbstractDaoFactory getFactory(){
 
 		    AbstractDaoFactory factory = null;
 		    Properties prop = new Properties();
