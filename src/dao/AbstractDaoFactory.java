@@ -31,5 +31,9 @@ public abstract class AbstractDaoFactory {
 
 		  }
 		  public abstract UserDao getUserDao();
+		  public abstract PizzaDao getPizzaDao();
+		  public abstract PizzaOptionDao getPizzaOptionDao();
+		  public abstract SideDao getSideDao();
+		  public abstract CardDao getCardDao();
 		  public abstract ConnectionManager getConnectionManager();
 }
