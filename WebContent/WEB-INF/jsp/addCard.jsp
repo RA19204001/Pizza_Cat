@@ -15,10 +15,10 @@
 		}
 	}
 </script>
-<title>会員登録画面</title>
+<title>カード情報登録画面</title>
 </head>
 <body>
-<h1>会員登録画面！</h1>
+<h1>カード情報の登録</h1>
 <form method='post' action='addCardResult' onSubmit="return check()">
     クレジットカード番号(数字)<input type='text' maxlength='8' pattern="^[0-9]+$" title="半角数字を入力して下さい。" name='creditnumber' required autofocus>${result.message}<br>
     セキュリティ番号<input type='password' maxlength='4' pattern="^[0-9]+$" title="半角数字を入力して下さい。" name='security_code' required><br>
