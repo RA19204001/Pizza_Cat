@@ -11,6 +11,8 @@ public class User implements Bean {
 	private String phoneNumber;
 	private int card_id;
 
+	public User() {}
+
 	//-------------------------------------------------Number
 	public int getNumber() {
 		return number;
