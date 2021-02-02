@@ -10,7 +10,7 @@
 <body>
 <h1>ユーザー情報の変更</h1>
 <form name="myform" method='post' action='editUserResult' onSubmit="return check()">
-    ID(英数字)<input type='text' maxlength='15' pattern="^[0-9A-Za-z]+$" title="半角英数字を入力して下さい。" name='id' required autofocus value="${sessionScope.loginuser.id}">${result.message}<br>
+    ID(英数字)<input type='text' maxlength='15' pattern="^[0-9A-Za-z]+$" title="半角英数字を入力して下さい。" name='id' required value="${sessionScope.loginuser.id}"  autofocus>${result.message}<br>
     パスワード<input type='text' maxlength='20' pattern="^[0-9A-Za-z]+$" title="半角英数字を入力して下さい。" name='pass' required value="${sessionScope.loginuser.pass}"><br>
     名前<input type='text' maxlength='20' name='name' required value="${sessionScope.loginuser.name}"><br>
     住所<input type='text' maxlength='50' name='address' required value="${sessionScope.loginuser.address}"><br>

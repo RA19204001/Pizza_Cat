@@ -1,4 +1,5 @@
 //浅倉 1/29
+//浅倉 2/2
 package command;
 
 import bean.Message;
@@ -8,6 +9,7 @@ import context.ResponseContext;
 import dao.AbstractDaoFactory;
 import dao.ConnectionManager;
 import dao.UserDao;
+import exception.EditUserFailedException;
 
 public class EditUserCommand extends AbstractCommand {
 	public ResponseContext execute(ResponseContext responseContext) {
@@ -46,34 +48,55 @@ public class EditUserCommand extends AbstractCommand {
         Message message=new Message();
         responseContext.setTarget("editUser");
 
-        boolean flag=dao.isUniqueUserId(user.getId());
-        if(flag){
+        //変更前のIDと変更後のIDが同じ場合は問題なく変更できる
+        if(oldId.equals(user.getId())) {
+	        try{
+	        	dao.editUser(oldId, user);
 
-            try{
-                dao.editUser(oldId, user);
-                //
-                responseContext.setResult(user);
+	            responseContext.setResult(user);
 
-                responseContext.setTarget("editUserResult");
-            }catch(RuntimeException e){
-                cm.rollback();
-                //
-                message.setMessage("ユーザー情報を変更に失敗しました");
+	            responseContext.setTarget("editUserResult");
+        	}catch(EditUserFailedException e){
+        		cm.rollback();
+
+        		message.setMessage("ユーザー情報を変更に失敗しました");
                 responseContext.setResult(message);
                 e.printStackTrace();
+        	}
+	        cm.commit();
+	        cm.closeConnection();
+	        return responseContext;
+        }else {
 
-            }
-        }else{
-        	message.setMessage("そのIDは使われています。");
-        	responseContext.setResult(message);
+	        boolean flag=dao.isUniqueUserId(user.getId());
+	        if(flag){
+
+	            try{
+	                dao.editUser(oldId, user);
+
+	                responseContext.setResult(user);
+
+	                responseContext.setTarget("editUserResult");
+	            }catch(EditUserFailedException e){
+	                cm.rollback();
+
+	                message.setMessage("ユーザー情報を変更に失敗しました");
+	                responseContext.setResult(message);
+	                e.printStackTrace();
+
+	            }
+	        }else{
+	        	message.setMessage("そのIDは使われています。");
+	        	responseContext.setResult(message);
+	        }
+	        cm.commit();
+
+	        cm.closeConnection();
+
+
+
+	        return responseContext;
         }
-        cm.commit();
-
-        cm.closeConnection();
-
-
-
-        return responseContext;
     }
 
 }
