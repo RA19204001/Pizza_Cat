@@ -4,7 +4,7 @@
 <head><title>商品一覧</title></head>
 <body>
 <form>
-<input type="image">
+<input type="image" src="..\pizza\Test.jpg">
 </form>
 </body>
 </html>
