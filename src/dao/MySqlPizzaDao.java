@@ -35,7 +35,7 @@ public class MySqlPizzaDao implements PizzaDao{
 
     }
 
-    public Product getPizza(String id) {
+    public Product getPizza() {
     	Product p =new Product();
 
     	try {
