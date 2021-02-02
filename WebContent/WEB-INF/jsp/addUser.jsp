@@ -29,6 +29,7 @@
     <input type='submit' value='登録'>
 </form>
 
+<p><a href="/PizzaCat/">TOPへ</a></p>
 
 </body>
 </html>

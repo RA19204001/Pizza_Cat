@@ -4,8 +4,8 @@
 <head><title>商品一覧</title></head>
 
 <body>
-<form name="mtform" method='post' action='start'>
-	<input type="">
+<form name="myform" method='post' action='menu'>
+	<input type="text">
 </form>
 </body>
 </html>
