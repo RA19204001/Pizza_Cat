@@ -1,3 +1,4 @@
+//2.02 大川
 package servlet;
 
 import java.io.IOException;
@@ -11,6 +12,7 @@ import context.RequestContext;
 import context.ResponseContext;
 import controller.ApplicationController;
 import controller.WebApplicationController;
+
 
 public class FrontServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse res)
@@ -33,5 +35,6 @@ public class FrontServlet extends HttpServlet {
 		resc.setResponse(res);
 
 		app.handleResponse(reqc,resc);
+
 	}
 }
