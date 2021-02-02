@@ -49,54 +49,38 @@ public class EditUserCommand extends AbstractCommand {
         responseContext.setTarget("editUser");
 
         //変更前のIDと変更後のIDが同じ場合は問題なく変更できる
-        if(oldId.equals(user.getId())) {
-	        try{
-	        	dao.editUser(oldId, user);
+        if(!(oldId.equals(user.getId()))){
+        	boolean flag=dao.isUniqueUserId(user.getId());
 
-	            responseContext.setResult(user);
-
-	            responseContext.setTarget("editUserResult");
-        	}catch(EditUserFailedException e){
-        		cm.rollback();
-
-        		message.setMessage("ユーザー情報を変更に失敗しました");
-                responseContext.setResult(message);
-                e.printStackTrace();
+        	if(flag == false){
+        		message.setMessage("そのIDは使われています。");
+        	    responseContext.setResult(message);
         	}
-	        cm.commit();
-	        cm.closeConnection();
-	        return responseContext;
-        }else {
+        }else{
+        	try{
+        	    dao.editUser(oldId, user);
 
-	        boolean flag=dao.isUniqueUserId(user.getId());
-	        if(flag){
+        	    responseContext.setResult(user);
 
-	            try{
-	                dao.editUser(oldId, user);
+                responseContext.setTarget("editUserResult");
+            }catch(EditUserFailedException e){
+                 cm.rollback();
 
-	                responseContext.setResult(user);
+                 message.setMessage("ユーザー情報の変更に失敗しました");
+                 responseContext.setResult(message);
+                 e.printStackTrace();
+        	}
 
-	                responseContext.setTarget("editUserResult");
-	            }catch(EditUserFailedException e){
-	                cm.rollback();
-
-	                message.setMessage("ユーザー情報を変更に失敗しました");
-	                responseContext.setResult(message);
-	                e.printStackTrace();
-
-	            }
-	        }else{
-	        	message.setMessage("そのIDは使われています。");
-	        	responseContext.setResult(message);
-	        }
-	        cm.commit();
-
-	        cm.closeConnection();
-
-
-
-	        return responseContext;
         }
+
+
+        cm.commit();
+
+        cm.closeConnection();
+
+
+
+        return responseContext;
     }
 
 }
