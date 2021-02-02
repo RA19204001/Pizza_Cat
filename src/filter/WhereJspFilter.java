@@ -4,32 +4,24 @@ package filter;
 
 import java.io.IOException;
 
-import javax.servlet.Filter;
-import javax.servlet.FilterChain;
-import javax.servlet.FilterConfig;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
-public class WhereJspFilter implements Filter {
+public class WhereJspFilter{
+	  public String serchJsp(HttpServletRequest req,HttpServletResponse res)throws IOException,ServletException{
 
-	public void init(FilterConfig config)throws ServletException{}
+		 String judg = null;
 
-	  public void destroy(){}
-
-	  public void doFilter(ServletRequest req,ServletResponse res,FilterChain chain)throws IOException,ServletException{
-
-	    HttpServletRequest httpRequest=(HttpServletRequest)req;
-	    String path = httpRequest.getServletPath();
+		System.out.println("WhereJspFilter");
+	    String path = req.getServletPath();
 
 	    if(path=="/view" || path=="/start" || path=="/addUserResult" || path=="/addUser" || path=="/login"){
-	      RequestDispatcher dispatcher = httpRequest.getRequestDispatcher(path);
+	    	judg = path;
+	      RequestDispatcher dispatcher = req.getRequestDispatcher(path);
 	      dispatcher.forward(req,res);
 	    }
-	    else{
-	      chain.doFilter(req,res);
-	    }
-	  }
+	    return judg;
+	}
 }
