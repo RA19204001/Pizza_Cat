@@ -1,6 +1,7 @@
 //浅倉 1/29
 //浅倉 2/2
 //五   2/2
+//染谷 2/2
 package command;
 
 import bean.Message;
@@ -48,16 +49,21 @@ public class EditUserCommand extends AbstractCommand {
 
         Message message=new Message();
         responseContext.setTarget("editUser");
-
         //変更前のIDと変更後のIDが同じ場合は問題なく変更できる
-        if(!(oldId.equals(user.getId()))){
-        	boolean flag=dao.isUniqueUserId(user.getId());
+        boolean flag=false;
 
-        	if(flag == false){
-        		message.setMessage("そのIDは使われています。");
-        	    responseContext.setResult(message);
+        if(oldId.equals(id)) {
+        	flag=true;
+        }else {
+        	if(dao.isUniqueUserId(id)) {
+        		flag=true;
         	}
-        }else{
+        }
+
+        if(flag=false) {
+        	message.setMessage("そのIDは使われています。");
+    	    responseContext.setResult(message);
+        }else {
         	try{
         	    dao.editUser(oldId, user);
 
@@ -71,9 +77,7 @@ public class EditUserCommand extends AbstractCommand {
                  responseContext.setResult(message);
                  e.printStackTrace();
         	}
-
         }
-
 
         cm.commit();
 
