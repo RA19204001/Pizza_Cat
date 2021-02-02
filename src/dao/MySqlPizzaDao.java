@@ -1,4 +1,5 @@
 //2021年1月29日11時21分 いが
+//		2  02  16:00 内田
 
 
 package dao;
@@ -7,6 +8,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import bean.Product;
 import exception.IntegrationException;
@@ -35,8 +37,9 @@ public class MySqlPizzaDao implements PizzaDao{
 
     }
 
-    public Product getPizza() {
-    	Product p =new Product();
+    public ArrayList getPizza() {
+
+    	ArrayList list = new ArrayList();
 
     	try {
     		String sql="select pizza_name, pizza_image, pizza_explanation, pizza_price from PIZZA_TABLE";
@@ -44,14 +47,16 @@ public class MySqlPizzaDao implements PizzaDao{
     		st=cn.prepareStatement(sql);
     		rs=st.executeQuery();
 
-    		if(rs.next()) {
+    		while(rs.next()) {
+    			Product p = new Product();
+
     			p.setName(rs.getString(1));
     			p.setImage(rs.getString(2));
     			p.setExplanation(rs.getString(3));
     			p.setPrice(rs.getInt(4));
-    		}else {
 
-    			throw new IntegrationException("",new Throwable());
+    			list.add(p);
+
     		}
 
     	}catch(SQLException e) {
@@ -59,7 +64,7 @@ public class MySqlPizzaDao implements PizzaDao{
     		throw new IntegrationException(e.getMessage(),e);
     	}
 
-    	return p;
+    	return list;
 
     }
 
