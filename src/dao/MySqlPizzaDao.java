@@ -37,12 +37,11 @@ public class MySqlPizzaDao implements PizzaDao{
 
     public Product getPizza() {
     	Product p =new Product();
-    	/*
+
     	try {
-    		String sql="select pizza_name, pizza_image, pizza_explanation, pizza_price from PIZZA_TABLE where PIZZA_ID=?";
+    		String sql="select pizza_name, pizza_image, pizza_explanation, pizza_price from PIZZA_TABLE";
 
     		st=cn.prepareStatement(sql);
-    		st.setString(1,id);
     		rs=st.executeQuery();
 
     		if(rs.next()) {
@@ -59,7 +58,7 @@ public class MySqlPizzaDao implements PizzaDao{
     		e.printStackTrace();
     		throw new IntegrationException(e.getMessage(),e);
     	}
-    	*/
+
     	return p;
 
     }
