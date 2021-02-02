@@ -1,5 +1,4 @@
 <!--浅倉 1/29  -->
-<!--浅倉 2/2  -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -17,7 +16,7 @@
     住所<input type='text' maxlength='50' name='address' required value="${sessionScope.loginuser.address}"><br>
     年齢<input type='text' maxlength='3' pattern="^[0-9]+$" title="半角数字で入力して下さい。" name='age' required value="${sessionScope.loginuser.age}"><br>
     電話番号<input type='text' maxlength='11' pattern="^[0-9]+$" title="半角数字で入力して下さい。" name='phoneNumber' required value="${sessionScope.loginuser.phoneNumber}"><br><br>
-    <input type='text' name='oldId' required value="${sessionScope.loginuser.id}" style="display:none">${result.message}<br>
+    oldId<input type='text' name='oldId' required value="${sessionScope.loginuser.id}">${result.message}<br>
     <input type='submit' value='変更する'>
 </form>
 <p><a href="addCard">カード登録画面へ</a></p>
