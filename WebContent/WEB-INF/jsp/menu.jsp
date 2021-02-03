@@ -9,7 +9,7 @@
 <table>
 <c:forEach var="menu" items="${result.list}">
 <p>${menu.name}</p>
-<p>${menu.image}</p>
+<img src="../pizza/${menu.image}"><!-- 画像が映らない！ -->
 <p>${menu.explanation}</p>
 <p>${menu.price}</p>
 </c:forEach>
