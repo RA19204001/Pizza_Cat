@@ -1,4 +1,5 @@
 <!--浅倉 1/29  -->
+<!--浅倉 2/3  -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page import ="bean.User"%>
@@ -63,6 +64,7 @@ try{
 <div id='page1' class='page1'>
 <p><a href="addUser">会員登録画面へ</a></p>
 <p><a href="login">ログイン</a></p>
+<p><a href="menu">メニュー</a></p>
 
 </div>
 <div id='page2' class='page2'>
