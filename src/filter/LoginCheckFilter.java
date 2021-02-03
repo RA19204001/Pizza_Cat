@@ -11,14 +11,14 @@ import javax.servlet.http.HttpSession;
 public class LoginCheckFilter{
 	public boolean loginCheck(HttpServletRequest req,HttpServletResponse res)throws IOException,ServletException{
 
-		boolean flag = true;
+		boolean flag = false;
 		System.out.println("LoginCheckFilter");
 		HttpSession session=req.getSession();
 
 		//ログイン判定用の変数
-		boolean login=false;
 		if(session.getAttribute("loginuser") != null){
-			login = true;
+			flag = true;
+			//System.out.println(session.getAttribute("loginuser"));
 		}
 		return flag;
 	}

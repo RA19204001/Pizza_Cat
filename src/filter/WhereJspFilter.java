@@ -4,7 +4,6 @@ package filter;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,13 +13,10 @@ public class WhereJspFilter{
 
 		 String judg = null;
 
-		System.out.println("WhereJspFilter");
 	    String path = req.getServletPath();
 
-	    if(path=="/view" || path=="/start" || path=="/addUserResult" || path=="/addUser" || path=="/login"){
+	    if(path.equals("/view") || path.equals("/start") || path.equals("/addUserResult" )|| path.equals("/addUser") || path.equals("/login")){
 	    	judg = path;
-	      RequestDispatcher dispatcher = req.getRequestDispatcher(path);
-	      dispatcher.forward(req,res);
 	    }
 	    return judg;
 	}

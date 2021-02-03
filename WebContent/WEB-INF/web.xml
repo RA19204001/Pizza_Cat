@@ -2,17 +2,6 @@
 	<!-- 1/27 15:15 大川-->
 	<!-- 2/02 大川-->
 
-  <filter>
-  	<filter-name>LogoutCheckFilter</filter-name>
-  	<filter-class>filter.LogoutCheckFilter</filter-class>
-  </filter>
-  <filter-mapping>
-  	<filter-name>LogoutCheckFilter</filter-name>
-  	<url-pattern>/</url-pattern>
-  	<dispatcher>REQUEST</dispatcher>
-  	<dispatcher>FORWARD</dispatcher>
-  </filter-mapping>
-
   <welcome-file-list>
     <welcome-file>/WEB-INF/jsp/start.jsp</welcome-file>
   </welcome-file-list>
