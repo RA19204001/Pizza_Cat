@@ -1,7 +1,9 @@
 package dao;
 
-//10.29 移行 大川
+import bean.Card;
+// 1.29 移行 大川
 // 1.29変更 内田
+// 2.4 追加 大川
 import bean.User;
 
 public interface UserDao {
@@ -10,5 +12,5 @@ public interface UserDao {
 	public boolean isUniqueUserId(String id);
 	public User authenticateUser(String id, String pass);
 	public void editUser(String id, User user);
-	public void addCardId(String id,String card_id);
+	public void addCardId(String id,Card card_id);
 }

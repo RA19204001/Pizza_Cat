@@ -1,4 +1,5 @@
 <!--浅倉 2/3  -->
+<!--大川 2/4  -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -39,6 +40,7 @@
 					<option value="12">12</option>
     			</select><br>
     メールアドレス<input type='text' maxlength='256' name='mail_address' required><br><br>
+    <input type='hidden' name='userId' required value="${sessionScope.loginuser.id}"><br>
     <input type='submit' value='登録'>
 
 </form>

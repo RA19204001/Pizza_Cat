@@ -5,6 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+// 2.4 変更 大川
+import bean.Card;
 import bean.User;
 import exception.AddUserFailedException;
 import exception.EditUserFailedException;
@@ -124,13 +126,13 @@ public class MySqlUserDao implements UserDao {
 
     }
 
-    public void addCardId(String id,String card_id) {
+    public void addCardId(String id,Card card_id) {
         try {
             String sql = "update USER_TABLE set card_id = ? where user_id = ?";
 
             st = cn.prepareStatement(sql);
 
-             st.setString(1, card_id);
+             st.setString(1, card_id.getCreditnumber());
              st.setString(2, id);
 
              st.executeUpdate();

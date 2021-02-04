@@ -1,15 +1,16 @@
 
 package command;
 
+import bean.Card;
+import bean.Message;
 //10.29 移行 大川
+//02.04 大川
 import context.RequestContext;
 import context.ResponseContext;
 import dao.AbstractDaoFactory;
+import dao.CardDao;
 import dao.ConnectionManager;
 import dao.UserDao;
-import dao.CardDao;
-import bean.Card;
-import bean.Message;
 
 public class AddCardCommand extends AbstractCommand{
 
@@ -41,15 +42,20 @@ public class AddCardCommand extends AbstractCommand{
 
         dao.addCard(card);
 
+
+
         Message message=new Message();
 
         //失敗することがない
         message.setMessage("登録完了しました");
 
-        String card_id = dao.getCardId(String creditnumber,String security_code);
+        String userId = reqc.getParameter("userId")[0];
 
-        String id = sessionScope.loginuser.id;
-        udao.addCardId(card_id,id);
+        Card card_id = dao.getCardId(creditnumber,security_code);
+
+        System.out.println(card_id.getCreditnumber());
+
+        udao.addCardId(userId,card_id);
 
 
         //確認画面へ
