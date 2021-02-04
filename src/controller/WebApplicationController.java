@@ -1,3 +1,4 @@
+//0203 染谷
 package controller;
 
 import java.io.IOException;
@@ -13,6 +14,8 @@ import context.RequestContext;
 import context.ResponseContext;
 import context.WebRequestContext;
 import context.WebResponseContext;
+import filter.LoginCheckFilter;
+import filter.LoginNecessityChecker;
 
 public class WebApplicationController implements ApplicationController {
 	public RequestContext getRequest(Object request){
@@ -38,59 +41,24 @@ public class WebApplicationController implements ApplicationController {
 
 		HttpServletRequest req = (HttpServletRequest)reqc.getRequest();
 		HttpServletResponse res = (HttpServletResponse)resc.getResponse();
-//
-//		//ログインされてない時用
-//		String judg = null;
-//		//判定
-//		boolean flag = true;
-//
-//		//WhereJspFilterの方
-//		WhereJspFilter wherejf = new WhereJspFilter();
-			try {
-//
-//				judg = wherejf.serchJsp(req, res);
-//				System.out.println(judg);//受け取れてる
-//
-//			if(judg!=null) {
-//
-//				RequestDispatcher dispatcher = req.getRequestDispatcher(resc.getTarget());
-//				dispatcher.forward(req,res);
-//
-//			}else {
-//				flag = false;
-//			}
-//
-//
-//		//LoginCheckFilterの方
-//			if(flag) {
-//
-//				LoginCheckFilter loginf=new LoginCheckFilter();
-//
-//
-//					flag = loginf.loginCheck(req,res);
-//
-//
-//		//ログイン出来ていなければ
-//			}else if(flag == false){
-//
-//				//サーブレットパスを取得
-//				String servletPath=req.getServletPath();
-//
-//				//ターゲットリソースのサーブレットパスを登録する
-//				req.setAttribute("target",servletPath);
-//
-//				//ログインページへ戻す
-//				RequestDispatcher dis=req.getRequestDispatcher("/login.jsp");
-//	          			dis.forward(req,res);
-//
-//	}
 
-		req.setAttribute("result",resc.getResult());
+		LoginNecessityChecker cheker = new LoginNecessityChecker();
+		boolean flag;
+		RequestDispatcher dispatcher;
 
-		RequestDispatcher rd = req.getRequestDispatcher(resc.getTarget());
-
-
-			rd.forward(req,res);
+		try{
+			flag = cheker.isRequredLogin(req, res);
+			if(flag){
+				LoginCheckFilter loginf=new LoginCheckFilter();
+				flag = !(loginf.isLoggedIn(req,res));
+			}
+			if(flag){
+				dispatcher = req.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
+			}else{
+				req.setAttribute("result",resc.getResult());
+				dispatcher = req.getRequestDispatcher(resc.getTarget());
+			}
+			dispatcher.forward(req,res);
 		}catch(ServletException e){
 			e.printStackTrace();
 			//throw new RuntimeException(e.getMessage(), e);
