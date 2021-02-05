@@ -1,4 +1,5 @@
 <!--浅倉 2/3  -->
+<!--浅倉 2/5  -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -17,6 +18,7 @@
 </form>
 
 <p><a href="/PizzaCat/">TOPへ</a></p>
+<p><a href="/PizzaCat/managementTop">管理者TOPへ</a></p>
 
 </body>
 </html>

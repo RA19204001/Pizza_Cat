@@ -73,5 +73,7 @@ try{
 
 </div>
 <p>${sessionScope.loginuser.id}でログイン中</p>
+
+
 </body>
 </html>

@@ -1,4 +1,5 @@
 //0203 染谷
+//0203 浅倉
 package controller;
 
 import java.io.IOException;
@@ -8,6 +9,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import bean.Message;
 import command.AbstractCommand;
 import command.CommandFactory;
 import context.RequestContext;
@@ -54,6 +56,9 @@ public class WebApplicationController implements ApplicationController {
 			}
 			if(flag){
 				dispatcher = req.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
+				Message message = new Message();
+				message.setMessage("君ログインしてなくね？");
+				resc.setResult(message);
 			}else{
 				req.setAttribute("result",resc.getResult());
 				dispatcher = req.getRequestDispatcher(resc.getTarget());
