@@ -13,6 +13,8 @@
 
 <p style="color :red;">${result.message}</p>
 
+<p style="font-size:25px;"><a href="/PizzaCat/addUser">アカウント持ってない方はこちらから作成</a></p>
+
 <p><a href="/PizzaCat/">TOPへ</a></p>
 
 </body>

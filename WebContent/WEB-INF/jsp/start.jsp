@@ -6,6 +6,7 @@
 <%@ page import ="bean.Message"%>
 <html>
 <head>
+
 <title>PizzaCat</title>
 <style type="text/css">
 .page1 {
@@ -19,7 +20,6 @@
 
 </style>
 <script type="text/javascript" language="javascript">
-<!--
 function SelectPage( page ) {
 
     var elementPage1 = document.getElementById( "page1" );
@@ -37,7 +37,19 @@ function SelectPage( page ) {
         break;
         }
 };
-// -->
+
+window.onload = function () {
+	var judgment = document.getElementById("change").getAttribute("value");
+	var number;
+	if(!judgment)
+	{
+		number = 1;
+	}else
+	{
+		number = 2;
+	}
+	SelectPage(number);
+};
 </script>
 </head>
 <body>
@@ -59,20 +71,19 @@ try{
 
 %>
 <h1>TOP画面</h1>
-<input type='button' value='page1を表示' onclick="SelectPage(1);">
-<input type='button' value='page2を表示' onclick="SelectPage(2);">
+<input id="change" type='hidden' value='${sessionScope.loginuser.id}'>
 <div id='page1' class='page1'>
 <p><a href="addUser">会員登録画面へ</a></p>
 <p><a href="login">ログイン</a></p>
-<p><a href="menu">メニュー</a></p>
 
 </div>
 <div id='page2' class='page2'>
 <p><a href="logout">ログアウト</a></p>
-<p><a href="editUser">ユーザー情報の編集</a></p>
+<p><a href="editUser">ユーザー/カード情報の編集</a></p>
 
-</div>
 <p>${sessionScope.loginuser.id}でログイン中</p>
+</div>
+<p><a href="menu">メニュー</a></p>
 
 
 </body>

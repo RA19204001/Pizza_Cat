@@ -7,10 +7,10 @@
 </head>
 <body>
 <h1>管理者専用ページ</h1>
-<h2>あなたがジャンプマスター</h2>
+<h2>あなたがジャンプマスターです<br>□で飛ぶ</h2>
 <form method="post" action="">
     <p><a href="addPizza">商品の追加</a></p>
-	<p><a href="">商品の削除</a></p>
+	<p><a href="">商品の編集</a></p>
 </form>
 
 <!--<p style="color :red;">${result.message}</p>  -->
