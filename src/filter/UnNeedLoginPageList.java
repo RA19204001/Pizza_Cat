@@ -14,6 +14,7 @@ interface UnNeedLoginPageList{
         {add("/addUser");}
         {add("/login");}
         {add("/menu");}
+        {add("/managementTop");}
 
     });
 }
