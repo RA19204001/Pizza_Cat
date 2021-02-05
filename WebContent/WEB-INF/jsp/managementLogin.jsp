@@ -14,7 +14,7 @@
     <input type='submit' value='ログイン'>
 </form>
 
-<!--<p style="color :red;">${result.message}</p>  -->
+<p style="color :red;">${result.message}</p>
 
 </body>
 </html>
