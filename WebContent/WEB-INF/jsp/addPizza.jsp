@@ -26,6 +26,7 @@
 			document.getElementById('pizzaOption').style.display = "none";
 			document.getElementById('side').style.display = "";
 		}
+
 }
 
 window.onload = catChange1;
