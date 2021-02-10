@@ -196,7 +196,7 @@
 	</c:forEach>
 
 <p><a href="/PizzaCat/">TOPへ</a></p>
-<p><a href="/PizzaCat/managementTop">管理者TOPへ</a></p>
+<p><a href="/PizzaCat/managementLogin">管理者TOPへ</a></p>
 
 </body>
 </html>
