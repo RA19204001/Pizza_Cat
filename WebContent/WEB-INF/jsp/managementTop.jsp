@@ -1,5 +1,6 @@
 <!--浅倉 2/5  -->
 <!--大川 2/5  -->
+<!--大川 2/10  -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import ="bean.Manager"%>
@@ -29,10 +30,9 @@ try{
 %>
 <h1>管理者専用ページ</h1>
 <h2>あなたがジャンプマスターです<br>□で飛ぶ</h2>
-<form method="post" action="">
-    <p><a href="addPizza">商品の追加</a></p>
+
+    <p><a href="addProducts">商品の追加</a></p>
 	<p><a href="">商品の編集</a></p>
-</form>
 
 <p>${sessionScope.loginmanager.id}でログイン中</p>
 

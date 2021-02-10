@@ -1,6 +1,7 @@
 //2021年1月29日11時21分 いが
-//		2  02  16:00 内田
 
+//		2  02  16:00 内田
+//2.9 大川
 
 package dao;
 
@@ -72,6 +73,27 @@ public class MySqlPizzaDao implements PizzaDao{
 
     	return p;
     }
+    public Product getPizzaId(String name,String explanation) {
+    	Product product = new Product();
+		try {
 
+			String sql = "select pizza_id from PIZZA_TABLE where pizza_name = ? AND pizza_explanation = ?";
+
+			st=cn.prepareStatement(sql);
+
+			st.setString(1,name);
+			st.setString(2,explanation);
+
+
+			rs = st.executeQuery();
+			rs.next();
+			product.setProduct_id(rs.getString(1));
+
+		}catch(SQLException e){
+			e.printStackTrace();
+			throw new IntegrationException(e.getMessage(),e);
+		}
+		return product;
+    }
 
 }
