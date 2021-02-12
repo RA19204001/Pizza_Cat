@@ -1,5 +1,6 @@
 package dao;
 
+//2.12 大川
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -21,6 +22,8 @@ public class MySqlPizzaOptionDao implements PizzaOptionDao{
 
     		st.setString(1, p.getName());
     		st.setInt(2, p.getPrice());
+
+    		st.executeUpdate();
     	}catch(SQLException e) {
     		e.printStackTrace();
     		throw new IntegrationException(e.getMessage(), e);
