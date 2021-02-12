@@ -23,7 +23,7 @@
 <h1>カード情報の登録</h1>
 <form method='post' action='addCardResult' onSubmit="return check()">
     クレジットカード番号(数字)<input type='text' maxlength='16' pattern="^[0-9]+$" title="半角数字を入力して下さい。" name='creditnumber' required autofocus>${result.message}<br>
-    セキュリティ番号<input type='password' maxlength='4' pattern="^[0-9]+$" title="半角数字を入力して下さい。" name='security_code' required><br>
+    セキュリティ番号<input type='password' minlength='3' maxlength='4' pattern="^[0-9]+$" title="半角数字を入力して下さい。" name='security_code' required><br>
     有効期限(年)<input type='number' name='expiration_year' placeholder="※下二桁" maxlength='2' required><br>
     有効期限(月)<select name='expiration_month' required>
 	    			<option value="01">01</option>
