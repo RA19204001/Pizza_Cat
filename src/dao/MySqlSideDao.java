@@ -1,6 +1,7 @@
 package dao;
 
 //2.9 大川
+//2/12 大川
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -68,7 +69,7 @@ public class MySqlSideDao implements SideDao{
 		}
 		return product;
     }
-    public void updateImage(String product_id){
+    public void updateSideImage(String product_id){
 
     	try {
     		String sql = "update side_table set side_image=? where side_id=?";

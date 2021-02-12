@@ -2,6 +2,7 @@
 
 //		2  02  16:00 内田
 //2.9 大川
+//2/12 大川
 
 package dao;
 
@@ -12,12 +13,14 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import bean.Product;
+import exception.EditUserFailedException;
 import exception.IntegrationException;
 
 public class MySqlPizzaDao implements PizzaDao{
 	Connection cn = MySqlConnectionManager.getInstance().getConnection();
     PreparedStatement st = null;
     ResultSet rs=null;
+    Product product = new Product();
 //------------------------------------------------------------------------------
     public void addPizza(Product p) {
     	try {
@@ -74,7 +77,7 @@ public class MySqlPizzaDao implements PizzaDao{
     	return p;
     }
     public Product getPizzaId(String name,String explanation) {
-    	Product product = new Product();
+
 		try {
 
 			String sql = "select pizza_id from PIZZA_TABLE where pizza_name = ? AND pizza_explanation = ?";
@@ -95,5 +98,20 @@ public class MySqlPizzaDao implements PizzaDao{
 		}
 		return product;
     }
+    public void updatePizzaImage(String product_id) {
 
+    	try {
+    		String sql = "update pizza_table set pizza_image=? where pizza_id=?";
+
+    		st = cn.prepareStatement(sql);
+
+            st.setString(1,product.getProduct_id()+".jpg");
+            st.setString(2,product.getProduct_id());
+
+            st.executeUpdate();
+    	}catch(SQLException e) {
+    		e.printStackTrace();
+    		throw new EditUserFailedException(e.getMessage(),e);
+    	}
+    }
 }
