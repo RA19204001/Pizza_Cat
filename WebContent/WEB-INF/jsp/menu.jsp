@@ -149,6 +149,33 @@
 	color: #f00 ;
 }
 
+
+.tab-wrap {
+    display: flex;
+    flex-wrap: wrap;
+}
+.tab-label {
+    color: White;
+    background: LightGray;
+    margin-right: 5px;
+    padding: 3px 12px;
+    order: -1;
+}
+.tab-content {
+    width: 100%;
+    display: none;
+}
+/* アクティブなタブ */
+.tab-switch:checked+.tab-label {
+    background: DeepSkyBlue;
+}
+.tab-switch:checked+.tab-label+.tab-content {
+     display: block;
+}
+/* ラジオボタン非表示 */
+.tab-switch {
+    display: none;
+}
 		</style>
 
 		<title>商品一覧「</title>
@@ -161,39 +188,84 @@
 <h1 style="text-align:center;color:#d36015;">メニュー</h1>
 
 <HR style="margin: 3em 0 ;">
-<c:forEach var="menu" items="${result.list}" varStatus="status">
-<!-- 1つ目のコンテンツ [開始] -->
-<div id="modal-content-${status.index}" class="modal-content" name="favDialog">
-	<!-- モーダルウィンドウのコンテンツ開始 -->
-	<p>${menu.name}</p>
-	<img src="pizza/${menu.image}"><!-- 画像が映らない！ -->
-	<p>${menu.explanation}</p>
-	<p>${menu.price}</p>
-	<p><a id="modal-close" class="button-link">閉じる</a></p>
-	<!-- モーダルウィンドウのコンテンツ終了 -->
+<div class="tab-wrap">
+    <input id="TAB-01" type="radio" name="TAB" class="tab-switch" checked="checked" /><label class="tab-label" for="TAB-01"><h2 style="width :500px ;">ピザ</h2></label>
+    <div class="tab-content">
+        <c:forEach var="menu" items="${result.list}" varStatus="status">
+        <!-- 1つ目のコンテンツ [開始] -->
+        <div id="modal-content-${status.index}" class="modal-content" name="favDialog">
+            <!-- モーダルウィンドウのコンテンツ開始 -->
+            <p>${menu.name}</p>
+            <img src="pizza/${menu.image}"><!-- 画像が映らない！ -->
+            <p>${menu.explanation}</p>
+            <p>${menu.price}</p>
+            <p><a id="modal-close" class="button-link">閉じる</a></p>
+            <!-- モーダルウィンドウのコンテンツ終了 -->
+        </div>
+        <!-- 1つ目のコンテンツ [終了] -->
+
+
+        <p><a class="modal-syncer button-link" data-target="modal-content-${status.index}">
+            <menu>
+            <button>
+            <form method="post" action="">
+            <table>
+            <p>${menu.name}</p>
+            <img src="pizza/${menu.image}"><!-- 画像が映らない！ -->
+            <p>${menu.explanation}</p>
+            <p>${menu.price}</p>
+            </table>
+            </form>
+            </button>
+        </menu>
+        </a></p>
+
+
+        <HR style="margin: 3em 0 ;">
+
+        </c:forEach>
+    </div>
+    <input id="TAB-02" type="radio" name="TAB" class="tab-switch" /><label class="tab-label" for="TAB-02"><h2 style="width :500px ;">サイド</h2></label>
+    <div class="tab-content">
+    ここサイド
+        <c:forEach var="menu" items="${result.list}" varStatus="status">
+        <!-- 1つ目のコンテンツ [開始] -->
+        <div id="modal-content-${status.index}" class="modal-content" name="favDialog">
+            <!-- モーダルウィンドウのコンテンツ開始 -->
+            <p>${menu.name}</p>
+            <img src="pizza/${menu.image}"><!-- 画像が映らない！ -->
+            <p>${menu.explanation}</p>
+            <p>${menu.price}</p>
+            <p><a id="modal-close" class="button-link">閉じる</a></p>
+            <!-- モーダルウィンドウのコンテンツ終了 -->
+        </div>
+        <!-- 1つ目のコンテンツ [終了] -->
+
+
+        <p><a class="modal-syncer button-link" data-target="modal-content-${status.index}">
+            <menu>
+            <button>
+            <form method="post" action="">
+            <table>
+            <p>${menu.name}</p>
+            <img src="pizza/${menu.image}"><!-- 画像が映らない！ -->
+            <p>${menu.explanation}</p>
+            <p>${menu.price}</p>
+            </table>
+            </form>
+            </button>
+        </menu>
+        </a></p>
+
+
+        <HR style="margin: 3em 0 ;">
+
+        </c:forEach>
+    </div>
+
 </div>
-<!-- 1つ目のコンテンツ [終了] -->
 
 
-<p><a class="modal-syncer button-link" data-target="modal-content-${status.index}">
-	<menu>
-	<button>
-  	<form method="post" action="">
-	<table>
-	<p>${menu.name}</p>
-	<img src="pizza/${menu.image}"><!-- 画像が映らない！ -->
-	<p>${menu.explanation}</p>
-	<p>${menu.price}</p>
-	</table>
-	</form>
-	</button>
-</menu>
-</a></p>
-
-
-<HR style="margin: 3em 0 ;">
-
-	</c:forEach>
 
 <p><a href="/PizzaCat/">TOPへ</a></p>
 <p><a style="color:#FFEEFF;" href="/PizzaCat/managementLogin">管理者TOPへ</a></p>
