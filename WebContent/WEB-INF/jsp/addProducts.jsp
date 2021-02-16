@@ -61,8 +61,11 @@ function check(){
     	説明<input type='text' maxlength='500' name='explanation' required><br>
    		値段<input type='text' maxlength='4' pattern="^[0-9]+$" title="半角数字で入力して下さい。" name='price' required><br>
    		カテゴリー<select name='category' required>
-   					<option value="01">なにかいれてね</option>
-					<option value="02">お願い致します。</option>
+   					<option value="01">ミックス</option>
+					<option value="02">ミート</option>
+					<option value="03">オリジナル</option>
+					<option value="04">シーフード</option>
+					<option value="05">その他</option>
 					</select><br>
    		<input type='hidden' name='type' required value="1"><br>
    		<input type='hidden' name='display' required value="1"><br>
@@ -76,8 +79,9 @@ function check(){
     	説明<input type='text' maxlength='500' name='explanation' required><br>
     	値段<input type='text' maxlength='4' pattern="^[0-9]+$" title="半角数字で入力して下さい。" name='price' required><br>
     	カテゴリー<select name='category' required>
-   					<option value="01">なにかいれてね</option>
-					<option value="02">お願い致します。</option>
+   					<option value="01">トッピング</option>
+					<option value="02">サイズ</option>
+					<option value="03">生地</option>
 					</select><br>
     	<input type='hidden' name='type' required value="2"><br>
     	<input type='hidden' name='display' required value="1"><br>
@@ -92,8 +96,10 @@ function check(){
     	説明<input type='text' maxlength='500' name='explanation' required><br>
    		値段<input type='text' maxlength='4' pattern="^[0-9]+$" title="半角数字で入力して下さい。" name='price' required><br>
    		カテゴリー<select name='category' required>
-   					<option value="01">なにかいれてね</option>
-					<option value="02">お願い致します。</option>
+   					<option value="01">サイド</option>
+					<option value="02">ドリンク</option>
+					<option value="03">デザート</option>
+					<option value="04">サラダ</option>
 					</select><br>
    		<input type='hidden' name='type' required value="3"><br>
    		<input type='hidden' name='display' required value="1"><br>

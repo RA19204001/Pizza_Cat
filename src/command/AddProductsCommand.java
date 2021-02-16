@@ -26,7 +26,7 @@ public class AddProductsCommand extends AbstractCommand {
         String products_explanation = reqc.getParameter("explanation")[0];
         String price = reqc.getParameter("price")[0];
         String type = reqc.getParameter("type")[0];
-        String products_display = reqc.getParameter("display")[0];
+        //String products_display = reqc.getParameter("display")[0];
         String products_category = reqc.getParameter("category")[0];
 
 
@@ -40,7 +40,7 @@ public class AddProductsCommand extends AbstractCommand {
         String image_name = new File(judgeParameter(reqc)).getName();
         //product.setImage(judgeParameter(reqc));
         product.setImage(image_name);
-        product.setProduct_display(products_display);
+        //product.setProduct_display(products_display);
         product.setProduct_category(products_category);
 
         AbstractDaoFactory factory = AbstractDaoFactory.getFactory();
