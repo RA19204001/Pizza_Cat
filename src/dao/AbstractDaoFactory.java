@@ -40,4 +40,6 @@ public abstract class AbstractDaoFactory {
 		  public abstract SideDao getSideDao();
 		  public abstract CardDao getCardDao();
 		  public abstract ConnectionManager getConnectionManager();
+		  public abstract OrderDetailDao getOrderDetailDao();
+		  public abstract OrderDao getOrderDao();
 }

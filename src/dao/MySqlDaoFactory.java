@@ -22,4 +22,10 @@ public class MySqlDaoFactory extends AbstractDaoFactory{
   public ConnectionManager getConnectionManager() {
 	  return MySqlConnectionManager.getInstance();
   }
+  public OrderDetailDao getOrderDetailDao() {
+	  return new MySqlOrderDetailDao();
+  }
+  public OrderDao getOrderDao() {
+	  return new MySqlOrderDao();
+  }
 }

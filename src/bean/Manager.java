@@ -6,6 +6,7 @@ public class Manager implements Bean {
 	private String pass;
 	private String token;
 
+	public Manager() {}
 	//--------------------------------- id
 	public String getId() {
 		return id;
