@@ -265,7 +265,11 @@
 
 </div>
 
+<form method="post" action="confirmPurchase">
+<c:forEach var="cart" items="">
 
+</c:forEach>
+</form>
 
 <p><a href="/PizzaCat/">TOPへ</a></p>
 <p><a style="color:#FFEEFF;" href="/PizzaCat/managementLogin">管理者TOPへ</a></p>
