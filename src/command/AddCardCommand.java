@@ -5,6 +5,7 @@ import bean.Card;
 import bean.Message;
 //10.29 移行 大川
 //02.04 大川
+//2/16 手直し
 import context.RequestContext;
 import context.ResponseContext;
 import dao.AbstractDaoFactory;
@@ -53,7 +54,7 @@ public class AddCardCommand extends AbstractCommand{
 
         Card card_id = dao.getCardId(creditnumber,security_code);
 
-        System.out.println(card_id.getCreditnumber());
+        System.out.println(card_id.getCard_id());
 
         udao.addCardId(userId,card_id);
 

@@ -49,7 +49,7 @@ public class MySqlCardDao implements CardDao{
 
     		rs = st.executeQuery();
     		rs.next();
-    		card.setCreditnumber(rs.getString(1));
+    		card.setCard_id(rs.getString(1));
 
     	}catch(SQLException e){
             e.printStackTrace();

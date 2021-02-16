@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 // 2.4 変更 大川
+// 2/16 大川
 import bean.Card;
 import bean.User;
 import exception.AddUserFailedException;
@@ -132,7 +133,7 @@ public class MySqlUserDao implements UserDao {
 
             st = cn.prepareStatement(sql);
 
-             st.setString(1, card_id.getCreditnumber());
+             st.setString(1, card_id.getCard_id());
              st.setString(2, id);
 
              st.executeUpdate();

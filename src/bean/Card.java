@@ -1,13 +1,15 @@
 package bean;
 
 //10.29 移行 大川
+//2.16 手直し
 public class Card implements Bean {
-	//private String card_id;
+	private String card_id;
 	private String creditnumber;
 	private String security_code;
 	private String expiration_date;
 	private String mail_address;
 
+	public Card() {}
 	//-------------------------------------------------Creditnumber
 	public String getCreditnumber() {
 		return creditnumber;
@@ -36,5 +38,12 @@ public class Card implements Bean {
 	}
 	public void setMail_address(String mail_address) {
 		this.mail_address = mail_address;
+	}
+	//-------------------------------------------------card_id
+	public String getCard_id() {
+		return card_id;
+	}
+	public void setCard_id(String card_id) {
+		this.card_id = card_id;
 	}
 }
