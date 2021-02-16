@@ -24,7 +24,7 @@ public class MySqlPizzaDao implements PizzaDao{
 //------------------------------------------------------------------------------
     public void addPizza(Product p) {
     	try {
-    		String sql = "insert into PIZZA_TABLE(pizza_name, pizza_image, pizza_explanation, pizza_price) value(?,?,?,?)";
+    		String sql = "insert into PIZZA_TABLE(pizza_name, pizza_image, pizza_explanation, pizza_price,pizza_display,pizza_category) value(?,?,?,?,?,?)";
 
     		st = cn.prepareStatement(sql);
 
@@ -32,6 +32,8 @@ public class MySqlPizzaDao implements PizzaDao{
     		st.setString(2, p.getImage());
     		st.setString(3, p.getExplanation());
     		st.setInt(4, p.getPrice());
+    		st.setString(5, p.getProduct_display());
+    		st.setString(6, p.getProduct_category());
 
     		st.executeUpdate();
     	}catch(SQLException e) {
