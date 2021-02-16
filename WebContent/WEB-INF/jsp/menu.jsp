@@ -166,7 +166,7 @@
 <div id="modal-content-${status.index}" class="modal-content" name="favDialog">
 	<!-- モーダルウィンドウのコンテンツ開始 -->
 	<p>${menu.name}</p>
-	<img src="../pizza/${menu.image}"><!-- 画像が映らない！ -->
+	<img src="pizza/${menu.image}"><!-- 画像が映らない！ -->
 	<p>${menu.explanation}</p>
 	<p>${menu.price}</p>
 	<p><a id="modal-close" class="button-link">閉じる</a></p>
@@ -181,7 +181,7 @@
   	<form method="post" action="">
 	<table>
 	<p>${menu.name}</p>
-	<img src="../pizza/${menu.image}"><!-- 画像が映らない！ -->
+	<img src="pizza/${menu.image}"><!-- 画像が映らない！ -->
 	<p>${menu.explanation}</p>
 	<p>${menu.price}</p>
 	</table>
@@ -196,7 +196,7 @@
 	</c:forEach>
 
 <p><a href="/PizzaCat/">TOPへ</a></p>
-<p><a href="/PizzaCat/managementLogin">管理者TOPへ</a></p>
+<p><a style="color:#FFEEFF;" href="/PizzaCat/managementLogin">管理者TOPへ</a></p>
 
 </body>
 </html>

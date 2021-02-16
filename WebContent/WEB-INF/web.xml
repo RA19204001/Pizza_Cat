@@ -1,6 +1,6 @@
 <web-app>
 	<!-- 1/27 15:15 大川-->
-	<!-- 2/02 大川-->
+	<!-- 2/02 大川--><!--2/16 浅倉-->
 
   <welcome-file-list>
     <welcome-file>/WEB-INF/jsp/start.jsp</welcome-file>
@@ -15,6 +15,9 @@
     <servlet-name>FrontServlet</servlet-name>
     <url-pattern>/</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>default</servlet-name>
+  	<url-pattern>/pizza/*</url-pattern></servlet-mapping>
 
 
-  </web-app>
+</web-app>
