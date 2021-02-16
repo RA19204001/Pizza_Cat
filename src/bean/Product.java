@@ -10,6 +10,8 @@ public class Product implements Bean{
 	private  int price;
 	private String productstype;
 	private String product_id;
+	private String product_display;
+	private String product_category;
 	public Product() {}
 
 
@@ -68,6 +70,26 @@ public class Product implements Bean{
 
 	public void setProduct_id(String product_id) {
 		this.product_id = product_id;
+	}
+
+
+	public String getProduct_display() {
+		return product_display;
+	}
+
+
+	public void setProduct_display(String product_display) {
+		this.product_display = product_display;
+	}
+
+
+	public String getProduct_category() {
+		return product_category;
+	}
+
+
+	public void setProduct_category(String product_category) {
+		this.product_category = product_category;
 	}
 
 }

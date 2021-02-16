@@ -19,7 +19,7 @@ public class MySqlSideDao implements SideDao{
 
     public void addSide(Product p) {
     	try {
-    		String sql = "insert into SIDE_TABLE(side_name, side_image, side_explanation, side_price)"+ "value(?,?,?,?)";
+    		String sql = "insert into SIDE_TABLE(side_name, side_image, side_explanation, side_price,side_display,side_category)"+ "value(?,?,?,?,?,?)";
 
     		st = cn.prepareStatement(sql);
 
@@ -27,6 +27,8 @@ public class MySqlSideDao implements SideDao{
     		st.setString(2, p.getImage());
     		st.setString(3, p.getExplanation());
     		st.setInt(4, p.getPrice());
+    		st.setString(5, p.getProduct_display());
+    		st.setString(6, p.getProduct_category());
 
     		st.executeUpdate();
     	}catch(SQLException e) {
