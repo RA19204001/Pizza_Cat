@@ -3,6 +3,7 @@
 <!--浅倉 2/9  -->
 <!--浅倉 2/10 -->
 <!--浅倉 2/16 -->
+<!-- 内田2/17 -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -115,29 +116,51 @@
 	var confirmBtn = document.getElementsByClassName('confirmBtn');
 	var dialog = document.getElementsByClassName('dialog');
     console.log(confirmBtn);
-	// オプション用変数宣言
+	// オプション用変数宣言(用追加部分)
 	var cheese = document.getElementsByClassName('cheese');
     var tomato = document.getElementsByClassName('tomato');
+    var bacon = document.getElementsByClassName('bacon');
+    var squid = document.getElementsByClassName('squid');
+    var corn = document.getElementsByClassName('corn');
 
     // 購入ボタン選択時のイベント設定
-    for (var i = 0; i < confirmBtn.length; i++){
+    for (let i = 0; i < confirmBtn.length; i++){
 
-        confirmBtn.addEventsListener('click',function onClose(){
+        confirmBtn[i].addEventListener('click',function onClose(){
 
 	    	// DOMパス簡略(ラベルまで)
-	    	const labName = dialog.firstElementChild.firstElementChild;
+	    	const labName = dialog[i].firstElementChild.firstElementChild;
 
 	    	// ここチーズ
 	        const selectCheeseName = labName.firstElementChild;
 	        const cheesenum = selectCheeseName.selectedIndex;
 	        const cheesestr = selectCheeseName.options[cheesenum].textContent;
-	        console.log("ちーず"+cheesestr);
+	        console.log("チーズ"+cheesestr);
 
 	        // ここトマト
-	        const selectTomatoName = tomato.firstElementChild;
+	        const selectTomatoName = tomato[i].firstElementChild;
 	        const tomatonum = selectTomatoName.selectedIndex;
 	        const tomatostr = selectTomatoName.options[tomatonum].textContent;
-	        console.log("とまと"+tomatostr);
+	        console.log("トマト"+tomatostr);
+
+	        // ここベーコン
+            const selectBaconName = bacon[i].firstElementChild;
+            const baconnum = selectBaconName.selectedIndex;
+            const baconstr = selectBaconName.options[baconnum].textContent;
+            console.log("ベーコン"+baconstr);
+
+            // ここイカ
+            const selectSquidName = squid[i].firstElementChild;
+            const squidnum = selectSquidName.selectedIndex;
+            const squidstr = selectSquidName.options[squidnum].textContent;
+            console.log("イカ"+squidstr);
+
+            // ここコーン
+            const selectCornName = corn[i].firstElementChild;
+            const cornnum = selectCornName.selectedIndex;
+            const cornstr = selectCornName.options[cornnum].textContent;
+            console.log("コーン"+cornstr);
+
 
         });
     }
@@ -248,7 +271,31 @@
 	                        <option>3倍</option>
 	                        <option>4倍</option>
 	                    </select>
-                    </label>
+                    </label><br>
+                    <label class="bacon">ベーコン：
+                        <select>
+                            <option>default</option>
+                            <option>2倍</option>
+                            <option>3倍</option>
+                            <option>4倍</option>
+                        </select>
+                    </label><br>
+                    <label class="squid">イカ：
+                        <select>
+                            <option>default</option>
+                            <option>2倍</option>
+                            <option>3倍</option>
+                            <option>4倍</option>
+                        </select>
+                    </label><br>
+                    <label class="corn">コーン：
+                        <select>
+                            <option>default</option>
+                            <option>2倍</option>
+                            <option>3倍</option>
+                            <option>4倍</option>
+                        </select>
+                    </label><br>
                 </p>
                 <menu>
                     <button class="confirmBtn" value="default">カートに入れたい</button>
