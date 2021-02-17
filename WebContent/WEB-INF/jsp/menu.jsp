@@ -21,15 +21,11 @@ if(list != null){
 
 	}
 
-
-
-
-
 	session.setAttribute("cart",array);
 
-}else{
-	session.setAttribute("cart",new ArrayList());
-}
+	}else{
+		session.setAttribute("cart",new ArrayList());
+	}
 
 %>
 <!DOCTYPE html>
@@ -148,47 +144,7 @@ if(list != null){
     var squid = document.getElementsByClassName('squid');
     var corn = document.getElementsByClassName('corn');
 
-    // 購入ボタン選択時のイベント設定
-    for (let i = 0; i < confirmBtn.length; i++){
 
-        confirmBtn[i].addEventListener('click',function onClose(){
-
-	    	// DOMパス簡略(ラベルまで)
-	    	const labName = dialog[i].firstElementChild.firstElementChild;
-
-	    	// ここチーズ
-	        const selectCheeseName = labName.firstElementChild;
-	        const cheesenum = selectCheeseName.selectedIndex;
-	        const cheesestr = selectCheeseName.options[cheesenum].textContent;
-	        console.log("チーズ"+cheesestr);
-
-	        // ここトマト
-	        const selectTomatoName = tomato[i].firstElementChild;
-	        const tomatonum = selectTomatoName.selectedIndex;
-	        const tomatostr = selectTomatoName.options[tomatonum].textContent;
-	        console.log("トマト"+tomatostr);
-
-	        // ここベーコン
-            const selectBaconName = bacon[i].firstElementChild;
-            const baconnum = selectBaconName.selectedIndex;
-            const baconstr = selectBaconName.options[baconnum].textContent;
-            console.log("ベーコン"+baconstr);
-
-            // ここイカ
-            const selectSquidName = squid[i].firstElementChild;
-            const squidnum = selectSquidName.selectedIndex;
-            const squidstr = selectSquidName.options[squidnum].textContent;
-            console.log("イカ"+squidstr);
-
-            // ここコーン
-            const selectCornName = corn[i].firstElementChild;
-            const cornnum = selectCornName.selectedIndex;
-            const cornstr = selectCornName.options[cornnum].textContent;
-            console.log("コーン"+cornstr);
-
-
-        });
-    }
 
 } ) ;
 
@@ -268,6 +224,17 @@ if(list != null){
 
 <h1 style="text-align:center;color:#d36015;">メニュー</h1>
 
+<form method="post" action="confirmPurchase">
+	<table>
+	<tr><th>商品名</th><th>値段</th><th>商品番号</th><th>個数</th></tr>
+    <c:forEach var="cart" items="${sessionScope.cart}">
+	   <tr><td>${cart.name}</td><td>${cart.price}</td><td>${cart.id}</td><td>${cart.amount}</td></tr>
+
+	</c:forEach>
+	</table>
+	<input type="submit" value="購入">
+</form>
+
 <HR style="margin: 3em 0 ;">
 <div class="tab-wrap">
     <input id="TAB-01" type="radio" name="TAB" class="tab-switch" checked="checked" /><label class="tab-label" for="TAB-01"><h2 style="width :500px ;">ピザ</h2></label>
@@ -280,11 +247,11 @@ if(list != null){
             <img src="pizza/${menu.image}">
             <p>${menu.explanation}</p>
             <form method="post" class="dialog" action="mymenu">
-            	<input type="text" name="amount" value="1">
-            	<input type="text" name="id" value="${menu.product_id}">
+            	<input type="hidden" name="amount" value="1">
+            	<input type="hidden" name="id" value="${menu.product_id}">
 
-                	<input type="text" name="name" value="${menu.name}">
-                	<input type="text" name="price" value="${menu.price}">
+                	<input type="hidden" name="name" value="${menu.name}">
+                	<input type="hidden" name="price" value="${menu.price}">
 					<br>
 					<c:forEach var="option" items="${result.optionList}" begin="2">
 						<p>${option.name}</p>
@@ -301,7 +268,7 @@ if(list != null){
 				<input type="submit" value="カートに入れる">
 
             </form>
-            <p>${menu.price}</p>
+            <p>${menu.price}円</p>
             <p><a id="modal-close" class="button-link">閉じる</a></p>
             <!-- モーダルウィンドウのコンテンツ終了 -->
         </div>
@@ -313,10 +280,10 @@ if(list != null){
             <button>
             <form method="post" action="">
             <table>
-            <p>${menu.name}</p>
+            <p>「${menu.name}」</p>
             <img src="pizza/${menu.image}">
             <p>${menu.explanation}</p>
-            <p>${menu.price}</p>
+            <p>${menu.price}円</p>
             </table>
             </form>
             </button>
@@ -332,7 +299,7 @@ if(list != null){
     <div class="tab-content">
     ここサイド
         <c:forEach var="menu" items="${result.list}" varStatus="status">
-        <!-- 1つ目のコンテンツ [開始] -->
+        <!-- 1つ目（サイドメニュー）のコンテンツ [開始] -->
         <div id="modal-content-${status.index}" class="modal-content" name="favDialog">
             <!-- モーダルウィンドウのコンテンツ開始 -->
             <p>${menu.name}</p>
@@ -350,10 +317,10 @@ if(list != null){
             <button>
             <form method="post" action="">
             <table>
-            <p>${menu.name}</p>
+            <p>「${menu.name}」</p>
             <img src="pizza/${menu.image}">
             <p>${menu.explanation}</p>
-            <p>${menu.price}</p>
+            <p>${menu.price}円</p>
             </table>
             </form>
             </button>
@@ -368,16 +335,6 @@ if(list != null){
 
 </div>
 
-<form method="post" action="confirmPurchase">
-	<table>
-	<tr><th>商品名</th><th>値段</th><th>商品番号</th></tr>
-<c:forEach var="cart" items="${sessionScope.cart}">
-	<tr><td>${cart.name}</td><td>${cart.price}</td><td>${cart.id}</td><td>${cart.amount}</td></tr>
-
-	</c:forEach>
-	</table>
-	<input type="submit" value="購入">
-</form>
 
 <p><a href="/PizzaCat/">TOPへ</a></p>
 <p><a style="color:#FFEEFF;" href="/PizzaCat/managementLogin">管理者TOPへ</a></p>
