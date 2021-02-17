@@ -1,4 +1,5 @@
 //2/16
+//2,17 大川
 package dao;
 
 import java.sql.Connection;
@@ -25,9 +26,9 @@ public class MySqlOrderDetailDao implements OrderDetailDao {
 
             st = cn.prepareStatement(sql);
 
-            //st.setInt(1,o.getOrder_id());
+            st.setInt(1,order_id.getOrder_id());
             st.setInt(2,od.getCustom_id());
-            //st.setString(3,p.getProduct_id());
+            st.setInt(3,od.getProduct_id());
             st.setInt(4,od.getProduct_amount());
 
             st.executeUpdate();

@@ -1,3 +1,4 @@
+//2/17 大川
 package dao;
 
 import java.sql.Connection;
@@ -18,7 +19,7 @@ public class MySqlOrderDao implements OrderDao {
 
 		try{
 			//sysdateがnowかもしれない
-            String sql = "insert into ORDER_TABLE(order_date, user_number)"+"value(sysdate,?)";
+            String sql = "insert into ORDER_TABLE(order_date, user_number)"+"value(CURDATE(),?)";
 
             st = cn.prepareStatement(sql);
 
@@ -37,7 +38,7 @@ public class MySqlOrderDao implements OrderDao {
 	public Order getOrderId(int user_number) {
 		Order order = new Order();
 		try {
-			String sql = "select order_id from ORDER_TABLE where order_date = sysdate AND user_number = ?";
+			String sql = "select order_id from ORDER_TABLE where order_date = CURDATE() AND user_number = ?";
 
 			st=cn.prepareStatement(sql);
 
