@@ -6,6 +6,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import bean.Product;
 import exception.EditUserFailedException;
@@ -39,10 +40,35 @@ public class MySqlSideDao implements SideDao{
 
     }
 
-    public Product getSide(String id) {
-    	Product p = new Product();
+    public ArrayList getSide() {
+    	ArrayList list = new ArrayList();
 
-    	return p;
+    	try {
+    		String sql="select side_id, side_name, side_image, side_explanation, side_price, side_display, side_category from SIDE_TABLE";
+
+    		st=cn.prepareStatement(sql);
+    		rs=st.executeQuery();
+
+    		while(rs.next()) {
+    			Product p = new Product();
+
+    			p.setProduct_id(rs.getString(1));
+    			p.setName(rs.getString(2));
+    			p.setImage(rs.getString(3));
+    			p.setExplanation(rs.getString(4));
+    			p.setPrice(rs.getInt(5));
+    			p.setProduct_display(rs.getBoolean(6));
+
+    			list.add(p);
+
+    		}
+
+    	}catch(SQLException e) {
+    		e.printStackTrace();
+    		throw new IntegrationException(e.getMessage(),e);
+    	}
+
+    	return list;
     }
 
     public Product editSide(String id, Product p) {

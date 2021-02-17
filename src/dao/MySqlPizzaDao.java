@@ -48,7 +48,7 @@ public class MySqlPizzaDao implements PizzaDao{
     	ArrayList list = new ArrayList();
 
     	try {
-    		String sql="select pizza_name, pizza_image, pizza_explanation, pizza_price from PIZZA_TABLE";
+    		String sql="select pizza_id, pizza_name, pizza_image, pizza_explanation, pizza_price, pizza_display, pizza_category from PIZZA_TABLE";
 
     		st=cn.prepareStatement(sql);
     		rs=st.executeQuery();
@@ -56,10 +56,13 @@ public class MySqlPizzaDao implements PizzaDao{
     		while(rs.next()) {
     			Product p = new Product();
 
-    			p.setName(rs.getString(1));
-    			p.setImage(rs.getString(2));
-    			p.setExplanation(rs.getString(3));
-    			p.setPrice(rs.getInt(4));
+    			p.setProduct_id(rs.getString(1));
+    			p.setName(rs.getString(2));
+    			p.setImage(rs.getString(3));
+    			p.setExplanation(rs.getString(4));
+    			p.setPrice(rs.getInt(5));
+    			p.setProduct_display(rs.getBoolean(6));
+    			p.setProduct_category(rs.getString(7));
 
     			list.add(p);
 
