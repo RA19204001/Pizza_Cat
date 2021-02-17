@@ -1,5 +1,7 @@
+//2.16 大川
 package command;
 
+import bean.Message;
 import bean.Order;
 import bean.OrderDetail;
 import context.RequestContext;
@@ -28,6 +30,11 @@ public class AddOrderDetailCommand extends AbstractCommand {
 
 		odao.addOrder(user_number);
 
+		Message message=new Message();
+		//失敗することがない?
+        //message.setMessage("購入完了");
+
+
 		Order order_id = odao.getOrderId(user_number);
 
 		int id =reqc.getParameter("custom_id").length;
@@ -49,10 +56,15 @@ public class AddOrderDetailCommand extends AbstractCommand {
 
 		}
 
+
+        //確認画面へ？
+        //responseContext.setTarget("");
+
 		cm.commit();
 
         cm.closeConnection();
 
+        //必要なら
         //responseContext.setResult(message);
 
         return responseContext;
