@@ -100,7 +100,7 @@ public class MySqlSideDao implements SideDao{
     public void updateSideImage(String product_id){
 
     	try {
-    		String sql = "update side_table set side_image=? where side_id=?";
+    		String sql = "update SIDE_TABLE set side_image=? where side_id=?";
 
     		st = cn.prepareStatement(sql);
 

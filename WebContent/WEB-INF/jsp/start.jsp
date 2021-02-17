@@ -64,6 +64,8 @@ try{
 		Message message = (Message)(request.getAttribute("result"));
 		if(message.getFlag()){
 			session.setAttribute("loginuser",null);
+			session.setAttribute("cart",null);
+
 		}
 	}catch(ClassCastException e2){}
 }

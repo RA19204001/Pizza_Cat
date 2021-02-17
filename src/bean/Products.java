@@ -5,13 +5,23 @@
  *
  *
  */
+//浅倉　/2/17
 package bean;
 
 import java.util.ArrayList;
 
 public class Products implements Bean {
-
+	private ArrayList addList;
 	private ArrayList list;
+	private ArrayList optionList;
+
+	public ArrayList getOptionList() {
+		return optionList;
+	}
+
+	public void setOptionList(ArrayList optionList) {
+		this.optionList = optionList;
+	}
 
 	public Products() {}
 
@@ -20,6 +30,13 @@ public class Products implements Bean {
 	}
 	public void setList(ArrayList list) {
 		this.list = list;
+	}
+
+	public ArrayList getAddList() {
+		return addList;
+	}
+	public void setAddList(ArrayList addList) {
+		this.addList = addList;
 	}
 
 }

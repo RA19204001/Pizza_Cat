@@ -4,9 +4,31 @@
 <!--浅倉 2/10 -->
 <!--浅倉 2/16 -->
 <!-- 内田2/17 -->
+<!--浅倉 2/17 -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import ="bean.Products"%>
+<%@ page import ="java.util.ArrayList"%>
+<%
+Products pros = (Products)(request.getAttribute("result"));
+ArrayList list = pros.getAddList();
+if(list != null){
+	ArrayList array = (ArrayList)session.getAttribute("cart");
+
+	array.add(list.get(0));
+
+
+
+
+
+	session.setAttribute("cart",array);
+
+}else{
+	session.setAttribute("cart",new ArrayList());
+}
+
+%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -254,52 +276,26 @@
             <p>${menu.name}</p>
             <img src="pizza/${menu.image}">
             <p>${menu.explanation}</p>
-            <form method = "dialog" class="dialog">
-                <p>
-                    <label class="cheese">チーズ：
-                        <select>
-	                        <option>default</option>
-	                        <option>2ばい</option>
-	                        <option>3ばい</option>
-	                        <option>4ばい</option>
+            <form method="post" class="dialog" action="mymenu">
+            	<input type="text" name="amount" value="1">
+            	<input type="text" name="id" value="${menu.product_id}">
+
+                	<input type="text" name="name" value="${menu.name}">
+                	<input type="text" name="price" value="${menu.price}">
+					<br>
+					<c:forEach var="option" items="${result.optionList}" begin="2">
+						<p>${option.name}</p>
+                        <select name="option">
+	                        <option value="${option.name}:0:${option.price}:${option.product_id}">0</option>
+                            <option value="${option.name}:2:${option.price}:${option.product_id}">2倍</option>
+                            <option value="${option.name}:3:${option.price}:${option.product_id}">3倍</option>
+                            <option value="${option.name}:4:${option.price}:${option.product_id}">4倍</option>
                         </select>
-                    </label><br>
-                    <label class="tomato">トマト：
-	                    <select>
-	                        <option>default</option>
-	                        <option>2倍</option>
-	                        <option>3倍</option>
-	                        <option>4倍</option>
-	                    </select>
-                    </label><br>
-                    <label class="bacon">ベーコン：
-                        <select>
-                            <option>default</option>
-                            <option>2倍</option>
-                            <option>3倍</option>
-                            <option>4倍</option>
-                        </select>
-                    </label><br>
-                    <label class="squid">イカ：
-                        <select>
-                            <option>default</option>
-                            <option>2倍</option>
-                            <option>3倍</option>
-                            <option>4倍</option>
-                        </select>
-                    </label><br>
-                    <label class="corn">コーン：
-                        <select>
-                            <option>default</option>
-                            <option>2倍</option>
-                            <option>3倍</option>
-                            <option>4倍</option>
-                        </select>
-                    </label><br>
-                </p>
-                <menu>
-                    <button class="confirmBtn" value="default">カートに入れたい</button>
-                </menu>
+                    <br>
+                    </c:forEach>
+
+                <!-- <button class="confirmBtn" value="default">カートに入れたい</button> -->
+				<input type="submit" value="カートに入れる">
 
             </form>
             <p>${menu.price}</p>
@@ -337,7 +333,7 @@
         <div id="modal-content-${status.index}" class="modal-content" name="favDialog">
             <!-- モーダルウィンドウのコンテンツ開始 -->
             <p>${menu.name}</p>
-            <img src="pizza/${menu.image}"><!-- 画像が映らない！ -->
+            <img src="pizza/${menu.image}">
             <p>${menu.explanation}</p>
             <p>${menu.price}</p>
             <p><a id="modal-close" class="button-link">閉じる</a></p>
@@ -352,7 +348,7 @@
             <form method="post" action="">
             <table>
             <p>${menu.name}</p>
-            <img src="pizza/${menu.image}"><!-- 画像が映らない！ -->
+            <img src="pizza/${menu.image}">
             <p>${menu.explanation}</p>
             <p>${menu.price}</p>
             </table>
@@ -370,9 +366,14 @@
 </div>
 
 <form method="post" action="confirmPurchase">
-<c:forEach var="cart" items="">
+	<table>
+	<tr><th>商品名</th><th>値段</th><th>商品番号</th></tr>
+<c:forEach var="cart" items="${sessionScope.cart}">
+	<tr><td>${cart.name}</td><td>${cart.price}</td><td>${cart.id}</td><td>${cart.amount}</td></tr>
 
-</c:forEach>
+	</c:forEach>
+	</table>
+	<input type="submit" value="購入">
 </form>
 
 <p><a href="/PizzaCat/">TOPへ</a></p>

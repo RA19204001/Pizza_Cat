@@ -19,7 +19,7 @@ public class MySqlCardDao implements CardDao{
     public void addCard(Card c){
         try{
 
-            String sql = "insert into Card_TABLE(creditnumber, security_code, expiration_date, mail_address)"+"value(?,?,?,?)";
+            String sql = "insert into CARD_TABLE(creditnumber, security_code, expiration_date, mail_address)"+"value(?,?,?,?)";
 
             st = cn.prepareStatement(sql);
 
@@ -39,7 +39,7 @@ public class MySqlCardDao implements CardDao{
     		Card card = new Card();
     	try {
 
-    		String sql = "select card_id from Card_TABLE where creditnumber = ? AND security_code = ?";
+    		String sql = "select card_id from CARD_TABLE where creditnumber = ? AND security_code = ?";
 
     		st=cn.prepareStatement(sql);
 

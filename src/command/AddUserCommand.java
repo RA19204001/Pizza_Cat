@@ -47,11 +47,9 @@ public class AddUserCommand extends AbstractCommand {
 
             try{
                 dao.addUser(user);
-                //�������̃��b�Z�[�W��bean�����
                 message.setMessage("登録完了しました");
             }catch(IntegrationException e){
                 cm.rollback();
-                //���s���̃��b�Z�[�W��bean�ɓ����
                 message.setMessage("登録失敗しました");
                 e.printStackTrace();
 

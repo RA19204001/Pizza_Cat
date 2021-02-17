@@ -41,8 +41,8 @@ public class AddOrderDetailCommand extends AbstractCommand {
 
 		for(int i=0;i<id;i++){
 		    String custom_ids = reqc.getParameter("custom_id")[i];
-		    String product_ids = reqc.getParameter("product_id")[i];
-		    String product_amounts = reqc.getParameter("product_amount")[i];
+		    String product_ids = reqc.getParameter("id")[i];
+		    String product_amounts = reqc.getParameter("amount")[i];
 
 		    int custom_id =  Integer.parseInt(custom_ids);
 		    int product_id =  Integer.parseInt(product_ids);
@@ -58,7 +58,7 @@ public class AddOrderDetailCommand extends AbstractCommand {
 
 
         //確認画面へ？
-        //responseContext.setTarget("");
+        responseContext.setTarget("pay");
 
 		cm.commit();
 

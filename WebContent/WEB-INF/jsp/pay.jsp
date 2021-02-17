@@ -7,6 +7,9 @@
 <title>支払い完了しました</title>
 </head>
 <body>
+<h1>購入完了しました</h1>
 
+
+<p><a href="/PizzaCat/">TOPへ</a></p>
 </body>
 </html>
