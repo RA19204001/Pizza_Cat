@@ -16,7 +16,10 @@ ArrayList list = pros.getAddList();
 if(list != null){
 	ArrayList array = (ArrayList)session.getAttribute("cart");
 
-	array.add(list.get(0));
+	for(int i = 0;i<list.size();i++){
+		array.add(list.get(i));
+
+	}
 
 
 

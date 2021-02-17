@@ -38,7 +38,7 @@ public class MySqlOrderDao implements OrderDao {
 	public Order getOrderId(int user_number) {
 		Order order = new Order();
 		try {
-			String sql = "select order_id from ORDER_TABLE where order_date = CURDATE() AND user_number = ?";
+			String sql = "select order_id from ORDER_TABLE where order_date = CURDATE() AND user_number = ? order by order_id desc";
 
 			st=cn.prepareStatement(sql);
 

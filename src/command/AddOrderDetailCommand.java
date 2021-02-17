@@ -37,16 +37,23 @@ public class AddOrderDetailCommand extends AbstractCommand {
 
 		Order order_id = odao.getOrderId(user_number);
 
-		int id =reqc.getParameter("custom_id").length;
+		int id =reqc.getParameter("id").length;
+
+		String product_ids;
+		String product_amounts;
+		int custom_id = 0;
 
 		for(int i=0;i<id;i++){
-		    String custom_ids = reqc.getParameter("custom_id")[i];
-		    String product_ids = reqc.getParameter("id")[i];
-		    String product_amounts = reqc.getParameter("amount")[i];
+			product_ids = reqc.getParameter("id")[i];
+			product_amounts = reqc.getParameter("amount")[i];
 
-		    int custom_id =  Integer.parseInt(custom_ids);
-		    int product_id =  Integer.parseInt(product_ids);
-		    int product_amount =  Integer.parseInt(product_amounts);
+			int product_id =  Integer.parseInt(product_ids);
+			int product_amount =  Integer.parseInt(product_amounts);
+		    if(product_id >= 19999 || product_id <=10000) {
+		    	custom_id +=1;
+
+		    }
+
 
 		    detail.setCustom_id(custom_id);
 		    detail.setProduct_id(product_id );
