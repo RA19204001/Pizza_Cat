@@ -12,6 +12,7 @@ import dao.AbstractDaoFactory;
 import dao.ConnectionManager;
 import dao.MySqlPizzaDao;
 import dao.MySqlPizzaOptionDao;
+import dao.MySqlSideDao;
 import exception.PizzaViewFailedException;
 
 
@@ -32,6 +33,7 @@ public class AddCartCommand extends AbstractCommand {
 
 		int prices =  Integer.parseInt(price);
 		int amounts =  Integer.parseInt(amount);
+		int flagid=Integer.parseInt(id);
 
 
 
@@ -75,37 +77,37 @@ public class AddCartCommand extends AbstractCommand {
 		}
 		array.add(cart);
 
+		if(flagid<30000) {
+			for(int i = 0;i < reqc.getParameter("option").length;i++) {
+				String option = reqc.getParameter("option")[i];
+				optionList.add(option);
+				int op1 = option.indexOf(":");
+				int op2 = option.indexOf(":",op1+1);
+				int op3 = option.indexOf(":",op2+1);
+				String optionname = option.substring(0,op1);
+				String optionamount = option.substring(op1+1,op2);
+				String optionprice = option.substring(op2+1,op3);
+				String optionproduct_id = option.substring(op3+1);
+				if(!(optionamount.equals("0"))) {
+					Cart optioncart = new Cart();
 
-		for(int i = 0;i < reqc.getParameter("option").length;i++) {
-			String option = reqc.getParameter("option")[i];
-			optionList.add(option);
-			int op1 = option.indexOf(":");
-			int op2 = option.indexOf(":",op1+1);
-			int op3 = option.indexOf(":",op2+1);
-			String optionname = option.substring(0,op1);
-			String optionamount = option.substring(op1+1,op2);
-			String optionprice = option.substring(op2+1,op3);
-			String optionproduct_id = option.substring(op3+1);
-			if(!(optionamount.equals("0"))) {
-				Cart optioncart = new Cart();
+					int optionprices =  Integer.parseInt(optionprice);
+					int optionamounts =  Integer.parseInt(optionamount);
 
-				int optionprices =  Integer.parseInt(optionprice);
-				int optionamounts =  Integer.parseInt(optionamount);
-
-				optioncart.setName(optionname);
-				optioncart.setPrice(optionprices*optionamounts);
-				optioncart.setId(optionproduct_id);
-				optioncart.setAmount(optionamounts);
-				if(array.size()!=0) {
-					Cart oldcart=(Cart)array.get(array.size()-1);
-					optioncart.setCustamid(oldcart.getCustamid()+1);
-				}else {
-					optioncart.setCustamid(1);
+					optioncart.setName(optionname);
+					optioncart.setPrice(optionprices*optionamounts);
+					optioncart.setId(optionproduct_id);
+					optioncart.setAmount(optionamounts);
+					if(array.size()!=0) {
+						Cart oldcart=(Cart)array.get(array.size()-1);
+						optioncart.setCustamid(oldcart.getCustamid()+1);
+					}else {
+						optioncart.setCustamid(1);
+					}
+					array.add(optioncart);
 				}
-				array.add(optioncart);
 			}
 		}
-
 		pros.setAddList(array);
 
 		AbstractDaoFactory factory = AbstractDaoFactory.getFactory();
@@ -119,12 +121,17 @@ public class AddCartCommand extends AbstractCommand {
 
 			MySqlPizzaOptionDao myOptionDao = new  MySqlPizzaOptionDao();
 
+			MySqlSideDao sideDao = new MySqlSideDao();
+
 			ArrayList arrayList = dao.getPizza();
 
 			ArrayList optionlist = myOptionDao.getPizzaOption();
 
+			ArrayList sideList = sideDao.getSide();
+
 			pros.setList(arrayList);
 			pros.setOptionList(optionlist);
+			pros.setSideList(sideList);
 
 			resc.setResult(pros);
 			resc.setTarget("menu");
