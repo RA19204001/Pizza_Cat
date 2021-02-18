@@ -25,7 +25,7 @@
     名前<input type='text' maxlength='20' name='name' required><br>
     住所<input type='text' maxlength='50' name='address' required><br>
     年齢<input type='text' maxlength='3' pattern="^[0-9]+$" title="半角数字で入力して下さい。" name='age' required><br>
-    電話番号<input type='tel' maxlength='11' pattern="^[0-9]+$" title="半角数字で入力して下さい。" placeholder="090-1234-5678" name='phoneNumber' required><br><br>
+    電話番号(‐なし)<input type='tel' maxlength='11' pattern="^[0-9]+$" title="半角数字で入力して下さい。" placeholder="09012345678" name='phoneNumber' required><br><br>
     <input type='submit' value='登録'>
 </form>
 
