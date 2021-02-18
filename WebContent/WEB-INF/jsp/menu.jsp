@@ -224,15 +224,23 @@ if(list != null){
 
 
 <h1 style="text-align:center;color:#d36015;">メニュー</h1>
-
-<form method="post" action="confirmPurchase">
-	<table>
-	<tr><th>商品名</th><th>値段</th><th>商品番号</th><th>個数</th></tr>
+<form method="post" action="deleteCart">
+	<table border="1">
+	<tr><th>削除</th><th>商品名</th><th>値段</th><th>商品番号</th><th>個数</th></tr>
     <c:forEach var="cart" items="${sessionScope.cart}">
-	   <tr><td>${cart.name}</td><td>${cart.price}</td><td>${cart.id}</td><td>${cart.amount}</td></tr>
+	   <tr><td><input type="submit" value="削除"></td><td>${cart.name}</td><td>${cart.price}</td><td><input type="hidden" name="delete_custom_id" value="${cart.id}">${cart.id}</td><td>${cart.amount}</td></tr>
+	   <c:forEach var="cart" items="${sessionScope.cart}">
+          <input type="hidden" name="cart_name" value="${cart.name}">
+          <input type="hidden" name="cart_price" value="${cart.price}">
+          <input type="hidden" name="cart_id" value="${cart.id}">
+          <input type="hidden" name="cart_amount" value="${cart.amount}">
+          <input type="hidden" name="cart_custamid" value="${cart.custamid}">
+       </c:forEach>
 
 	</c:forEach>
 	</table>
+</form>
+<form method="post" action="confirmPurchase">
 	<input type="submit" value="購入">
 </form>
 
@@ -247,14 +255,13 @@ if(list != null){
             <p>${menu.name}</p>
             <img src="pizza/${menu.image}">
             <p>${menu.explanation}</p>
-            <form method="post" class="dialog" action="mymenu" >
+            <form method="post" class="dialog" action="addCart" >
             	<c:forEach var="cart" items="${sessionScope.cart}">
 				   <input type="hidden" name="cart_name" value="${cart.name}">
 				   <input type="hidden" name="cart_price" value="${cart.price}">
 				   <input type="hidden" name="cart_id" value="${cart.id}">
 				   <input type="hidden" name="cart_amount" value="${cart.amount}">
 				   <input type="hidden" name="cart_custamid" value="${cart.custamid}">
-
 				</c:forEach>
 
             	<input type="hidden" name="amount" value="1">
