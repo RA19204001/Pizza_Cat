@@ -1,11 +1,14 @@
 //2.16
 package bean;
 
+import java.util.ArrayList;
+
 public class OrderDetail implements Bean {
 
 	private int product_amount;
 	private int custom_id;
 	private int product_id;
+	private ArrayList list;
 
 	public OrderDetail() {}
 
@@ -28,6 +31,14 @@ public class OrderDetail implements Bean {
 
 	public void setProduct_id(int product_id) {
 		this.product_id = product_id;
+	}
+
+	public ArrayList getList() {
+		return list;
+	}
+
+	public void setList(ArrayList list) {
+		this.list = list;
 	}
 
 }
