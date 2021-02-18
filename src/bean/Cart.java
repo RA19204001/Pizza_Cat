@@ -9,8 +9,20 @@ public class Cart implements Bean {
 	private String id;
 	private ArrayList option;
 	private int amount;
+	private int custamid;
 
 	public Cart() {}
+
+	public int getCustamid() {
+		return custamid;
+	}
+
+
+	public void setCustamid(int custamid) {
+		this.custamid = custamid;
+	}
+
+
 
 
 

@@ -14,18 +14,19 @@
 Products pros = (Products)(request.getAttribute("result"));
 ArrayList list = pros.getAddList();
 if(list != null){
-	ArrayList array = (ArrayList)session.getAttribute("cart");
+	//ArrayList array = (ArrayList)session.getAttribute("cart");
 
-	for(int i = 0;i<list.size();i++){
-		array.add(list.get(i));
+	//for(int i = 0;i<list.size();i++){
+		//array.add(list.get(i));
+
+	//}
+
+	session.setAttribute("cart",list);
 
 	}
-
-	session.setAttribute("cart",array);
-
-	}else{
-		session.setAttribute("cart",new ArrayList());
-	}
+//else{
+	//	session.setAttribute("cart",new ArrayList());
+	//}
 
 %>
 <!DOCTYPE html>
@@ -246,7 +247,16 @@ if(list != null){
             <p>${menu.name}</p>
             <img src="pizza/${menu.image}">
             <p>${menu.explanation}</p>
-            <form method="post" class="dialog" action="mymenu">
+            <form method="post" class="dialog" action="mymenu" >
+            	<c:forEach var="cart" items="${sessionScope.cart}">
+				   <input type="hidden" name="cart_name" value="${cart.name}">
+				   <input type="hidden" name="cart_price" value="${cart.price}">
+				   <input type="hidden" name="cart_id" value="${cart.id}">
+				   <input type="hidden" name="cart_amount" value="${cart.amount}">
+				   <input type="hidden" name="cart_custamid" value="${cart.custamid}">
+
+				</c:forEach>
+
             	<input type="hidden" name="amount" value="1">
             	<input type="hidden" name="id" value="${menu.product_id}">
 

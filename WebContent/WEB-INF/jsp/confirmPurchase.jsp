@@ -35,9 +35,9 @@
 	<td class="price"><input type='hidden' name="price" required value="${product.price}">${product.price}</td>
 	<td><input type='hidden' name="id" required value="${product.id}">${product.id}</td>
 	<td><input type='hidden' name="amount" required value="${product.amount}">${product.amount}</td></tr>
-
 	</c:forEach>
 	</table>
+	<input type="hidden" name="custamid" value="${product.custamid}">
 	<h3>合計金額</h3><br>
 	<p id="result"></p>
     <input type='submit' value='支払い'>

@@ -33,13 +33,46 @@ public class AddCartCommand extends AbstractCommand {
 		int prices =  Integer.parseInt(price);
 		int amounts =  Integer.parseInt(amount);
 
+
+
+
+		if(reqc.getParameter("cart_name") != null){
+			for(int i=0 ;i<reqc.getParameter("cart_name").length;i++) {
+				String cartname=reqc.getParameter("cart_name")[i];
+				String cartprice=reqc.getParameter("cart_price")[i];
+				String cartid=reqc.getParameter("cart_id")[i];
+				String cartamount=reqc.getParameter("cart_amount")[i];
+				String cartcustamid=reqc.getParameter("cart_custamid")[i];
+
+				int cartprices=Integer.parseInt(cartprice);
+				int cartamounts=Integer.parseInt(cartamount);
+				int cartcustamids=Integer.parseInt(cartcustamid);
+				Cart newcart=new Cart();
+
+				newcart.setAmount(cartamounts);
+				newcart.setPrice(cartprices);
+				newcart.setId(cartid);
+				newcart.setName(cartname);
+				newcart.setCustamid(cartcustamids);
+
+				array.add(newcart);
+
+			}
+		}
 		Cart cart = new Cart();
+
 
 		cart.setName(name);
 		cart.setPrice(prices);
 		cart.setId(id);
 		cart.setAmount(amounts);
 
+		if(array.size()!=0) {
+			Cart oldcart=(Cart)array.get(array.size()-1);
+			cart.setCustamid(oldcart.getCustamid()+1);
+		}else {
+			cart.setCustamid(1);
+		}
 		array.add(cart);
 
 
@@ -63,7 +96,12 @@ public class AddCartCommand extends AbstractCommand {
 				optioncart.setPrice(optionprices*optionamounts);
 				optioncart.setId(optionproduct_id);
 				optioncart.setAmount(optionamounts);
-
+				if(array.size()!=0) {
+					Cart oldcart=(Cart)array.get(array.size()-1);
+					optioncart.setCustamid(oldcart.getCustamid()+1);
+				}else {
+					optioncart.setCustamid(1);
+				}
 				array.add(optioncart);
 			}
 		}
