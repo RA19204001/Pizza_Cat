@@ -5,7 +5,8 @@
  *
  *
  */
-//浅倉　/2/17
+//浅倉 /2/17
+//浅倉 2/18
 package bean;
 
 import java.util.ArrayList;
