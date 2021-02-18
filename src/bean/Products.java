@@ -14,6 +14,15 @@ public class Products implements Bean {
 	private ArrayList addList;
 	private ArrayList list;
 	private ArrayList optionList;
+	private ArrayList sideList;
+
+	public ArrayList getSideList() {
+		return sideList;
+	}
+
+	public void setSideList(ArrayList sideList) {
+		this.sideList = sideList;
+	}
 
 	public ArrayList getOptionList() {
 		return optionList;

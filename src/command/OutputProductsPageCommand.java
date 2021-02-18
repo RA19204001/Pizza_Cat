@@ -16,6 +16,7 @@ import dao.AbstractDaoFactory;
 import dao.ConnectionManager;
 import dao.MySqlPizzaDao;
 import dao.MySqlPizzaOptionDao;
+import dao.MySqlSideDao;
 import exception.PizzaViewFailedException;
 
 public class OutputProductsPageCommand extends AbstractCommand {
@@ -34,14 +35,19 @@ public class OutputProductsPageCommand extends AbstractCommand {
 
 			MySqlPizzaOptionDao myOptionDao = new  MySqlPizzaOptionDao();
 
+			MySqlSideDao sideDao = new MySqlSideDao();
+
 			ArrayList arrayList = dao.getPizza();
 
 			ArrayList optionlist = myOptionDao.getPizzaOption();
+
+			ArrayList sideList = sideDao.getSide();
 
 			Products ps = new Products();
 
 			ps.setList(arrayList);
 			ps.setOptionList(optionlist);
+			ps.setSideList(sideList);
 
 			responseContext.setResult(ps);
 			responseContext.setTarget("menu");
