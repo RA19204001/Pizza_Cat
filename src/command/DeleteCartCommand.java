@@ -56,20 +56,38 @@ public class DeleteCartCommand extends AbstractCommand {
 		}
 
 		// 削除指定されたデータ
-//		String delete_custom_id = reqc.getParameter("delete_custom_id")[0];// 商品番号
-//
-//		for (int i = 0; i < array.size(); i++) {
-//
-//			Cart newcart = (Cart)array.get(i);
-//			int custamid = newcart.getCustamid();
-//			int delete_custom_ids=Integer.parseInt(delete_custom_id);
-//
-//			if (custamid == delete_custom_ids) {
-//
-//				array.remove(i);
-//
-//			}
-//		}
+		String delete_id = reqc.getParameter("delete_id")[0];// 商品番号
+		String delete_custam_id=reqc.getParameter("delete_custam_id")[0];
+
+		for (int i = 0; i < array.size(); i++) {
+
+			Cart newcart = (Cart)array.get(i);
+			int custamid = newcart.getCustamid();
+			String id=newcart.getId();
+			int ids=Integer.parseInt(id);
+			int delete_ids=Integer.parseInt(delete_id);
+			int delete_custam_ids=Integer.parseInt(delete_custam_id);
+
+			if (ids==delete_ids) {
+				if(ids<=10000) {
+
+						for(int j=0;j<array.size();j++) {
+
+							Cart deleteproduct=(Cart)array.get(j);
+							int deletecustamid=deleteproduct.getCustamid();
+							System.out.println(deletecustamid+";"+custamid);
+							if(custamid==deletecustamid) {
+								array.remove(j);
+								j--;
+							}
+						}
+
+					}else if(custamid==delete_custam_ids){
+						array.remove(i);
+					}
+				}
+
+			}
 
 		//後半
 		pros.setAddList(array);

@@ -224,11 +224,12 @@ if(list != null){
 
 
 <h1 style="text-align:center;color:#d36015;">メニュー</h1>
-<form method="post" action="deleteCart">
 	<table border="1">
 	<tr><th>削除</th><th>商品名</th><th>値段</th><th>商品番号</th><th>個数</th></tr>
     <c:forEach var="cart" items="${sessionScope.cart}">
-	   <tr><td><input type="submit" value="削除"></td><td>${cart.name}</td><td>${cart.price}</td><td><input type="hidden" name="delete_custom_id" value="${cart.id}">${cart.id}</td><td>${cart.amount}</td></tr>
+<form method="post" action="deleteCart">
+	   <tr><td><input type="submit" value="削除"></td><td>${cart.name}</td><td>${cart.price}</td><td><input type="hidden" name="delete_id" value="${cart.id}">${cart.id}</td><td>${cart.amount}	<input type="hidden" name="delete_custam_id" value="${cart.custamid}"></td></tr>
+
 	   <c:forEach var="cart" items="${sessionScope.cart}">
           <input type="hidden" name="cart_name" value="${cart.name}">
           <input type="hidden" name="cart_price" value="${cart.price}">
@@ -236,10 +237,9 @@ if(list != null){
           <input type="hidden" name="cart_amount" value="${cart.amount}">
           <input type="hidden" name="cart_custamid" value="${cart.custamid}">
        </c:forEach>
-
+</form>
 	</c:forEach>
 	</table>
-</form>
 <form method="post" action="confirmPurchase">
 	<input type="submit" value="購入">
 </form>
