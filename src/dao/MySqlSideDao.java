@@ -2,6 +2,7 @@ package dao;
 
 //2.9 大川
 //2/12 大川
+//0220
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
