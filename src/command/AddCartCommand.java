@@ -101,7 +101,7 @@ public class AddCartCommand extends AbstractCommand {
 					optioncart.setAmount(optionamounts);
 					if(array.size()!=0) {
 						Cart oldcart=(Cart)array.get(array.size()-1);
-						optioncart.setCustamid(oldcart.getCustamid()+1);
+						optioncart.setCustamid(oldcart.getCustamid());
 					}else {
 						optioncart.setCustamid(1);
 					}
