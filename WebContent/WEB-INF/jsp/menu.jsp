@@ -42,74 +42,74 @@ if(list != null){
 
 		<script>
 
-	$(function(){
+$(function(){
 
 
-		//グローバル変数
-		var nowModalSyncer = null ;		//現在開かれているモーダルコンテンツ
-		var modalClassSyncer = "modal-syncer" ;		//モーダルを開くリンクに付けるクラス名
+	//グローバル変数
+	var nowModalSyncer = null ;		//現在開かれているモーダルコンテンツ
+	var modalClassSyncer = "modal-syncer" ;		//モーダルを開くリンクに付けるクラス名
 
-		//モーダルのリンクを取得する
-		var modals = document.getElementsByClassName( modalClassSyncer ) ;
+	//モーダルのリンクを取得する
+	var modals = document.getElementsByClassName( modalClassSyncer ) ;
 
-		//モーダルウィンドウを出現させるクリックイベント
-		for(var i=0,l=modals.length; l>i; i++){
+	//モーダルウィンドウを出現させるクリックイベント
+	for(var i=0,l=modals.length; l>i; i++){
 
 		//全てのリンクにタッチイベントを設定する
 		modals[i].onclick = function(){
 
-		//ボタンからフォーカスを外す
-		this.blur() ;
+			//ボタンからフォーカスを外す
+			this.blur() ;
 
-		//ターゲットとなるコンテンツを確認
-		var target = this.getAttribute( "data-target" ) ;
+			//ターゲットとなるコンテンツを確認
+			var target = this.getAttribute( "data-target" ) ;
 
-		//ターゲットが存在しなければ終了
-		if( typeof( target )=="undefined" || !target || target==null ){
-			return false ;
-		}
+			//ターゲットが存在しなければ終了
+			if( typeof( target )=="undefined" || !target || target==null ){
+				return false ;
+			}
 
-		//コンテンツとなる要素を取得
-		nowModalSyncer = document.getElementById( target ) ;
+			//コンテンツとなる要素を取得
+			nowModalSyncer = document.getElementById( target ) ;
 
-		//ターゲットが存在しなければ終了
-		if( nowModalSyncer == null ){
-			return false ;
-		}
+			//ターゲットが存在しなければ終了
+			if( nowModalSyncer == null ){
+				return false ;
+			}
 
-		//キーボード操作などにより、オーバーレイが多重起動するのを防止する
-		if( $( "#modal-overlay" )[0] ) return false ;		//新しくモーダルウィンドウを起動しない
-		//if($("#modal-overlay")[0]) $("#modal-overlay").remove() ;		//現在のモーダルウィンドウを削除して新しく起動する
+			//キーボード操作などにより、オーバーレイが多重起動するのを防止する
+			if( $( "#modal-overlay" )[0] ) return false ;		//新しくモーダルウィンドウを起動しない
+			//if($("#modal-overlay")[0]) $("#modal-overlay").remove() ;		//現在のモーダルウィンドウを削除して新しく起動する
 
-		//オーバーレイを出現させる
-		$( "body" ).append( '<div id="modal-overlay"></div>' ) ;
-		$( "#modal-overlay" ).fadeIn( "fast" ) ;
+			//オーバーレイを出現させる
+			$( "body" ).append( '<div id="modal-overlay"></div>' ) ;
+			$( "#modal-overlay" ).fadeIn( "fast" ) ;
 
-		//コンテンツをセンタリングする
-		centeringModalSyncer() ;
+			//コンテンツをセンタリングする
+			centeringModalSyncer() ;
 
-		//コンテンツをフェードインする
-		$( nowModalSyncer ).fadeIn( "slow" ) ;
+			//コンテンツをフェードインする
+			$( nowModalSyncer ).fadeIn( "slow" ) ;
 
-		//[#modal-overlay]、または[#modal-close]をクリックしたら…
-		$( "#modal-overlay,#modal-close" ).unbind().click( function() {
+			//[#modal-overlay]、または[#modal-close]をクリックしたら…
+			$( "#modal-overlay,#modal-close" ).unbind().click( function() {
 
-			//[#modal-content]と[#modal-overlay]をフェードアウトした後に…
-			$( "#" + target + ",#modal-overlay" ).fadeOut( "fast" , function() {
+				//[#modal-content]と[#modal-overlay]をフェードアウトした後に…
+				$( "#" + target + ",#modal-overlay" ).fadeOut( "fast" , function() {
 
-				//[#modal-overlay]を削除する
-				$( '#modal-overlay' ).remove() ;
+					//[#modal-overlay]を削除する
+					$( '#modal-overlay' ).remove() ;
+
+				} ) ;
+
+				//現在のコンテンツ情報を削除
+				nowModalSyncer = null ;
 
 			} ) ;
 
-			//現在のコンテンツ情報を削除
-			nowModalSyncer = null ;
-
-		} ) ;
+		}
 
 	}
-
-}
 
 	//リサイズされたら、センタリングをする関数[centeringModalSyncer()]を実行する
 	$( window ).resize( centeringModalSyncer ) ;
@@ -133,21 +133,96 @@ if(list != null){
 
 	}
 
-	// 以降ピザオプションの設定
-	// 変数宣言
-	var confirmBtn = document.getElementsByClassName('confirmBtn');
-	var dialog = document.getElementsByClassName('dialog');
-    console.log(confirmBtn);
-	// オプション用変数宣言(用追加部分)
-	var cheese = document.getElementsByClassName('cheese');
-    var tomato = document.getElementsByClassName('tomato');
-    var bacon = document.getElementsByClassName('bacon');
-    var squid = document.getElementsByClassName('squid');
-    var corn = document.getElementsByClassName('corn');
+
+	//size---------------------------------------------------------------------------------------------------------------
+	//グローバル変数
+	var nowModalsSyncer = null ;		//現在開かれているモーダルコンテンツ
+	var modalsClassSyncer = "modals-syncer" ;		//モーダルを開くリンクに付けるクラス名
+
+	//モーダルのリンクを取得する
+	var modals2 = document.getElementsByClassName( modalsClassSyncer ) ;
+
+	//モーダルウィンドウを出現させるクリックイベント
+	for(var i=0,l=modals2.length; l>i; i++){
+
+		//全てのリンクにタッチイベントを設定する
+		modals2[i].onclick = function(){
+
+			//ボタンからフォーカスを外す
+			this.blur() ;
+
+			//ターゲットとなるコンテンツを確認
+			var targets = this.getAttribute( "data-targets" ) ;
+
+			//ターゲットが存在しなければ終了
+			if( typeof( targets )=="undefined" || !targets || targets==null ){
+				return false ;
+			}
+
+			//コンテンツとなる要素を取得
+			nowModalsSyncer = document.getElementById( targets ) ;
+
+			//ターゲットが存在しなければ終了
+			if( nowModalsSyncer == null ){
+				return false ;
+			}
+
+			//キーボード操作などにより、オーバーレイが多重起動するのを防止する
+			if( $( "#modals-overlay" )[0] ) return false ;		//新しくモーダルウィンドウを起動しない
+			//if($("#modals-overlay")[0]) $("#modals-overlay").remove() ;		//現在のモーダルウィンドウを削除して新しく起動する
+
+			//オーバーレイを出現させる
+			$( "body" ).append( '<div id="modals-overlay"></div>' ) ;
+			$( "#modals-overlay" ).fadeIn( "fast" ) ;
+
+			//コンテンツをセンタリングする
+			centeringModalsSyncer() ;
+
+			//コンテンツをフェードインする
+			$( nowModalsSyncer ).fadeIn( "slow" ) ;
+
+			//[#modals-overlay]、または[#modals-close]をクリックしたら…
+			$( "#modals-overlay,#modals-close" ).unbind().click( function() {
+
+				//[#modals-content]と[#modals-overlay]をフェードアウトした後に…
+				$( "#" + targets + ",#modals-overlay" ).fadeOut( "fast" , function() {
+
+					//[#modals-overlay]を削除する
+					$( '#modals-overlay' ).remove() ;
+
+				} ) ;
+
+				//現在のコンテンツ情報を削除
+				nowModalsSyncer = null ;
+
+			} ) ;
+
+		}
+
+	}
+
+	//リサイズされたら、センタリングをする関数[centeringModalsSyncer()]を実行する
+	$( window ).resize( centeringModalsSyncer ) ;
+
+	//センタリングを実行する関数
+	function centeringModalsSyncer() {
+
+		//モーダルウィンドウが開いてなければ終了
+		if( nowModalsSyncer == null ) return false ;
+
+		//画面(ウィンドウ)の幅、高さを取得
+		var w = $( window ).width() ;
+		var h = $( window ).height() ;
 
 
+		var cw = $( nowModalsSyncer ).outerWidth() ;
+		var ch = $( nowModalsSyncer ).outerHeight() ;
 
-} ) ;
+		//センタリングを実行する
+		$( nowModalsSyncer ).css( {"left": ((w - cw)/2) + "px","top": ((h - ch)/2) + "px"} ) ;
+
+	}
+});
 
 		</script>
 		<style>
@@ -214,6 +289,40 @@ if(list != null){
 .tab-switch {
     display: none;
 }
+
+
+/*size*/
+.modals-content {
+	width: 50% ;
+	margin: 0 ;
+	padding: 10px 20px ;
+	border: 2px solid #aaa ;
+	background: #fff ;
+	position: fixed ;
+	display: none ;
+	z-index: 2 ;
+}
+
+#modals-overlay {
+	z-index: 1 ;
+	display: none ;
+	position: fixed ;
+	top: 0 ;
+	left: 0 ;
+	width: 100% ;
+	height: 120% ;
+	background-color: rgba( 0,0,0, 0.75 ) ;
+}
+
+.buttons-link {
+	color: #00f ;
+	text-decoration: underline ;
+}
+
+.buttons-link:hover {
+	cursor: pointer ;
+	color: #f00 ;
+}
 		</style>
 
 		<title>商品一覧</title>
@@ -244,7 +353,7 @@ if(list != null){
 	<input type="submit" value="購入">
 </form>
 
-<HR style="margin: 3em 0 ;">
+<hr style="margin: 3em 0 ;">
 <div class="tab-wrap">
     <input id="TAB-01" type="radio" name="TAB" class="tab-switch" checked="checked" /><label class="tab-label" for="TAB-01"><h2 style="width :500px ;">ピザ</h2></label>
     <div class="tab-content">
@@ -281,7 +390,6 @@ if(list != null){
                     <br>
                     </c:forEach>
 
-                <!-- <button class="confirmBtn" value="default">カートに入れたい</button> -->
 				<input type="submit" value="カートに入れる">
 
             </form>
@@ -308,7 +416,7 @@ if(list != null){
         </a></p>
 
 
-        <HR style="margin: 3em 0 ;">
+        <hr style="margin: 3em 0 ;">
 
         </c:forEach>
     </div>
@@ -317,19 +425,19 @@ if(list != null){
     ここサイド
         <c:forEach var="menu" items="${result.list}" varStatus="status">
         <!-- 1つ目（サイドメニュー）のコンテンツ [開始] -->
-        <div id="modal-content-${status.index}" class="modal-content" name="favDialog">
+        <div id="modals-content-${status.index}" class="modals-content" name="favDialog">
             <!-- モーダルウィンドウのコンテンツ開始 -->
             <p>${menu.name}</p>
             <img src="pizza/${menu.image}">
             <p>${menu.explanation}</p>
             <p>${menu.price}</p>
-            <p><a id="modal-close" class="button-link">閉じる</a></p>
+            <p><a id="modals-close" class="buttons-link">閉じる</a></p>
             <!-- モーダルウィンドウのコンテンツ終了 -->
         </div>
         <!-- 1つ目のコンテンツ [終了] -->
 
 
-        <p><a class="modal-syncer button-link" data-target="modal-content-${status.index}">
+        <p><a class="modals-syncer buttons-link" data-targets="modals-content-${status.index}">
             <menu>
             <button>
             <form method="post" action="">
@@ -345,7 +453,7 @@ if(list != null){
         </a></p>
 
 
-        <HR style="margin: 3em 0 ;">
+        <hr style="margin: 3em 0 ;">
 
         </c:forEach>
     </div>
