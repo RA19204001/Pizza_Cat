@@ -18,6 +18,8 @@
 	    }
 	    var result = document.getElementById("result");
 	    result.innerHTML = total;
+	    var inputresult = document.getElementById("total");
+	    inputresult.value=total;
 
  });
 </script>
@@ -40,6 +42,7 @@
 	<input type="hidden" name="custamid" value="${product.custamid}">
 	<h3>合計金額</h3><br>
 	<p id="result"></p>
+	<input type="hidden" name="total" id="total">
     <input type='submit' value='支払い'>
 </form>
 

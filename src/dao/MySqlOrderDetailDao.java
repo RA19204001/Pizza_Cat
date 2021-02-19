@@ -39,23 +39,23 @@ public class MySqlOrderDetailDao implements OrderDetailDao {
 	    }
 	}
 
-	//レシート表示がしたい（未実装）
-	public ArrayList getOrderDetail(int order_id) {
+	public ArrayList getOrderDetail(Order order_id) {
 
 		ArrayList list = new ArrayList();
 	    try {
-	    	String sql = "select product_id,product_amount from ORDERDETAIL_TABLE where order_id = ?";
+	    	String sql = "select custom_id,product_id,product_amount from ORDERDETAIL_TABLE where order_id = ?";
 
 	    	st=cn.prepareStatement(sql);
 
-	    	st.setInt(1,order_id);
+	    	st.setInt(1,order_id.getOrder_id());
 
     		rs = st.executeQuery();
     		while(rs.next()) {
     			OrderDetail o = new OrderDetail();
 
-    			o.setProduct_amount(rs.getInt(1));
-    			//o.setProduct_id(rs.getInt(2));
+    			o.setCustom_id(rs.getInt(1));
+    			o.setProduct_amount(rs.getInt(2));
+    			o.setProduct_id(rs.getInt(3));
 
     			list.add(o);
 

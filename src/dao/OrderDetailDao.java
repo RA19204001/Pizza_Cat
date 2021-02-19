@@ -9,6 +9,6 @@ import bean.OrderDetail;
 public interface OrderDetailDao {
 
 	public void addOrderDetail(OrderDetail od,Order order_id);
-	public ArrayList getOrderDetail(int order_id);
+	public ArrayList getOrderDetail(Order order_id);
 
 }
