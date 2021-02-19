@@ -1,24 +1,25 @@
 <!--浅倉 1/29  -->
 <!--浅倉 2/3  -->
+<!-- 内田2/19 -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page import ="bean.User"%>
 <%@ page import ="bean.Message"%>
+
 <html>
 <head>
+<!-- cssを適用させる -->
+<link rel="stylesheet" type="text/css" href="css/start.css">
 
 <title>PizzaCat</title>
-<style type="text/css">
-.page1 {
-    display:block;
-    font-weight:bold;
-}
-.page2 {
-    display:none;
-    font-weight:bold;
-}
 
-</style>
+<!-- cssの元の部分（これも封印、のち削除）
+<style type="text/css">
+
+
+</style>-->
+
+
 <script type="text/javascript" language="javascript">
 function SelectPage( page ) {
 
@@ -53,40 +54,71 @@ window.onload = function () {
 </script>
 </head>
 <body>
-<%
-try{
-	User user = (User)(request.getAttribute("result"));
-	if(user != null){
-		session.setAttribute("loginuser",user);
-	}
-}catch(ClassCastException e){
+	<%
 	try{
-		Message message = (Message)(request.getAttribute("result"));
-		if(message.getFlag()){
-			session.setAttribute("loginuser",null);
-			session.setAttribute("cart",null);
-
+		User user = (User)(request.getAttribute("result"));
+		if(user != null){
+			session.setAttribute("loginuser",user);
 		}
-	}catch(ClassCastException e2){}
-}
+	}catch(ClassCastException e){
+		try{
+			Message message = (Message)(request.getAttribute("result"));
+			if(message.getFlag()){
+				session.setAttribute("loginuser",null);
+				session.setAttribute("cart",null);
+
+			}
+		}catch(ClassCastException e2){}
+	}
 
 
-%>
-<h1>TOP画面</h1>
-<input id="change" type='hidden' value='${sessionScope.loginuser.id}'>
-<div id='page1' class='page1'>
-<p><a href="addUser">会員登録画面へ</a></p>
-<p><a href="login">ログイン</a></p>
+	%>
+	<!-- 19日夜に作成しようとして切り替えがうまくいかなかったソース
+	    <head>
 
-</div>
-<div id='page2' class='page2'>
-<p><a href="logout">ログアウト</a></p>
-<p><a href="editUser">ユーザー/カード情報の編集</a></p>
+	        <h3>PizzaCat</h3>
+	        <div id='page1' class='page1'>
+	            <nav class="tab-nav1">
+		            <ul>
+		                <li><p><a href="addUser">会員登録画面へ</a></p></li>
+		                <li><p><a href="login">ログイン</a></p></li>
+		            </ul>
+	            </nav>
+	        </div>
+	        <div id='page2' class='page2'>
+	            <nav class="tab-nav2">
+	                <ul>
+	                    <li><p><a href="logout">ログアウト</a></p></li>
+	                    <li><p><a href="editUser">ユーザー/カード情報の編集</a></p></li>
+	                </ul>
+	            </nav>
+	        </div>
 
-<p>${sessionScope.loginuser.id}でログイン中</p>
-</div>
-<p><a href="menu">メニュー</a></p>
+	    </head>
+	-->
+	<!-- css作成中につき一時封印(のち削除予定)-->
+	<header>
+		<h3>PizzaCat</h3>
+		<div id='page1' class='page1'>
+		   <ul id="nav">
+			<li><p><a href="addUser">会員登録画面へ</a></p></li>
+			<li><p><a href="login">ログイン</a></p></li>
+		   </ul>
+		</div>
+		<div id='page2' class='page2'>
+		   <ul id="nav">
+			<li><p><a href="logout">ログアウト</a></p></li>
+			<li><p><a href="editUser">ユーザー/カード情報の編集</a></p></li>
+			<li><p>${sessionScope.loginuser.id}でログイン中</p></li>
+		   </ul>
+		</div>
+		<input id="change" type='hidden' value='${sessionScope.loginuser.id}'>
+	</header>
 
+	 <div class="menu">
+	    <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+		<p><a href="menu">メニュー</a></p>
+    </div>
 
 </body>
 </html>
