@@ -16,12 +16,14 @@ import dao.AbstractDaoFactory;
 import dao.ConnectionManager;
 import dao.MySqlPizzaDao;
 import dao.MySqlPizzaOptionDao;
+import dao.MySqlSideDao;
 import exception.PizzaViewFailedException;
 
 public class DeleteCartCommand extends AbstractCommand {
 
 	private ArrayList array = new ArrayList();
 	private ArrayList optionList = new ArrayList();
+	private ArrayList sideList = new ArrayList();
 	private Products pros = new Products();
 
 	@Override
@@ -103,12 +105,17 @@ public class DeleteCartCommand extends AbstractCommand {
 
 			MySqlPizzaOptionDao myOptionDao = new  MySqlPizzaOptionDao();
 
+			MySqlSideDao sideDao = new MySqlSideDao();
+
 			ArrayList arrayList = dao.getPizza();
 
 			ArrayList optionlist = myOptionDao.getPizzaOption();
 
+			ArrayList sideList = sideDao.getSide();
+
 			pros.setList(arrayList);
 			pros.setOptionList(optionlist);
+			pros.setSideList(sideList);
 
 			resc.setResult(pros);
 			resc.setTarget("menu");

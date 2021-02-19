@@ -78,7 +78,7 @@ public class AddCartCommand extends AbstractCommand {
 		}
 		array.add(cart);
 
-		if(flagid<30000) {
+		if(flagid<=20000) {
 			for(int i = 0;i < reqc.getParameter("option").length;i++) {
 				String option = reqc.getParameter("option")[i];
 				optionList.add(option);
