@@ -65,6 +65,7 @@ function check(){
 					<option value="meet">ミート</option>
 					<option value="original">オリジナル</option>
 					<option value="seafood">シーフード</option>
+					<option value="mybox">MyBOX</option>
 					<option value="other">その他</option>
 					</select><br>
    		<input type='hidden' name='type' required value="1"><br>
