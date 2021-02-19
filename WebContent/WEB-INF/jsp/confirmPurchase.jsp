@@ -11,9 +11,10 @@
 <script>
  $(function(){
 	    var price = document.getElementsByClassName("price");
+	    var amount = document.getElementsByClassName("amount");
 	    var total = 0;
 	    for (var i = 0;i < price.length; i++){
-	    	total += Number(price[i].textContent);
+	    	total += (Number(price[i].textContent) * Number(amount[i].textContent));
 		console.log(price[i].textContent);
 	    }
 	    var result = document.getElementById("result");
@@ -36,7 +37,7 @@
 	<td><input type='hidden' name="name" required value="${product.name}">${product.name}</td>
 	<td class="price"><input type='hidden' name="price" required value="${product.price}">${product.price}</td>
 	<td><input type='hidden' name="id" required value="${product.id}">${product.id}</td>
-	<td><input type='hidden' name="amount" required value="${product.amount}">${product.amount}</td></tr>
+	<td class="amount"><input type='hidden' name="amount" required value="${product.amount}">${product.amount}</td></tr>
 	</c:forEach>
 	</table>
 	<input type="hidden" name="custamid" value="${product.custamid}">
