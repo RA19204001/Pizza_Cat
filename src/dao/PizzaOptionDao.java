@@ -9,6 +9,7 @@ public interface PizzaOptionDao
 
 	public void addPizzaOption(bean.Product p);
 	public ArrayList getPizzaOption();
-	public Product editPizzaOption(String id, Product p);
+	public void editPizzaOption(String id, Product p);
+	public void editDisplayPizzaOption(String id, Product p);
 
 }

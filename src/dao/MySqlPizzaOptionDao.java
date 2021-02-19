@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import bean.Product;
+import exception.EditUserFailedException;
 import exception.IntegrationException;
 
 public class MySqlPizzaOptionDao implements PizzaOptionDao{
@@ -65,8 +66,40 @@ public class MySqlPizzaOptionDao implements PizzaOptionDao{
 
     }
 
-    public Product editPizzaOption(String id, Product p) {
-    	return p;
+    public void editPizzaOption(String id, Product p) {
+    	try {
+    		String sql = "update pizzaoption_table set pizzaoption_name=?, pizzaoption_explanation=?, pizzaoption_price=?, pizzaoption_display=?, pizzaoption_category=? where pizzaoption_id=?";
 
+    		st = cn.prepareStatement(sql);
+
+            st.setString(1,p.getName());
+            st.setInt(2,p.getPrice());
+            st.setBoolean(3,p.getProduct_display());
+            st.setString(4,p.getProduct_category());
+
+            st.setString(5, id);
+
+            st.executeUpdate();
+
+    	}catch(SQLException e) {
+    		e.printStackTrace();
+    		throw new EditUserFailedException(e.getMessage(),e);
+    	}
+
+    }
+    public void editDisplayPizzaOption(String product_id, Product p) {
+    	try {
+    		String sql = "update pizzaoption_table set pizzaoption_display=? where pizzaoption_id=?";
+
+    		st = cn.prepareStatement(sql);
+
+            st.setBoolean(1,p.getProduct_display());
+            st.setString(2,product_id);
+
+            st.executeUpdate();
+    	}catch(SQLException e) {
+    		e.printStackTrace();
+    		throw new EditUserFailedException(e.getMessage(),e);
+    	}
     }
 }

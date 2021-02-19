@@ -11,7 +11,8 @@ public interface PizzaDao{
 
 	public void addPizza(bean.Product p);
 	public ArrayList getPizza();
-	public Product editPizza(String id, Product p);
+	public void editPizza(String id, Product p);
 	public Product getPizzaId(String name,String explanation);
 	public void updatePizzaImage(String product_id);
+	public void editDisplayPizza(String product_id, Product p);
 }
