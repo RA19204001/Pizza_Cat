@@ -10,7 +10,7 @@ public class Product implements Bean{
 	private  int price;
 	private String productstype;
 	private String product_id;
-	private Boolean product_display;
+	private int product_display;
 	private String product_category;
 	public Product() {}
 
@@ -73,12 +73,12 @@ public class Product implements Bean{
 	}
 
 
-	public Boolean getProduct_display() {
+	public int getProduct_display() {
 		return product_display;
 	}
 
 
-	public void setProduct_display(Boolean product_display) {
+	public void setProduct_display(int product_display) {
 		this.product_display = product_display;
 	}
 

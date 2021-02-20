@@ -1,6 +1,7 @@
 <!--浅倉 1/29  -->
 <!--浅倉 2/3  -->
 <!-- 内田2/19 -->
+<!--浅倉 2/20  -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page import ="bean.User"%>
@@ -96,7 +97,7 @@
 		-->
 		<!-- css作成中につき一時封印(のち削除予定)-->
 		<header>
-			<p id="head-title">PizzaCat</p>
+			<p><a href="/PizzaCat/" id="moji"><font size="6">PizzaCat</font></a></p>
 			<div id='page1' class='page1'>
 			   <ul id="nav">
 				<li><p><a href="addUser">会員登録画面へ</a></p></li>

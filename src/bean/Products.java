@@ -16,6 +16,9 @@ public class Products implements Bean {
 	private ArrayList list;
 	private ArrayList optionList;
 	private ArrayList sideList;
+	private ArrayList hidepizzaList;
+	private ArrayList hidesideList;
+	private ArrayList hideoptionList;
 
 	public ArrayList getSideList() {
 		return sideList;
@@ -47,6 +50,30 @@ public class Products implements Bean {
 	}
 	public void setAddList(ArrayList addList) {
 		this.addList = addList;
+	}
+
+	public ArrayList getHidepizzaList() {
+		return hidepizzaList;
+	}
+
+	public void setHidepizzaList(ArrayList hidepizzaList) {
+		this.hidepizzaList = hidepizzaList;
+	}
+
+	public ArrayList getHidesideList() {
+		return hidesideList;
+	}
+
+	public void setHidesideList(ArrayList hidesideList) {
+		this.hidesideList = hidesideList;
+	}
+
+	public ArrayList getHideoptionList() {
+		return hideoptionList;
+	}
+
+	public void setHideoptionList(ArrayList hideoptionList) {
+		this.hideoptionList = hideoptionList;
 	}
 
 }

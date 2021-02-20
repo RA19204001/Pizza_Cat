@@ -32,7 +32,7 @@ try{
 <h2>あなたがジャンプマスターです<br>□で飛ぶ</h2>
 
     <p><a href="addProducts">商品の追加</a></p>
-	<p><a href="">商品の編集</a></p>
+	<p><a href="editDisplay">商品表示の編集</a></p>
 
 <p>${sessionScope.loginmanager.id}でログイン中</p>
 

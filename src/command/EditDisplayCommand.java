@@ -26,15 +26,12 @@ public class EditDisplayCommand extends AbstractCommand {
 		int product_id = Integer.parseInt(id);
 		int product_display = Integer.parseInt(display);
 
+		System.out.println("idは"+ product_id);
+		System.out.println("displayは"+ product_display);
+
 		Product product = new Product();
 		product.setProduct_id(id);
-
-        if(product_display == 0) {
-            product.setProduct_display(true);
-        }else {
-
-            product.setProduct_display(false);
-        }
+		product.setProduct_display(product_display);
 
         AbstractDaoFactory factory = AbstractDaoFactory.getFactory();
         ConnectionManager cm = factory.getConnectionManager();
@@ -49,17 +46,17 @@ public class EditDisplayCommand extends AbstractCommand {
         if(product_id <= 10000) {
         	try {
         		pd.editDisplayPizza(id, product);
-        		message.setMessage("pizza削除完了");
+        		message.setMessage("ピザ表示変更完了");
         	}catch(IntegrationException e) {
         		cm.rollback();
                 message.setMessage("ピザの表示変更しっぱぁ～い！");
                 e.printStackTrace();
         	}
-        }else if(10001 <= product_id || product_id <= 20000) {
+        }else if(10001 <= product_id && product_id <= 20000) {
 
         	try {
         		pod.editDisplayPizzaOption(id, product);
-        		message.setMessage("pizzaoption削除完了");
+        		message.setMessage("ピザオプション表示変更完了");
         	}catch(IntegrationException e) {
         		cm.rollback();
                 message.setMessage("オプションの表示変更しっぱぁ～い！");
@@ -68,7 +65,7 @@ public class EditDisplayCommand extends AbstractCommand {
         }else {
         	try {
         		sd.editDisplaySide(id, product);
-        		message.setMessage("side削除完了");
+        		message.setMessage("サイドメニュー表示変更完了");
         	}catch(IntegrationException e) {
         		cm.rollback();
                 message.setMessage("サイドメニューの表示変更しっぱぁ～い！");
@@ -77,7 +74,7 @@ public class EditDisplayCommand extends AbstractCommand {
         }
 
 
-        resc.setTarget("editProductsResult");
+        resc.setTarget("editDisplayResult");
 
         cm.commit();
 

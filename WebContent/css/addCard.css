@@ -1,21 +1,15 @@
-/*html
-{
-	height:100%;
-    text-align: center;
-    margin:auto;
-}*/
-/*.class{
-  --w: 3px;
-  display: grid;
-  place-items: center;
-  width: 200px;
-  height: 150px;
-  background: linear-gradient(to right, #fff 2em, transparent) center / 2em 1.5em no-repeat, linear-gradient(to right, transparent 6px, #fff 6px calc(6px + var(--w)), transparent 9px) 0% 0% / 10% 10% repeat, linear-gradient(to bottom, #000 var(--w), transparent var(--w)) 0% 0% / 100% calc((100% - var(--w) * 3) / 2 + var(--w)) repeat #fff;
-
 *{
 margin:0px;
 paddng:0px;
-}}*/
+}
+
+header {
+   width: 100%;
+   padding: 10px 0px 10px;
+   background-color: #fff;
+   top: 0;
+   display: flex;
+}
 input[type=text]{
 	width:400px;
 	height:30px;
@@ -24,10 +18,15 @@ input[type=password]{
 	width:400px;
 	height:30px;
 }
-input[type=tel]{
+select{
+	width:410px;
+	height:35px;
+}
+input[type=number]{
 	width:400px;
 	height:30px;
 }
+
 #moji
 {
 	text-decoration: none;
@@ -44,7 +43,7 @@ h1
 	/*width:900px; height:80px; padding:15px;*/
 	height:80px; padding:10px;
 }
-#log
+#textbox
 {
   background-color: white;
   text-align:center;
@@ -52,26 +51,19 @@ h1
   margin-right: 300px;
   border-radius: 3px;
   box-shadow: 0 10px 15px -2px rgba(10, 10, 10, 0.4);
-  padding: 30;
+  padding: 30px;
 
-    /*margin-top:50px;
-    margin-left: 400px;
-    margin-right: 400px;
-    padding: 10;
-    background-color:rgb(255, 255, 255);
-    border:solid 1px #ccc;*/
 
-  /*margin:10 auto;*/
 }
 p#botom
 {
   background-color: white;
   text-align:center;
-   margin-left: 300px;
+  margin-left: 300px;
   margin-right: 300px;
   border-radius: 3px;
   box-shadow: 0 10px 15px -2px rgba(27, 33, 58, 0.4);
-  padding: 20;
+  padding: 20px;
     /*margin-top:50px;
     margin-left: 400px;
     margin-right: 400px;
@@ -88,7 +80,7 @@ p#botom
   text-decoration: none;
   font-size: 18px;
   font-weight: bold;
-  border: none;
+  line-heigt: 1.2em;
   /*-webkit-box-shadow: 0px 6px 3px -3px rgba(0,0,0,0.4);
   box-shadow: 0px 6px 3px -3px rgba(0,0,0,0.4);
   -webkit-transition: .12s;
@@ -101,7 +93,18 @@ p#botom
   opacity: 0.8;
 }
 
-
+.username {
+  display:none;
+  font-weight:bold;
+  margin: 0 5% 0 auto;
+  list-style: none;
+  font-size: 0;
+  width: 220px;
+  text-align: center;
+  margin: 0 0 0 auto;
+  display: inline-block;
+  font-size: 16px;
+}
 
 
 /*body

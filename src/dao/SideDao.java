@@ -11,6 +11,7 @@ public interface SideDao{
 
 	public void addSide(bean.Product p);
 	public ArrayList getSide();
+	public ArrayList getHideSide();
 	public void editSide(String id, Product p);
 	public Product getSideId(String name,String explanation);
 	public void updateSideImage(String product_id);

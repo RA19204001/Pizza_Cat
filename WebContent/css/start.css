@@ -1,3 +1,7 @@
+*{
+margin:0px;
+paddng:0px;
+}
 .page1 {
     display:block;
     font-weight:bold;
@@ -18,8 +22,13 @@ header {
    display: flex;
 }
 
-#head-title{
-
+#moji
+{
+	text-decoration: none;
+	/*text-align:center;*/
+	margin:0 auto;
+	display:block;
+	width:119px;
 }
 
 h3 {
