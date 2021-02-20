@@ -50,12 +50,9 @@ public class AddOrderDetailCommand extends AbstractCommand {
 
 				int product_id =  Integer.parseInt(product_ids);
 				int product_amount =  Integer.parseInt(product_amounts);
-			    if(product_id >= 19999 || product_id <=10000) {
-			    	custom_id +=1;
-
-			    }
 
 
+				custom_id=Integer.parseInt(reqc.getParameter("customid")[i]);
 			    detail.setCustom_id(custom_id);
 			    detail.setProduct_id(product_id );
 			    detail.setProduct_amount(product_amount);

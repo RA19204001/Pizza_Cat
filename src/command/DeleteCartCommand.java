@@ -118,7 +118,11 @@ public class DeleteCartCommand extends AbstractCommand {
 			pros.setSideList(sideList);
 
 			resc.setResult(pros);
-			resc.setTarget("menu");
+			if(reqc.getParameter("flag")==null || array.size()<=0) {
+				resc.setTarget("menu");
+			}else {
+				resc.setTarget("confirmPurchase");
+			}
 
 		}catch(PizzaViewFailedException e) {
 
