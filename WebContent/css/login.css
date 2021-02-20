@@ -1,0 +1,116 @@
+/*html
+{
+	height:100%;
+    text-align: center;
+    margin:auto;
+}*/
+/*.class{
+  --w: 3px;
+  display: grid;
+  place-items: center;
+  width: 200px;
+  height: 150px;
+  background: linear-gradient(to right, #fff 2em, transparent) center / 2em 1.5em no-repeat, linear-gradient(to right, transparent 6px, #fff 6px calc(6px + var(--w)), transparent 9px) 0% 0% / 10% 10% repeat, linear-gradient(to bottom, #000 var(--w), transparent var(--w)) 0% 0% / 100% calc((100% - var(--w) * 3) / 2 + var(--w)) repeat #fff;
+}*/
+input[type=text]{
+	width:400px;
+	height:30px;
+}
+input[type=password]{
+	width:400px;
+	height:30px;
+}
+#moji
+{
+	text-decoration: none;
+	/*text-align:center;*/
+	margin:0 auto;
+	display:block;
+	width:119px;
+}
+h1
+{
+	text-align:center;
+	background-image: url('image/concrete3.jpg');
+	background-repeat:repeat-x;
+	/*width:900px; height:80px; padding:15px;*/
+	height:80px; padding:10px;
+}
+#log
+{
+  background-color: white;
+  text-align:center;
+  margin-left: 300px;
+  margin-right: 300px;
+  border-radius: 3px;
+  box-shadow: 0 10px 15px -2px rgba(10, 10, 10, 0.4);
+  padding: 30;
+
+    /*margin-top:50px;
+    margin-left: 400px;
+    margin-right: 400px;
+    padding: 10;
+    background-color:rgb(255, 255, 255);
+    border:solid 1px #ccc;*/
+
+  /*margin:10 auto;*/
+}
+p#botom
+{
+  background-color: white;
+  text-align:center;
+   margin-left: 300px;
+  margin-right: 300px;
+  border-radius: 3px;
+  box-shadow: 0 10px 15px -2px rgba(27, 33, 58, 0.4);
+  padding: 20;
+    /*margin-top:50px;
+    margin-left: 400px;
+    margin-right: 400px;
+    padding: 10;
+    background-color:rgb(255, 255, 255);
+    border:solid 1px #ccc;*/
+}
+.btn{
+  display: inline-block;
+  padding: 10px 99px;
+  background: #3ea60c;
+  border-radius: 4px;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  line-heigt: 1.2em;
+  /*-webkit-box-shadow: 0px 6px 3px -3px rgba(0,0,0,0.4);
+  box-shadow: 0px 6px 3px -3px rgba(0,0,0,0.4);
+  -webkit-transition: .12s;
+  transition: .12s;*/
+}
+.btn:hover {
+  background: #ffffff;
+  border: solid 2px #3ea60c;
+  color: #3ea60c;
+  opacity: 0.8;
+}
+
+
+
+
+/*body
+{
+  display: block;
+  /*position: absolute;*/
+  /*content: '';
+  background: transparent;
+  border-bottom: 100px solid #ddd;
+  border-left: 100px solid transparent;*/
+  /*position: fixed;
+  box-sizing: border-box;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.2);
+  z-index: 999;
+  opacity: 1;
+}*/
