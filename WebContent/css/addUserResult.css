@@ -18,6 +18,48 @@ header {
 	display:block;
 	width:119px;
 }
+h1
+{
+	text-align:center;
+	background-image: url('image/concrete3.jpg');
+	background-repeat:repeat-x;
+	/*width:900px; height:80px; padding:15px;*/
+	height:80px; padding:10px;
+}
+p#botom
+{
+  background-color: white;
+  text-align:center;
+  margin: 15px;
+   margin-left: 300px;
+  margin-right: 300px;
+  border-radius: 3px;
+  box-shadow: 0 10px 15px -2px rgba(27, 33, 58, 0.4);
+  padding: 20;
+    /*margin-top:50px;
+    margin-left: 400px;
+    margin-right: 400px;
+    padding: 10;
+    background-color:rgb(255, 255, 255);
+    border:solid 1px #ccc;*/
+}
+.btn{
+  display: inline-block;
+  padding: 10px 99px;
+  background: #3ea60c;
+  border-radius: 4px;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+}
+.btn:hover {
+  background: #ffffff;
+  border: solid 2px #3ea60c;
+  color: #3ea60c;
+  opacity: 0.8;
+}
 .username {
   display:none;
   font-weight:bold;

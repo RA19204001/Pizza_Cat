@@ -27,7 +27,5 @@
 </p>
 
 
-<!--<p><a href="/PizzaCat/">TOPへ</a></p>-->
-
 </body>
 </html>
