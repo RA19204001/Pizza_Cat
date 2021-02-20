@@ -6,6 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="css/addCard.css">
 <script>
 	//確認用のダイヤルログ
 	function check(){
@@ -20,12 +21,16 @@
 <title>カード情報登録画面</title>
 </head>
 <body>
+<header>
+<p><a href="/PizzaCat/" id="moji"><font size="6">PizzaCat</font></a></p>
+<p class="username">${sessionScope.loginuser.id}様</p>
+</header>
 <h1>カード情報の登録</h1>
-<form method='post' action='addCardResult' onSubmit="return check()">
-    クレジットカード番号(数字)<input type='text' maxlength='16' pattern="^[0-9]+$" title="半角数字を入力して下さい。" name='creditnumber' required autofocus>${result.message}<br>
-    セキュリティ番号<input type='password' minlength='3' maxlength='4' pattern="^[0-9]+$" title="半角数字を入力して下さい。" name='security_code' required><br>
-    有効期限(年)<input type='number' name='expiration_year' placeholder="2ｹﾀ" min="00"max="99" required><br>
-    有効期限(月)<select name='expiration_month' required>
+<form method='post' action='addCardResult' onSubmit="return check()" id="textbox">
+    クレジットカード番号(数字)<br><input type='text' maxlength='16' pattern="^[0-9]+$" placeholder="半角数字を入力して下さい。" name='creditnumber' required autofocus>${result.message}<br>
+    セキュリティ番号<br><input type='password' minlength='3' maxlength='4' pattern="^[0-9]+$" placeholder="半角数字を入力して下さい。" name='security_code' required><br>
+    有効期限(年)<br><input type='number' name='expiration_year' placeholder="下2桁" min="00"max="99" required><br>
+    有効期限(月)<br><select name='expiration_month' required>
 	    			<option value="01">01</option>
 					<option value="02">02</option>
 					<option value="03">03</option>
@@ -39,14 +44,12 @@
 					<option value="11">11</option>
 					<option value="12">12</option>
     			</select><br>
-    メールアドレス<input type='text' maxlength='256' name='mail_address' required><br><br>
+    メールアドレス<br><input type='text' maxlength='256' name='mail_address' required placeholder="例:tarou1234@gmail.com"><br><br>
     <input type='hidden' name='userId' required value="${sessionScope.loginuser.id}"><br>
-    <input type='submit' value='登録'>
+    <input type='submit' value='登録' class="btn">
 
 </form>
-<p>${sessionScope.loginuser.id}でログイン中</p>
 
-<p><a href="/PizzaCat/">TOPへ</a></p>
 
 </body>
 </html>

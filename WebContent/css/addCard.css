@@ -1,0 +1,127 @@
+*{
+margin:0px;
+paddng:0px;
+}
+
+header {
+   width: 100%;
+   padding: 10px 0px 10px;
+   background-color: #fff;
+   top: 0;
+   display: flex;
+}
+input[type=text]{
+	width:400px;
+	height:30px;
+}
+input[type=password]{
+	width:400px;
+	height:30px;
+}
+select{
+	width:410px;
+	height:35px;
+}
+input[type=number]{
+	width:400px;
+	height:30px;
+}
+
+#moji
+{
+	text-decoration: none;
+	/*text-align:center;*/
+	margin:0 auto;
+	display:block;
+	width:119px;
+}
+h1
+{
+	text-align:center;
+	background-image: url('image/concrete3.jpg');
+	background-repeat:repeat-x;
+	/*width:900px; height:80px; padding:15px;*/
+	height:80px; padding:10px;
+}
+#textbox
+{
+  background-color: white;
+  text-align:center;
+  margin-left: 300px;
+  margin-right: 300px;
+  border-radius: 3px;
+  box-shadow: 0 10px 15px -2px rgba(10, 10, 10, 0.4);
+  padding: 30px;
+
+
+}
+p#botom
+{
+  background-color: white;
+  text-align:center;
+  margin-left: 300px;
+  margin-right: 300px;
+  border-radius: 3px;
+  box-shadow: 0 10px 15px -2px rgba(27, 33, 58, 0.4);
+  padding: 20px;
+    /*margin-top:50px;
+    margin-left: 400px;
+    margin-right: 400px;
+    padding: 10;
+    background-color:rgb(255, 255, 255);
+    border:solid 1px #ccc;*/
+}
+.btn{
+  display: inline-block;
+  padding: 10px 99px;
+  background: #3ea60c;
+  border-radius: 4px;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  line-heigt: 1.2em;
+  /*-webkit-box-shadow: 0px 6px 3px -3px rgba(0,0,0,0.4);
+  box-shadow: 0px 6px 3px -3px rgba(0,0,0,0.4);
+  -webkit-transition: .12s;
+  transition: .12s;*/
+}
+.btn:hover {
+  background: #ffffff;
+  border: solid 2px #3ea60c;
+  color: #3ea60c;
+  opacity: 0.8;
+}
+
+.username {
+  display:none;
+  font-weight:bold;
+  margin: 0 5% 0 auto;
+  list-style: none;
+  font-size: 0;
+  width: 220px;
+  text-align: center;
+  margin: 0 0 0 auto;
+  display: inline-block;
+  font-size: 16px;
+}
+
+
+/*body
+{
+  display: block;
+  /*position: absolute;*/
+  /*content: '';
+  background: transparent;
+  border-bottom: 100px solid #ddd;
+  border-left: 100px solid transparent;*/
+  /*position: fixed;
+  box-sizing: border-box;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.2);
+  z-index: 999;
+  opacity: 1;
+}*/
