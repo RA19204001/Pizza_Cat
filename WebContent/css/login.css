@@ -12,10 +12,21 @@
   height: 150px;
   background: linear-gradient(to right, #fff 2em, transparent) center / 2em 1.5em no-repeat, linear-gradient(to right, transparent 6px, #fff 6px calc(6px + var(--w)), transparent 9px) 0% 0% / 10% 10% repeat, linear-gradient(to bottom, #000 var(--w), transparent var(--w)) 0% 0% / 100% calc((100% - var(--w) * 3) / 2 + var(--w)) repeat #fff;
 
+}*/
+
 *{
-margin:0px;
-paddng:0px;
-}}*/
+	margin:0px;
+	paddng:0px;
+}
+
+header {
+   width: 100%;
+   padding: 10px 0px 10px;
+   background-color: #fff;
+   top: 0;
+   display: flex;
+}
+
 input[type=text]{
 	width:400px;
 	height:30px;
@@ -48,6 +59,7 @@ h1
 {
   background-color: white;
   text-align:center;
+  margin: 15px;
   margin-left: 300px;
   margin-right: 300px;
   border-radius: 3px;

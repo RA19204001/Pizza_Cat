@@ -1,5 +1,6 @@
 <!--浅倉 1/29  -->
 <!--大川 2/20 css -->
+<!--浅倉 2/20  -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <html>
@@ -7,7 +8,9 @@
 <link rel="stylesheet" type="text/css" href="css/login.css">
 <title>Login</title></head>
 <body>
-<p><a href="/PizzaCat/" id="moji"><font size="6">PizzaCat</font></a></p>
+<header>
+		<p><a href="/PizzaCat/" id="moji"><font size="6">PizzaCat</font></a></p>
+</header>
 <h1>ログイン</h1>
 <!-- <span class="class">ログイン</span> -->
 <form name="myform" method='post' action='start' onSubmit="return check()" id="log">

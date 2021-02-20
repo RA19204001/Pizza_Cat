@@ -7,6 +7,10 @@
 <title>会員登録完了</title>
 </head>
 <body>
+<header>
+<p><a href="/PizzaCat/" id="moji"><font size="6">PizzaCat</font></a></p>
+<p class="username">${sessionScope.loginuser.id}様</p>
+</header>
 <h1>${result.message}</h1>
 <form method='post' action='add'>
 
