@@ -17,6 +17,11 @@ header {
    top: 0;
    display: flex;
 }
+
+#head-title{
+
+}
+
 h3 {
    margin: 0; padding: 0;
    font-size: 20px;
@@ -41,6 +46,19 @@ h3 {
 }
 
 body {
-	background-color: #ffe4e1;
+
+	background-image: url('image/concrete2.jpg');
+}
+p{
+    text-align: center;
+}
+.menu_button{
+	text-decoration:none;
+	font-size:24px;
+	font-weight:bold;
+	color:#fff;
+	padding: 3% 20%;
+	border-radius: 6px;
+	background-color: #66FF66;
 }
 
