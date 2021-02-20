@@ -135,7 +135,7 @@ $(function(){
 	}
 
 
-	//size---------------------------------------------------------------------------------------------------------------
+	//side---------------------------------------------------------------------------------------------------------------
 	//グローバル変数
 	var nowModalsSyncer = null ;		//現在開かれているモーダルコンテンツ
 	var modalsClassSyncer = "modals-syncer" ;		//モーダルを開くリンクに付けるクラス名
@@ -241,10 +241,16 @@ $(function(){
 		<style>
 @charset "UTF-8";
 
+*{
+	margin:0;
+	padding:0;
+}
+
 /* ここまでデモページ用のコード */
 
 .modal-content {
 	width: 50% ;
+	height :70%;
 	margin: 0 ;
 	padding: 10px 20px ;
 	border: 2px solid #aaa ;
@@ -252,6 +258,9 @@ $(function(){
 	position: fixed ;
 	display: none ;
 	z-index: 2 ;
+	overflow-y: scroll;
+	overflow-y: hidden visible;
+
 }
 
 #modal-overlay {
@@ -336,6 +345,51 @@ $(function(){
 	cursor: pointer ;
 	color: #f00 ;
 }
+
+
+
+.cart {
+	margin-top: 0;
+	position: webkit-sticky;
+	position: sticky;
+	position: fixed;
+	right: 0px;
+	display: flex;
+	justify-content: center;
+	top: 0px;
+	width: 20%;
+	height: 90%;
+	color: rgb(114, 36, 50);
+	background: #FFF;
+	overflow-y: scroll;
+	overflow-y: hidden visible;
+}
+.cart-total{
+	position: webkit-sticky;
+	position: sticky;
+	position: fixed;
+	bottom:0px;
+	right: 0px;
+	display: flex;
+	width: 20%;
+	height: 10%;
+	color: rgb(114, 36, 50);
+	background: #FEFEFE;
+	border-style: ridge;
+}
+
+img{
+	width:50%;
+	heigth:50%;
+}
+button{
+	width:20%;
+	heigth:40%;
+	background-color:#FFF;
+	border:outset;
+	content:1px;
+	padding:0px;
+}
 		</style>
 
 		<title>商品一覧</title>
@@ -348,6 +402,7 @@ $(function(){
 <h1 style="text-align:center;color:#d36015;">メニュー</h1>
 
 <!-- カートの中身と値段の表示 -->
+<div class="cart" align="right">
 
 <table border="1">
 <tr><th>削除</th><th>商品名</th><th>値段</th><th>商品番号</th><th>個数</th></tr>
@@ -371,11 +426,17 @@ $(function(){
 	</form>
 </c:forEach>
 </table>
-<form method="post" action="confirmPurchase">
-	<h3>合計金額</h3>
-	<p id="cart_total"></p>
-	<input type="submit" value="購入">
-</form>
+
+</div>
+<div class="cart-total">
+	<table>
+		<form method="post" action="confirmPurchase">
+			<tr><td><h3>合計金額</h3></td><td><input type="submit" value="購入"></td></tr>
+			<tr><td><p id="cart_total"></p></td></tr>
+
+		</form>
+	</table>
+</div>
 
 <hr style="margin: 3em 0 ;">
 
@@ -391,9 +452,9 @@ $(function(){
         <!-- 1つ目のコンテンツ [開始] -->
         <div id="modal-content-${status.index}" class="modal-content" name="favDialog">
             <!-- モーダルウィンドウのコンテンツ開始 -->
-            <p>${menu.name}</p>
             <img src="pizza/${menu.image}">
-            <p>${menu.explanation}</p>
+            ${menu.name}
+            ${menu.explanation}
             <form method="post" class="dialog" action="addCart" >
             	<c:forEach var="cart" items="${sessionScope.cart}">
 				   <input type="hidden" name="cart_name" value="${cart.name}">
@@ -429,17 +490,14 @@ $(function(){
         <!-- 1つ目のコンテンツ [終了] -->
 
 
-        <span>
-        	<a class="modal-syncer button-link" data-target="modal-content-${status.index}">
-	            <button>
-		            <form method="post">
-			            <p>「${menu.name}」</p>
-			            <img src="pizza/${menu.image}">
-			            <p>${menu.price}円</p>
-	            	</form>
-	            </button>
-        	</a>
-        </span>
+
+	   	<a class="modal-syncer button-link" data-target="modal-content-${status.index}">
+			<button>
+		    	<img src="pizza/${menu.image}">
+	        	<p>${menu.name}</p>
+	        	<p>${menu.price}円</p>
+	    	</button>
+	   	</a>
 
 
 
@@ -449,7 +507,10 @@ $(function(){
 
     <!-- サイドメニューの商品をカートの中に入れる処理 -->
 
-    <input id="TAB-02" type="radio" name="TAB" class="tab-switch" /><label class="tab-label" for="TAB-02"><h2 style="width :500px ;">サイド</h2></label>
+    <input id="TAB-02" type="radio" name="TAB" class="tab-switch" />
+	    <label class="tab-label" for="TAB-02">
+	    	<h2 style="width :500px ;">サイド</h2>
+	    </label>
     <div class="tab-content">
         <c:forEach var="menu" items="${result.sideList}" varStatus="status">
         <!-- 1つ目（サイドメニュー）のコンテンツ [開始] -->
@@ -489,10 +550,10 @@ $(function(){
             <button>
             <form method="post" action="">
             <table>
-            <p>「${menu.name}」</p>
+            <p>${menu.name}</p>
             <img src="pizza/${menu.image}">
             <p>${menu.explanation}</p>
-            <p>${menu.price}円</p>
+            <p>\${menu.price}</p>
             </table>
             </form>
             </button>
