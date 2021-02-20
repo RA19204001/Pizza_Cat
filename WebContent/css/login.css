@@ -11,12 +11,20 @@
   width: 200px;
   height: 150px;
   background: linear-gradient(to right, #fff 2em, transparent) center / 2em 1.5em no-repeat, linear-gradient(to right, transparent 6px, #fff 6px calc(6px + var(--w)), transparent 9px) 0% 0% / 10% 10% repeat, linear-gradient(to bottom, #000 var(--w), transparent var(--w)) 0% 0% / 100% calc((100% - var(--w) * 3) / 2 + var(--w)) repeat #fff;
-}*/
+
+*{
+margin:0px;
+paddng:0px;
+}}*/
 input[type=text]{
 	width:400px;
 	height:30px;
 }
 input[type=password]{
+	width:400px;
+	height:30px;
+}
+input[type=tel]{
 	width:400px;
 	height:30px;
 }
@@ -80,7 +88,7 @@ p#botom
   text-decoration: none;
   font-size: 18px;
   font-weight: bold;
-  line-heigt: 1.2em;
+  border: none;
   /*-webkit-box-shadow: 0px 6px 3px -3px rgba(0,0,0,0.4);
   box-shadow: 0px 6px 3px -3px rgba(0,0,0,0.4);
   -webkit-transition: .12s;
