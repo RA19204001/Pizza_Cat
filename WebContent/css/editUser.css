@@ -1,3 +1,23 @@
+*{
+margin:0px;
+paddng:0px;
+}
+
+header {
+   width: 100%;
+   padding: 10px 0px 10px;
+   background-color: #fff;
+   top: 0;
+   display: flex;
+}
+#moji
+{
+	text-decoration: none;
+	/*text-align:center;*/
+	margin:0 auto;
+	display:block;
+	width:119px;
+}
 
 h1
 {
@@ -8,10 +28,20 @@ h1
     height:80px; padding:10px;
 }
 
+input[type=text]{
+	width:400px;
+	height:30px;
+}
+input[type=tel]{
+	width:400px;
+	height:30px;
+}
+
 #log
 {
   background-color: white;
   text-align:center;
+  margin: 15px;
   margin-left: 300px;
   margin-right: 300px;
   border-radius: 3px;
@@ -50,12 +80,15 @@ p#botom
   opacity: 0.8;
 }
 
-.top_button{
-    text-decoration:none;
-    font-size:10px;
-    font-weight:bold;
-    color: #ffffff;
-    padding: 1% 4%;
-    border-radius: 6px;
-    background: #3ea60c;
+.username {
+  display:none;
+  font-weight:bold;
+  margin: 0 5% 0 auto;
+  list-style: none;
+  font-size: 0;
+  width: 220px;
+  text-align: center;
+  margin: 0 0 0 auto;
+  display: inline-block;
+  font-size: 16px;
 }
