@@ -40,7 +40,7 @@ public class MySqlPizzaOptionDao implements PizzaOptionDao{
     	ArrayList list = new ArrayList();
 
     	try {
-    		String sql="select pizzaoption_id, pizzaoption_name, pizzaoption_price, pizzaoption_display, pizzaoption_category from PIZZAOPTION_TABLE";
+    		String sql="select pizzaoption_id, pizzaoption_name, pizzaoption_price, pizzaoption_display, pizzaoption_category from PIZZAOPTION_TABLE where pizzaoption_display = 1";
 
     		st=cn.prepareStatement(sql);
     		rs=st.executeQuery();
@@ -51,7 +51,38 @@ public class MySqlPizzaOptionDao implements PizzaOptionDao{
     			p.setProduct_id(rs.getString(1));
     			p.setName(rs.getString(2));
     			p.setPrice(rs.getInt(3));
-    			p.setProduct_display(rs.getBoolean(4));
+    			p.setProduct_display(rs.getInt(4));
+    			p.setProduct_category(rs.getString(5));
+
+    			list.add(p);
+
+    		}
+
+    	}catch(SQLException e) {
+    		e.printStackTrace();
+    		throw new IntegrationException(e.getMessage(),e);
+    	}
+
+    	return list;
+
+    }
+
+    public ArrayList getHidePizzaOption() {
+    	ArrayList list = new ArrayList();
+
+    	try {
+    		String sql="select pizzaoption_id, pizzaoption_name, pizzaoption_price, pizzaoption_display, pizzaoption_category from PIZZAOPTION_TABLE where pizzaoption_display = 0";
+
+    		st=cn.prepareStatement(sql);
+    		rs=st.executeQuery();
+
+    		while(rs.next()) {
+    			Product p = new Product();
+
+    			p.setProduct_id(rs.getString(1));
+    			p.setName(rs.getString(2));
+    			p.setPrice(rs.getInt(3));
+    			p.setProduct_display(rs.getInt(4));
     			p.setProduct_category(rs.getString(5));
 
     			list.add(p);
@@ -75,7 +106,7 @@ public class MySqlPizzaOptionDao implements PizzaOptionDao{
 
             st.setString(1,p.getName());
             st.setInt(2,p.getPrice());
-            st.setBoolean(3,p.getProduct_display());
+            st.setInt(3,p.getProduct_display());
             st.setString(4,p.getProduct_category());
 
             st.setString(5, id);
@@ -94,7 +125,7 @@ public class MySqlPizzaOptionDao implements PizzaOptionDao{
 
     		st = cn.prepareStatement(sql);
 
-            st.setBoolean(1,p.getProduct_display());
+            st.setInt(1,p.getProduct_display());
             st.setString(2,product_id);
 
             st.executeUpdate();

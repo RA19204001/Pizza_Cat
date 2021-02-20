@@ -45,7 +45,7 @@ public class MySqlSideDao implements SideDao{
     	ArrayList list = new ArrayList();
 
     	try {
-    		String sql="select side_id, side_name, side_image, side_explanation, side_price, side_display, side_category from SIDE_TABLE";
+    		String sql="select side_id, side_name, side_image, side_explanation, side_price, side_display, side_category from SIDE_TABLE where side_display = 1";
 
     		st=cn.prepareStatement(sql);
     		rs=st.executeQuery();
@@ -58,7 +58,38 @@ public class MySqlSideDao implements SideDao{
     			p.setImage(rs.getString(3));
     			p.setExplanation(rs.getString(4));
     			p.setPrice(rs.getInt(5));
-    			p.setProduct_display(rs.getBoolean(6));
+    			p.setProduct_display(rs.getInt(6));
+
+    			list.add(p);
+
+    		}
+
+    	}catch(SQLException e) {
+    		e.printStackTrace();
+    		throw new IntegrationException(e.getMessage(),e);
+    	}
+
+    	return list;
+    }
+
+    public ArrayList getHideSide() {
+    	ArrayList list = new ArrayList();
+
+    	try {
+    		String sql="select side_id, side_name, side_image, side_explanation, side_price, side_display, side_category from SIDE_TABLE where side_display = 0";
+
+    		st=cn.prepareStatement(sql);
+    		rs=st.executeQuery();
+
+    		while(rs.next()) {
+    			Product p = new Product();
+
+    			p.setProduct_id(rs.getString(1));
+    			p.setName(rs.getString(2));
+    			p.setImage(rs.getString(3));
+    			p.setExplanation(rs.getString(4));
+    			p.setPrice(rs.getInt(5));
+    			p.setProduct_display(rs.getInt(6));
 
     			list.add(p);
 
@@ -81,7 +112,7 @@ public class MySqlSideDao implements SideDao{
             st.setString(1,p.getName());
             st.setString(2,p.getExplanation());
             st.setInt(3,p.getPrice());
-            st.setBoolean(4,p.getProduct_display());
+            st.setInt(4,p.getProduct_display());
             st.setString(5,p.getProduct_category());
 
             st.setString(6, id);
@@ -137,8 +168,11 @@ public class MySqlSideDao implements SideDao{
 
     		st = cn.prepareStatement(sql);
 
-            st.setBoolean(1,p.getProduct_display());
+            st.setInt(1,p.getProduct_display());
             st.setString(2,product_id);
+
+            System.out.println("(mysql)idは"+ product_id);
+    		System.out.println("(mysql)displayは"+ p.getProduct_display());
 
             st.executeUpdate();
     	}catch(SQLException e) {
