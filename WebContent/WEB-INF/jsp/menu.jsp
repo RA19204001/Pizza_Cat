@@ -234,6 +234,12 @@ $(function(){
     var inputresult = document.getElementById("cart_total");
     inputresult.innerHTML=total;
 
+    var flagcartbutton=document.getElementsByClassName("cart_price")[0];
+    if(typeof flagcartbutton === "undefined"){
+		var buybutton=document.getElementById("buy");
+		buybutton.style.display="none";
+    }
+
 });
 
 
@@ -439,7 +445,7 @@ button{
 <div class="cart-total">
 	<table>
 		<form method="post" action="confirmPurchase">
-			<tr><td><h3>合計金額</h3></td><td><input type="submit" value="購入"></td></tr>
+			<tr><td><h3>合計金額</h3></td><td><input type="submit" value="購入" id="buy"></td></tr>
 			<tr><td><p id="cart_total"></p></td></tr>
 
 		</form>
@@ -569,7 +575,7 @@ button{
 </div>
 
 <p><a href="/PizzaCat/">TOPへ</a></p>
-<p><a style="color:#FFEEFF;" href="/PizzaCat/managementLogin">管理者TOPへ</a></p>
+
 
 </body>
 </html>
