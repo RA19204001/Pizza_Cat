@@ -72,30 +72,7 @@
 
 
 		%>
-		<!-- 19日夜に作成しようとして切り替えがうまくいかなかったソース
-		    <head>
 
-		        <h3>PizzaCat</h3>
-		        <div id='page1' class='page1'>
-		            <nav class="tab-nav1">
-			            <ul>
-			                <li><p><a href="addUser">会員登録画面へ</a></p></li>
-			                <li><p><a href="login">ログイン</a></p></li>
-			            </ul>
-		            </nav>
-		        </div>
-		        <div id='page2' class='page2'>
-		            <nav class="tab-nav2">
-		                <ul>
-		                    <li><p><a href="logout">ログアウト</a></p></li>
-		                    <li><p><a href="editUser">ユーザー/カード情報の編集</a></p></li>
-		                </ul>
-		            </nav>
-		        </div>
-
-		    </head>
-		-->
-		<!-- css作成中につき一時封印(のち削除予定)-->
 		<header>
 			<p><a href="/PizzaCat/" id="moji"><font size="6">PizzaCat</font></a></p>
 			<div id='page1' class='page1'>
