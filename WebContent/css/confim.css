@@ -1,0 +1,91 @@
+h1
+{
+	text-align: center;
+}
+#kakuninn
+{
+	height:50%;
+    text-align: center;
+    margin:auto;
+}
+h3
+{
+	text-align: center;
+}
+#siharai
+{
+
+}
+#modoru
+{
+	text-decoration: none;
+}
+.gra
+{
+	font-size:20px;
+	text-align: center;
+	margin: center;
+}
+.btn{
+	margin-left: 41%;/*500px*/
+  margin-right: 41%;
+  display: inline-block;
+  padding: 10px 99px;
+  background: #3ea60c;
+  border-radius: 4px;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+}
+.btn:hover {
+  background: #ffffff;
+  border: solid 2px #3ea60c;
+  color: #3ea60c;
+  opacity: 0.8;
+}
+.btn2{
+	margin-left: 41%;
+  margin-right: 41%;
+  display: inline-block;
+  padding: 10px 99px;
+  background: #3ea60c;
+  border-radius: 4px;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+}
+.btn2:hover {
+  background: #ffffff;
+  border: solid 2px #3ea60c;
+  color: #3ea60c;
+  opacity: 0.8;
+}
+body{
+	 /*margin: 50px auto 0;*/
+	 /*width: 500px;
+	 height: 477px;*/
+	 background-image: url('image/itigo3.jpg'), url('image/itigo3.jpg');
+	 background-repeat: repeat-y, repeat-y;
+	 background-position: 0% 50%, 100% 0%;
+	 background-attachment:scroll;
+
+    margin-left: auto;
+	margin-right: auto;
+}
+#saku
+{
+    width:60px;
+    font-size:15px;
+    font-weight:normal;
+    text-decoration:none;
+    display:block;
+    text-align:center;
+    padding:8px 0 10px;
+    color:#fff;
+    background-color:#1f4f07;
+    border-radius:25px;
+}

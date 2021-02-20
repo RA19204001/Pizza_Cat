@@ -1,3 +1,4 @@
+<!--大川 2/20 css -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -32,6 +33,7 @@ if(list != null){
 <head>
 
 <meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="css/confim.css">
 <title>購入の確認</title>
 
 <!-- JavaScriptの読み込み -->
@@ -55,13 +57,15 @@ if(list != null){
 </head>
 <body>
 
-	<table>
+	<h1 style="color:#2c8005">購入の確認</h1>
+
+	<table id="kakuninn">
 	<tr><th>削除</th><th>商品名</th><th>値段</th><th>商品番号</th><th>数量</th></tr>
 	<c:forEach var="product" items="${sessionScope.cart}" varStatus="status">
 	<input type='hidden' name="custom_id" required value="${status.count}">
 	<form method="post" action="deleteCart">
 	<tr>
-	<td><input type="submit" value="削除">
+	<td><input type="submit" value="削除" id="saku">
 	<td><input type='hidden' name="name" required value="${product.name}">${product.name}</td>
 	<td class="price"><input type='hidden' name="price" required value="${product.price}">${product.price}</td>
 	<td><input type='hidden' name="id" required value="${product.id}">${product.id}</td>
@@ -90,13 +94,13 @@ if(list != null){
 		<input type='hidden' name="amount" required value="${product.amount}">
 	</c:forEach>
 	<h3>合計金額</h3><br>
-	<p id="result"></p>
+	<p id="result" class="gra"></p>
 	<input type="hidden" name="total" id="total">
-    <input type='submit' value='支払い'>
+    <input type='submit' value='支払い' class="btn">
 </form>
 
 
-<!-- <p><a style="color:#FFEEFF;" href="/PizzaCat/menu">戻る</a></p> -->
+<a href="/PizzaCat/menu" class="btn2">戻る　　</a>
 
 </body>
 </html>
