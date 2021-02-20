@@ -29,7 +29,7 @@ public class EditDisplayCommand extends AbstractCommand {
 		Product product = new Product();
 		product.setProduct_id(id);
 
-        if(product_display == 1) {
+        if(product_display == 0) {
             product.setProduct_display(true);
         }else {
 
