@@ -96,7 +96,7 @@ public class AddCartCommand extends AbstractCommand {
 					int optionamounts =  Integer.parseInt(optionamount);
 
 					optioncart.setName(optionname);
-					optioncart.setPrice(optionprices*optionamounts);
+					optioncart.setPrice(optionprices);
 					optioncart.setId(optionproduct_id);
 					optioncart.setAmount(optionamounts);
 					if(array.size()!=0) {
