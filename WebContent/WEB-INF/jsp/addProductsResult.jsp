@@ -12,7 +12,7 @@
 
 </form>
 
-<p><a href="/PizzaCat/">TOPへ</a></p>
+<p><a href="/PizzaCat/managementTop">TOPへ</a></p>
 
 </body>
 </html>
