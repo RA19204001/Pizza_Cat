@@ -245,6 +245,9 @@ $(function(){
 	margin:0;
 	padding:0;
 }
+a{
+    text-decoration:none;
+}
 
 /* ここまでデモページ用のコード */
 
@@ -276,7 +279,6 @@ $(function(){
 
 .button-link {
 	color: #00f ;
-	text-decoration: underline ;
 }
 
 .button-link:hover {
@@ -338,7 +340,6 @@ $(function(){
 
 .buttons-link {
 	color: #00f ;
-	text-decoration: underline ;
 }
 
 .buttons-link:hover {
@@ -346,7 +347,16 @@ $(function(){
 	color: #f00 ;
 }
 
-
+.menu {
+	flex: 1 0 auto;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	margin-left: 1%;
+	margin-right: 2%;
+	background: #EEE;
+}
 
 .cart {
 	margin-top: 0;
@@ -378,8 +388,8 @@ $(function(){
 	border-style: ridge;
 }
 
-img{
-	width:50%;
+.opimg{
+	width:100%;
 	heigth:50%;
 }
 button{
@@ -388,7 +398,6 @@ button{
 	background-color:#FFF;
 	border:outset;
 	content:1px;
-	padding:0px;
 }
 		</style>
 
@@ -405,13 +414,12 @@ button{
 <div class="cart" align="right">
 
 <table border="1">
-<tr><th>削除</th><th>商品名</th><th>値段</th><th>商品番号</th><th>個数</th></tr>
+<tr><th>削除</th><th>商品名</th><th>値段</th><th>個数</th></tr>
    <c:forEach var="cart" items="${sessionScope.cart}">
 	<form method="post" action="deleteCart">
 		   <tr><td><input type="submit" value="削除"></td>
 		   <td>${cart.name}</td>
 		   <td class="cart_price">${cart.price}</td>
-		   <td>${cart.id}</td>
 		   <td class="cart_amount">${cart.amount}</td></tr>
 		   <input type="hidden" name="delete_id" value="${cart.id}">
 		   <input type="hidden" name="delete_custam_id" value="${cart.custamid}">
@@ -441,11 +449,11 @@ button{
 <hr style="margin: 3em 0 ;">
 
 <!-- ピザメニューの商品をカートの中に入れる処理 -->
-
+<div class="menu">
 <div class="tab-wrap">
     <input id="TAB-01" type="radio" name="TAB" class="tab-switch" checked="checked" />
     <label class="tab-label" for="TAB-01">
-    	<h2 style="width :500px ;">ピザ</h2>
+    	<h2 style="width :570px ;">ピザ</h2>
     </label>
     <div class="tab-content">
         <c:forEach var="menu" items="${result.list}" varStatus="status">
@@ -453,8 +461,8 @@ button{
         <div id="modal-content-${status.index}" class="modal-content" name="favDialog">
             <!-- モーダルウィンドウのコンテンツ開始 -->
             <img src="pizza/${menu.image}">
-            ${menu.name}
-            ${menu.explanation}
+            <p>${menu.name}</p>
+            <p>${menu.explanation}</p>
             <form method="post" class="dialog" action="addCart" >
             	<c:forEach var="cart" items="${sessionScope.cart}">
 				   <input type="hidden" name="cart_name" value="${cart.name}">
@@ -469,7 +477,7 @@ button{
                	<input type="hidden" name="name" value="${menu.name}">
                	<input type="hidden" name="price" value="${menu.price}">
 				<br>
-				<c:forEach var="option" items="${result.optionList}" begin="2">
+				<c:forEach var="option" items="${result.optionList}" begin="5">
 					<p>${option.name}</p>
                     <select name="option">
                     	<option value="${option.name}:0:${option.price}:${option.product_id}">0</option>
@@ -482,7 +490,7 @@ button{
 
 				<input type="submit" value="カートに入れる">
             </form>
-            <p>${menu.price}円</p>
+            <p>${menu.price}</p>
 
             <p><a id="modal-close" class="button-link">閉じる</a></p>
             <!-- モーダルウィンドウのコンテンツ終了 -->
@@ -493,9 +501,9 @@ button{
 
 	   	<a class="modal-syncer button-link" data-target="modal-content-${status.index}">
 			<button>
-		    	<img src="pizza/${menu.image}">
+		    	<img src="pizza/${menu.image}" class="opimg">
 	        	<p>${menu.name}</p>
-	        	<p>${menu.price}円</p>
+	        	<p>¥${menu.price}</p>
 	    	</button>
 	   	</a>
 
@@ -509,15 +517,15 @@ button{
 
     <input id="TAB-02" type="radio" name="TAB" class="tab-switch" />
 	    <label class="tab-label" for="TAB-02">
-	    	<h2 style="width :500px ;">サイド</h2>
+	    	<h2 style="width :570px ;">サイド</h2>
 	    </label>
     <div class="tab-content">
         <c:forEach var="menu" items="${result.sideList}" varStatus="status">
         <!-- 1つ目（サイドメニュー）のコンテンツ [開始] -->
         <div id="modals-content-${status.index}" class="modals-content" name="favDialog">
             <!-- モーダルウィンドウのコンテンツ開始 -->
-            <p>${menu.name}</p>
             <img src="pizza/${menu.image}">
+            <p>${menu.name}</p>
             <p>${menu.explanation}</p>
             <form method="post" class="dialog" action="addCart" >
             	<c:forEach var="cart" items="${sessionScope.cart}">
@@ -538,36 +546,27 @@ button{
 				<input type="submit" value="カートに入れる">
 
             </form>
-            <p>${menu.price}円</p>
+            <p>¥${menu.price}</p>
             <p><a id="modals-close" class="buttons-link">閉じる</a></p>
             <!-- モーダルウィンドウのコンテンツ終了 -->
         </div>
         <!-- 1つ目のコンテンツ [終了] -->
 
 
-        <p><a class="modals-syncer buttons-link" data-targets="modals-content-${status.index}">
-            <menu>
+        <a class="modals-syncer buttons-link" data-targets="modals-content-${status.index}">
             <button>
-            <form method="post" action="">
-            <table>
-            <p>${menu.name}</p>
-            <img src="pizza/${menu.image}">
-            <p>${menu.explanation}</p>
-            <p>\${menu.price}</p>
-            </table>
-            </form>
+		        <img src="pizza/${menu.image}" class="opimg">
+	            <p>${menu.name}</p>
+	            <p>¥${menu.price}</p>
             </button>
-        </menu>
-        </a></p>
+        </a>
 
-
-        <hr style="margin: 3em 0 ;">
 
         </c:forEach>
     </div>
 
 </div>
-
+</div>
 
 <p><a href="/PizzaCat/">TOPへ</a></p>
 <p><a style="color:#FFEEFF;" href="/PizzaCat/managementLogin">管理者TOPへ</a></p>
