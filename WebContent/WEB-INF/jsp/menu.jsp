@@ -346,28 +346,31 @@ $(function(){
 
 
 <h1 style="text-align:center;color:#d36015;">メニュー</h1>
-	<table border="1">
-	<tr><th>削除</th><th>商品名</th><th>値段</th><th>商品番号</th><th>個数</th></tr>
-    <c:forEach var="cart" items="${sessionScope.cart}">
-<form method="post" action="deleteCart">
-	   <tr><td><input type="submit" value="削除"></td>
-	   <td>${cart.name}</td>
-	   <td class="cart_price">${cart.price}</td>
-	   <td>${cart.id}</td>
-	   <td class="cart_amount">${cart.amount}</td></tr>
-	   <input type="hidden" name="delete_id" value="${cart.id}">
-	   <input type="hidden" name="delete_custam_id" value="${cart.custamid}">
 
-	   <c:forEach var="cart" items="${sessionScope.cart}">
-          <input type="hidden" name="cart_name" value="${cart.name}">
-          <input type="hidden" name="cart_price" value="${cart.price}">
-          <input type="hidden" name="cart_id" value="${cart.id}">
-          <input type="hidden" name="cart_amount" value="${cart.amount}">
-          <input type="hidden" name="cart_custamid" value="${cart.custamid}">
-       </c:forEach>
-</form>
-	</c:forEach>
-	</table>
+<!-- カートの中身と値段の表示 -->
+
+<table border="1">
+<tr><th>削除</th><th>商品名</th><th>値段</th><th>商品番号</th><th>個数</th></tr>
+   <c:forEach var="cart" items="${sessionScope.cart}">
+	<form method="post" action="deleteCart">
+		   <tr><td><input type="submit" value="削除"></td>
+		   <td>${cart.name}</td>
+		   <td class="cart_price">${cart.price}</td>
+		   <td>${cart.id}</td>
+		   <td class="cart_amount">${cart.amount}</td></tr>
+		   <input type="hidden" name="delete_id" value="${cart.id}">
+		   <input type="hidden" name="delete_custam_id" value="${cart.custamid}">
+
+		   <c:forEach var="cart" items="${sessionScope.cart}">
+	          <input type="hidden" name="cart_name" value="${cart.name}">
+	          <input type="hidden" name="cart_price" value="${cart.price}">
+	          <input type="hidden" name="cart_id" value="${cart.id}">
+	          <input type="hidden" name="cart_amount" value="${cart.amount}">
+	          <input type="hidden" name="cart_custamid" value="${cart.custamid}">
+	       </c:forEach>
+	</form>
+</c:forEach>
+</table>
 <form method="post" action="confirmPurchase">
 	<h3>合計金額</h3>
 	<p id="cart_total"></p>
@@ -375,8 +378,14 @@ $(function(){
 </form>
 
 <hr style="margin: 3em 0 ;">
+
+<!-- ピザメニューの商品をカートの中に入れる処理 -->
+
 <div class="tab-wrap">
-    <input id="TAB-01" type="radio" name="TAB" class="tab-switch" checked="checked" /><label class="tab-label" for="TAB-01"><h2 style="width :500px ;">ピザ</h2></label>
+    <input id="TAB-01" type="radio" name="TAB" class="tab-switch" checked="checked" />
+    <label class="tab-label" for="TAB-01">
+    	<h2 style="width :500px ;">ピザ</h2>
+    </label>
     <div class="tab-content">
         <c:forEach var="menu" items="${result.list}" varStatus="status">
         <!-- 1つ目のコンテンツ [開始] -->
@@ -396,53 +405,49 @@ $(function(){
 
             	<input type="hidden" name="amount" value="1">
             	<input type="hidden" name="id" value="${menu.product_id}">
-
-                	<input type="hidden" name="name" value="${menu.name}">
-                	<input type="hidden" name="price" value="${menu.price}">
+               	<input type="hidden" name="name" value="${menu.name}">
+               	<input type="hidden" name="price" value="${menu.price}">
+				<br>
+				<c:forEach var="option" items="${result.optionList}" begin="2">
+					<p>${option.name}</p>
+                    <select name="option">
+                    	<option value="${option.name}:0:${option.price}:${option.product_id}">0</option>
+						<option value="${option.name}:2:${option.price}:${option.product_id}">2倍</option>
+                        <option value="${option.name}:3:${option.price}:${option.product_id}">3倍</option>
+                        <option value="${option.name}:4:${option.price}:${option.product_id}">4倍</option>
+                    </select>
 					<br>
-					<c:forEach var="option" items="${result.optionList}" begin="2">
-						<p>${option.name}</p>
-                        <select name="option">
-	                        <option value="${option.name}:0:${option.price}:${option.product_id}">0</option>
-                            <option value="${option.name}:2:${option.price}:${option.product_id}">2倍</option>
-                            <option value="${option.name}:3:${option.price}:${option.product_id}">3倍</option>
-                            <option value="${option.name}:4:${option.price}:${option.product_id}">4倍</option>
-                        </select>
-                    <br>
-                    </c:forEach>
+				</c:forEach>
 
 				<input type="submit" value="カートに入れる">
-
             </form>
             <p>${menu.price}円</p>
+
             <p><a id="modal-close" class="button-link">閉じる</a></p>
             <!-- モーダルウィンドウのコンテンツ終了 -->
         </div>
         <!-- 1つ目のコンテンツ [終了] -->
 
 
-        <p><a class="modal-syncer button-link" data-target="modal-content-${status.index}">
-            <menu>
-            <button>
-            <form method="post">
-            <table>
-            <p>「${menu.name}」</p>
-            <img src="pizza/${menu.image}">
-            <p>${menu.explanation}</p>
-            <p>${menu.price}円</p>
-            </table>
-            </form>
-            </button>
-        </menu>
-        </a></p>
+        <span>
+        	<a class="modal-syncer button-link" data-target="modal-content-${status.index}">
+	            <button>
+		            <form method="post">
+			            <p>「${menu.name}」</p>
+			            <img src="pizza/${menu.image}">
+			            <p>${menu.price}円</p>
+	            	</form>
+	            </button>
+        	</a>
+        </span>
 
 
-        <hr style="margin: 3em 0 ;">
+
 
         </c:forEach>
     </div>
 
-    <!-- サイドメニュー -->
+    <!-- サイドメニューの商品をカートの中に入れる処理 -->
 
     <input id="TAB-02" type="radio" name="TAB" class="tab-switch" /><label class="tab-label" for="TAB-02"><h2 style="width :500px ;">サイド</h2></label>
     <div class="tab-content">

@@ -1,0 +1,46 @@
+.page1 {
+    display:block;
+    font-weight:bold;
+    margin: 0 5% 0 auto;
+}
+.page2 {
+    display:none;
+    font-weight:bold;
+    margin: 0 5% 0 auto;
+}
+
+header {
+   width: 100%;
+   padding: 10px 0px 10px;
+   background-color: #fff;
+   position: fixed;
+   top: 0;
+   display: flex;
+}
+h3 {
+   margin: 0; padding: 0;
+   font-size: 20px;
+}
+
+#nav {
+  list-style: none;
+  font-size: 0;
+}
+
+#nav li {
+  width: 220px;
+  text-align: center;
+  margin: 0 0 0 auto;
+  display: inline-block;
+  font-size: 16px;
+}
+
+#nav li a {
+  text-decoration: none;
+  font-weight: bold;
+}
+
+body {
+	background-color: #ffe4e1;
+}
+
