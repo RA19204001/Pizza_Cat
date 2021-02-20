@@ -1,5 +1,6 @@
 //いががががぎご
 
+
 package command;
 
 import bean.Message;
