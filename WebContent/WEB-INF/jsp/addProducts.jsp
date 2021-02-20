@@ -54,7 +54,7 @@ function check(){
 			<label><input type="radio" name="productCat" value="pizzaOption" onclick="catChange1();" />ピザオプション</label>
 			<label><input type="radio" name="productCat" value="side" onclick="catChange1();" />サイドメニュー</label>
 
-<form method='post' action='addProductsResult' onSubmit="return check()">
+<form method='post' action='addProductsResult' enctype=”multipart/form-data”onSubmit="return check()">
 	<div id="pizza">
 		商品名<input type='text' maxlength='15' title="半角英数字を入力して下さい。" name='name' required autofocus><br>
     	画像<input type='file' name="file" accept="image/*" required><br>
@@ -82,7 +82,7 @@ function check(){
     	カテゴリー<select name='category' required>
    					<option value="topping">トッピング</option>
 					<option value="size">サイズ</option>
-					<option value="cloth">生地</option>
+					<option value="dough">生地</option>
 					</select><br>
     	<input type='hidden' name='type' required value="2"><br>
     	<input type='hidden' name='display' required value="1"><br>
@@ -90,7 +90,7 @@ function check(){
     </div>
     </form>
 
-<form method='post' action='addProductsResult' onSubmit="return check()">
+<form method='post' action='addProductsResult' enctype=”multipart/form-data” onSubmit="return check()">
     <div id="side">
 		商品名<input type='text' maxlength='15' title="半角英数字を入力して下さい。" name='name' required autofocus><br>
     	画像<input type='file' name="file" accept="image/*" required><br>
