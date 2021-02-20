@@ -1,0 +1,61 @@
+
+h1
+{
+    text-align:center;
+    background-image: url('image/concrete3.jpg');
+    background-repeat:repeat-x;
+    /*width:900px; height:80px; padding:15px;*/
+    height:80px; padding:10px;
+}
+
+#log
+{
+  background-color: white;
+  text-align:center;
+  margin-left: 300px;
+  margin-right: 300px;
+  border-radius: 3px;
+  box-shadow: 0 10px 15px -2px rgba(10, 10, 10, 0.4);
+  padding: 30px;
+
+}
+
+p#botom
+{
+  background-color: white;
+  text-align:center;
+   margin-left: 300px;
+  margin-right: 300px;
+  border-radius: 3px;
+  box-shadow: 0 10px 15px -2px rgba(27, 33, 58, 0.4);
+  padding: 20px;
+}
+
+.btn{
+  display: inline-block;
+  padding: 10px 20%;
+  background: #3ea60c;
+  border-radius: 4px;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+
+}
+.btn:hover {
+  background: #ffffff;
+  border: solid 2px #3ea60c;
+  color: #3ea60c;
+  opacity: 0.8;
+}
+
+.top_button{
+    text-decoration:none;
+    font-size:10px;
+    font-weight:bold;
+    color: #ffffff;
+    padding: 1% 4%;
+    border-radius: 6px;
+    background: #3ea60c;
+}
