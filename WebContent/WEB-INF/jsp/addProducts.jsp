@@ -61,10 +61,10 @@ function check(){
     	説明<input type='text' maxlength='500' name='explanation' required><br>
    		値段<input type='text' maxlength='4' pattern="^[0-9]+$" title="半角数字で入力して下さい。" name='price' required><br>
    		カテゴリー<select name='category' required>
-   					<option value="mix">ミックス</option>
-					<option value="meet">ミート</option>
-					<option value="original">オリジナル</option>
-					<option value="seafood">シーフード</option>
+   					<option value="original">オリジナル</option>
+					<option value="classic">クラシック</option>
+					<option value="value">バリュー</option>
+					<option value="premium">プレミアム</option>
 					<option value="mybox">MyBOX</option>
 					<option value="other">その他</option>
 					</select><br>
