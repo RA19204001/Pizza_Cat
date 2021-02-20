@@ -6,6 +6,7 @@
 <!-- 内田2/17 -->
 <!--浅倉 2/17 -->
 <!--浅倉 2/19 -->
+<!-- 染谷 02/20 -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -240,8 +241,25 @@ $(function(){
 		buybutton.style.display="none";
     }
 
+    //保存されたピザ、サイドのタブの状態を適応　開始
+	var tabstatus = sessionStorage.getItem('tabstatus');
+    //<input id="TAB-01" type="radio" name="TAB" class="tab-switch" onclick="changetab('tab1')"/>
+    //<input id="TAB-02" type="radio" name="TAB" class="tab-switch" onclick="changetab('tab2')"/>
+    var tab1 = document.getElementById("TAB-01");
+    var tab2 = document.getElementById("TAB-02");
+
+	if(tabstatus == 'tab2'){
+		tab2.setAttribute('checked','checked');
+	}else{
+		tab1.setAttribute('checked','checked');
+	}
+	//保存されたピザ、サイドのタブの状態を適応　終了
 });
 
+//タブの状態を保存する関数
+function changetab(status){
+	sessionStorage.setItem('tabstatus',status);
+}
 
 		</script>
 		<style>
@@ -457,7 +475,7 @@ button{
 <!-- ピザメニューの商品をカートの中に入れる処理 -->
 <div class="menu">
 <div class="tab-wrap">
-    <input id="TAB-01" type="radio" name="TAB" class="tab-switch" checked="checked" />
+    <input id="TAB-01" type="radio" name="TAB" class="tab-switch" onclick="changetab('tab1')" />
     <label class="tab-label" for="TAB-01">
     	<h2 style="width :570px ;">ピザ</h2>
     </label>
@@ -484,7 +502,7 @@ button{
                	<input type="hidden" name="price" value="${menu.price}">
 				<br>
 				<c:forEach var="option" items="${result.optionList}" begin="5">
-					<p>${option.name}</p>
+					<p>${option.name}: \ ${option.price}</p>
                     <select name="option">
                     	<option value="${option.name}:0:${option.price}:${option.product_id}">0</option>
 						<option value="${option.name}:2:${option.price}:${option.product_id}">2倍</option>
@@ -521,7 +539,7 @@ button{
 
     <!-- サイドメニューの商品をカートの中に入れる処理 -->
 
-    <input id="TAB-02" type="radio" name="TAB" class="tab-switch" />
+    <input id="TAB-02" type="radio" name="TAB" class="tab-switch" onclick="changetab('tab2')" />
 	    <label class="tab-label" for="TAB-02">
 	    	<h2 style="width :570px ;">サイド</h2>
 	    </label>
