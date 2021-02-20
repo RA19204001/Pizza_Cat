@@ -1,4 +1,4 @@
-/**{
+/*{
 margin:0px;
 paddng:0px;
 }*/
@@ -10,16 +10,16 @@ h1
 	height:80px; padding:10px;
 }
 input[type=text]{
-	width:400px;
-	height:30px;
+    width:60%;
+    height: 6%;
 }
 input[type=password]{
-	width:400px;
-	height:30px;
+    width:60%;
+    height:6%;
 }
 input[type=tel]{
-	width:400px;
-	height:30px;
+	width:60%;
+	height:6%;
 }
 #moji
 {
@@ -44,15 +44,15 @@ input::placeholder{
 {
   background-color: white;
   text-align:center;
-  margin-left: 300px;
-  margin-right: 300px;
+  margin-left: 25%;
+  margin-right: 25%;
   border-radius: 3px;
   box-shadow: 0 10px 15px -2px rgba(10, 10, 10, 0.4);
-  padding: 30;
+  padding: 30px;
 }
 .btn{
   display: inline-block;
-  padding: 10px 99px;
+  padding: 2% 10%;
   background: #3ea60c;
   border-radius: 4px;
   color: #ffffff;
@@ -67,8 +67,3 @@ input::placeholder{
   color: #3ea60c;
   opacity: 0.8;
 }
-/*{
-  color: rgb(158, 158, 158);
-  font-size: 15px;
-  padding: 0 0 10 0;
-}*/

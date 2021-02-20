@@ -13,7 +13,6 @@ header {
 #moji
 {
 	text-decoration: none;
-	/*text-align:center;*/
 	margin:0 auto;
 	display:block;
 	width:119px;
@@ -24,17 +23,16 @@ h1
     text-align:center;
     background-image: url('image/concrete3.jpg');
     background-repeat:repeat-x;
-    /*width:900px; height:80px; padding:15px;*/
     height:80px; padding:10px;
 }
 
 input[type=text]{
-	width:400px;
-	height:30px;
+	width:60%;
+	height:6%;
 }
 input[type=tel]{
-	width:400px;
-	height:30px;
+	width:60%;
+	height:6%;
 }
 
 #log
@@ -42,8 +40,8 @@ input[type=tel]{
   background-color: white;
   text-align:center;
   margin: 15px;
-  margin-left: 300px;
-  margin-right: 300px;
+  margin-left: 25%;
+  margin-right: 25%;
   border-radius: 3px;
   box-shadow: 0 10px 15px -2px rgba(10, 10, 10, 0.4);
   padding: 30px;
@@ -54,8 +52,8 @@ p#botom
 {
   background-color: white;
   text-align:center;
-   margin-left: 300px;
-  margin-right: 300px;
+   margin-left: 25%;
+  margin-right: 25%;
   border-radius: 3px;
   box-shadow: 0 10px 15px -2px rgba(27, 33, 58, 0.4);
   padding: 20px;
@@ -63,7 +61,7 @@ p#botom
 
 .btn{
   display: inline-block;
-  padding: 10px 20%;
+  padding: 2% 10%;
   background: #3ea60c;
   border-radius: 4px;
   color: #ffffff;
