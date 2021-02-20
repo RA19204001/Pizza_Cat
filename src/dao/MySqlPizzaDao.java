@@ -3,6 +3,7 @@
 //		2  02  16:00 内田
 //2.9 大川
 //2/12 大川
+//0220
 
 package dao;
 
@@ -77,9 +78,26 @@ public class MySqlPizzaDao implements PizzaDao{
 
     }
 
-    public Product editPizza(String id, Product p) {
+    public void editPizza(String id, Product p) {
+    	try {
+    		String sql = "update pizza_table set pizza_name=?, pizza_explanation=?, pizza_price=?, pizza_display=?, pizza_category=? where pizza_id=?";
 
-    	return p;
+    		st = cn.prepareStatement(sql);
+
+            st.setString(1,p.getName());
+            st.setString(2,p.getExplanation());
+            st.setInt(3,p.getPrice());
+            st.setBoolean(4,p.getProduct_display());
+            st.setString(5,p.getProduct_category());
+
+            st.setString(6, id);
+
+            st.executeUpdate();
+
+    	}catch(SQLException e) {
+    		e.printStackTrace();
+    		throw new EditUserFailedException(e.getMessage(),e);
+    	}
     }
     public Product getPizzaId(String name,String explanation) {
 
@@ -112,6 +130,22 @@ public class MySqlPizzaDao implements PizzaDao{
 
             st.setString(1,product.getProduct_id()+".jpg");
             st.setString(2,product.getProduct_id());
+
+            st.executeUpdate();
+    	}catch(SQLException e) {
+    		e.printStackTrace();
+    		throw new EditUserFailedException(e.getMessage(),e);
+    	}
+    }
+
+    public void editDisplayPizza(String product_id, Product p) {
+    	try {
+    		String sql = "update pizza_table set pizza_display=? where pizza_id=?";
+
+    		st = cn.prepareStatement(sql);
+
+            st.setBoolean(1,p.getProduct_display());
+            st.setString(2,product_id);
 
             st.executeUpdate();
     	}catch(SQLException e) {

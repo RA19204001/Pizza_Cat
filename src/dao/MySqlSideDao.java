@@ -2,6 +2,7 @@ package dao;
 
 //2.9 大川
 //2/12 大川
+//0220
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -71,9 +72,26 @@ public class MySqlSideDao implements SideDao{
     	return list;
     }
 
-    public Product editSide(String id, Product p) {
+    public void editSide(String id, Product p) {
+    	try {
+    		String sql = "update side_table set side_name=?, side_explanation=?, side_price=?, side_display=?, side_category=? where side_id=?";
 
-    	return p;
+    		st = cn.prepareStatement(sql);
+
+            st.setString(1,p.getName());
+            st.setString(2,p.getExplanation());
+            st.setInt(3,p.getPrice());
+            st.setBoolean(4,p.getProduct_display());
+            st.setString(5,p.getProduct_category());
+
+            st.setString(6, id);
+
+            st.executeUpdate();
+
+    	}catch(SQLException e) {
+    		e.printStackTrace();
+    		throw new EditUserFailedException(e.getMessage(),e);
+    	}
     }
     public Product getSideId(String name,String explanation) {
 
@@ -106,6 +124,21 @@ public class MySqlSideDao implements SideDao{
 
             st.setString(1,product.getProduct_id()+".jpg");
             st.setString(2,product.getProduct_id());
+
+            st.executeUpdate();
+    	}catch(SQLException e) {
+    		e.printStackTrace();
+    		throw new EditUserFailedException(e.getMessage(),e);
+    	}
+    }
+    public void editDisplaySide(String product_id, Product p) {
+    	try {
+    		String sql = "update side_table set side_display=? where side_id=?";
+
+    		st = cn.prepareStatement(sql);
+
+            st.setBoolean(1,p.getProduct_display());
+            st.setString(2,product_id);
 
             st.executeUpdate();
     	}catch(SQLException e) {

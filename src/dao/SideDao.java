@@ -1,3 +1,4 @@
+//0220
 package dao;
 
 import java.util.ArrayList;
@@ -10,7 +11,8 @@ public interface SideDao{
 
 	public void addSide(bean.Product p);
 	public ArrayList getSide();
-	public Product editSide(String id, Product p);
+	public void editSide(String id, Product p);
 	public Product getSideId(String name,String explanation);
 	public void updateSideImage(String product_id);
+	public void editDisplaySide(String id, Product product);
 }
