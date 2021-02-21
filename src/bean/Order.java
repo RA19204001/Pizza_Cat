@@ -6,6 +6,7 @@ public class Order implements Bean {
 	private int order_id;
 	private String order_date;
 	private int user_number;
+	private boolean Order_delivery;
 
 	public Order() {}
 	public String getOrder_date() {
@@ -25,6 +26,12 @@ public class Order implements Bean {
 	}
 	public void setOrder_id(int order_id) {
 		this.order_id = order_id;
+	}
+	public boolean getOrder_delivery() {
+		return Order_delivery;
+	}
+	public void setOrder_delivery(boolean order_delivery) {
+		Order_delivery = order_delivery;
 	}
 
 }
