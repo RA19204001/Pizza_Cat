@@ -29,6 +29,7 @@
 </head>
 <body>
 	<h1>売り上げ</h1>
+	<p><a href="/PizzaCat/managementTop">管理者TOPへ</a></p>
 	<p>表示期間を選択</p>
 	<form action="showSales" method="post">
 		<input type="date" name="startDate" required/>から
