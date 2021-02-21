@@ -8,7 +8,6 @@ import java.util.List;
 interface UnNeedLoginPageList{
     static final List<String> LIST = Collections.unmodifiableList(new ArrayList<String>()
     {
-        {add("/view");}
         {add("/start");}
         {add("/addUserResult");}
         {add("/addUser");}
