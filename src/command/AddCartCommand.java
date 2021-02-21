@@ -79,6 +79,70 @@ public class AddCartCommand extends AbstractCommand {
 		array.add(cart);
 
 		if(flagid<=20000) {
+			for(int i = 0;i < reqc.getParameter("optionSize").length;i++) {
+				String option = reqc.getParameter("optionSize")[i];
+				optionList.add(option);
+				int op1 = option.indexOf(":");
+				int op2 = option.indexOf(":",op1+1);
+				int op3 = option.indexOf(":",op2+1);
+				String optionname = option.substring(0,op1);
+				String optionamount = option.substring(op1+1,op2);
+				String optionprice = option.substring(op2+1,op3);
+				String optionproduct_id = option.substring(op3+1);
+				if(!(optionamount.equals("0"))) {
+					Cart optioncart = new Cart();
+
+					int optionprices =  Integer.parseInt(optionprice);
+					int optionamounts =  Integer.parseInt(optionamount);
+
+					optioncart.setName(optionname);
+					optioncart.setPrice(optionprices);
+					optioncart.setId(optionproduct_id);
+					optioncart.setAmount(optionamounts);
+					if(array.size()!=0) {
+						Cart oldcart=(Cart)array.get(array.size()-1);
+						optioncart.setCustamid(oldcart.getCustamid());
+					}else {
+						optioncart.setCustamid(1);
+					}
+					array.add(optioncart);
+				}
+			}
+		}
+
+		if(flagid<=20000) {
+			for(int i = 0;i < reqc.getParameter("optionDough").length;i++) {
+				String option = reqc.getParameter("optionDough")[i];
+				optionList.add(option);
+				int op1 = option.indexOf(":");
+				int op2 = option.indexOf(":",op1+1);
+				int op3 = option.indexOf(":",op2+1);
+				String optionname = option.substring(0,op1);
+				String optionamount = option.substring(op1+1,op2);
+				String optionprice = option.substring(op2+1,op3);
+				String optionproduct_id = option.substring(op3+1);
+				if(!(optionamount.equals("0"))) {
+					Cart optioncart = new Cart();
+
+					int optionprices =  Integer.parseInt(optionprice);
+					int optionamounts =  Integer.parseInt(optionamount);
+
+					optioncart.setName(optionname);
+					optioncart.setPrice(optionprices);
+					optioncart.setId(optionproduct_id);
+					optioncart.setAmount(optionamounts);
+					if(array.size()!=0) {
+						Cart oldcart=(Cart)array.get(array.size()-1);
+						optioncart.setCustamid(oldcart.getCustamid());
+					}else {
+						optioncart.setCustamid(1);
+					}
+					array.add(optioncart);
+				}
+			}
+		}
+
+		if(flagid<=20000) {
 			for(int i = 0;i < reqc.getParameter("option").length;i++) {
 				String option = reqc.getParameter("option")[i];
 				optionList.add(option);
@@ -109,6 +173,10 @@ public class AddCartCommand extends AbstractCommand {
 				}
 			}
 		}
+
+
+
+
 		pros.setAddList(array);
 
 		AbstractDaoFactory factory = AbstractDaoFactory.getFactory();

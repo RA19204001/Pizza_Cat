@@ -501,7 +501,24 @@ button{
                	<input type="hidden" name="name" value="${menu.name}">
                	<input type="hidden" name="price" value="${menu.price}">
 				<br>
-				<c:forEach var="option" items="${result.optionList}" begin="5">
+				<!-- サイズ -->
+				<c:forEach var="option" items="${result.optionList}" begin="0" end="1">
+				<label>
+					<input type="radio" name="optionSize" value="${option.name}:1:${option.price}:${option.product_id}" required>${option.name}
+					<br>
+				</label>
+				</c:forEach>
+				<br>
+				<!-- 生地 -->
+				<c:forEach var="option" items="${result.optionList}" begin="2" end="5">
+				<label>
+					<input type="radio" name="optionDough" value="${option.name}:1:${option.price}:${option.product_id}" required>${option.name}
+					<br>
+				</label>
+				</c:forEach>
+				<br>
+				<br>
+				<c:forEach var="option" items="${result.optionList}" begin="6">
 					<p>${option.name}: \ ${option.price}</p>
                     <select name="option">
                     	<option value="${option.name}:0:${option.price}:${option.product_id}">0</option>
