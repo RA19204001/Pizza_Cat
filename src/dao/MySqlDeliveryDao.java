@@ -31,8 +31,8 @@ public class MySqlDeliveryDao implements DeliveryDao{
 	    						" LEFT JOIN PIZZA_TABLE ON ORDERDETAIL_TABLE.product_id = PIZZA_TABLE.pizza_id" +
 	    						" LEFT JOIN PIZZAOPTION_TABLE ON ORDERDETAIL_TABLE.product_id = PIZZAOPTION_TABLE.pizzaoption_id" +
 	    						" LEFT JOIN SIDE_TABLE ON ORDERDETAIL_TABLE.product_id = SIDE_TABLE.side_id" +
-	    					"WHERE order_date = CURDATE()" +
-	    					"ORDER BY order_id DESC;";
+	    					" WHERE order_date = CURDATE()" +
+	    					" ORDER BY order_id DESC;";
 
 	    	st=cn.prepareStatement(sql);
 	    	rs = st.executeQuery();
