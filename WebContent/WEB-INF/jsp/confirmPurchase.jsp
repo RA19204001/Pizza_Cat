@@ -100,7 +100,7 @@ if(list != null){
 </form>
 
 
-<a href="/PizzaCat/menu" class="btn2">戻る　　</a>
+<a href="/PizzaCat/menu" class="btn2">戻&emsp;る</a>
 
 </body>
 </html>
