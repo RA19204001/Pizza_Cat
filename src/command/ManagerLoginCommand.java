@@ -14,6 +14,9 @@ public class ManagerLoginCommand extends AbstractCommand {
 		String id = reqc.getParameter("id")[0];
 		String pass = reqc.getParameter("pass")[0];
 
+		System.out.println(id);
+		System.out.println(pass);
+
 		Manager manager = new Manager();
 		manager.setId(id);
 		manager.setPass(pass);

@@ -14,8 +14,13 @@ interface UnNeedLoginPageList{
         {add("/addUser");}
         {add("/login");}
         {add("/menu");}
+        {add("/management");}
         {add("/managementLogin");}
         {add("/managementTop");}
-
+        {add("/addProducts");}
+        {add("/addProductsResult");}
+        {add("/editDisplay");}
+        {add("/editDisplayResult");}
+        {add("/managerlogout");}
     });
 }

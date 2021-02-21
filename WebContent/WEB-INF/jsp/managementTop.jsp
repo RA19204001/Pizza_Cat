@@ -33,6 +33,7 @@ try{
 
     <p><a href="addProducts">商品の追加</a></p>
 	<p><a href="editDisplay">商品表示の編集</a></p>
+	<p><a href="managerlogout">ログアウト</a></p>
 
 <p>${sessionScope.loginmanager.id}でログイン中</p>
 

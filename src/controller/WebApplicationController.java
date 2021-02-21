@@ -18,6 +18,7 @@ import context.WebRequestContext;
 import context.WebResponseContext;
 import filter.LoginCheckFilter;
 import filter.LoginNecessityChecker;
+import filter.ManagerLoginCheckFilter;
 
 public class WebApplicationController implements ApplicationController {
 	public RequestContext getRequest(Object request){
@@ -45,20 +46,31 @@ public class WebApplicationController implements ApplicationController {
 		HttpServletResponse res = (HttpServletResponse)resc.getResponse();
 
 		LoginNecessityChecker cheker = new LoginNecessityChecker();
-		boolean flag;
+		String judge;
+		boolean flag = false;
 		RequestDispatcher dispatcher;
 
 		try{
-			flag = cheker.isRequredLogin(req, res);
-			if(flag){
+			judge = cheker.isRequredLogin(req, res);
+			if(judge.equals("manager")) {
+				ManagerLoginCheckFilter mloginf=new ManagerLoginCheckFilter();
+				flag = !(mloginf.isManagerLoggedIn(req,res));
+			}else if(!(judge.equals("user"))){
 				LoginCheckFilter loginf=new LoginCheckFilter();
 				flag = !(loginf.isLoggedIn(req,res));
 			}
 			if(flag){
-				dispatcher = req.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
-				Message message = new Message();
-				message.setMessage("君ログインしてなくね？");
-				resc.setResult(message);
+				if(judge.equals("manager")) {
+					dispatcher = req.getRequestDispatcher("/WEB-INF/jsp/managementLogin.jsp");
+					Message message = new Message();
+					message.setMessage("君ログインしてなくね？");
+					resc.setResult(message);
+				}else {
+					dispatcher = req.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
+					Message message = new Message();
+					message.setMessage("君ログインしてなくね？");
+					resc.setResult(message);
+				}
 			}else{
 				req.setAttribute("result",resc.getResult());
 				dispatcher = req.getRequestDispatcher(resc.getTarget());

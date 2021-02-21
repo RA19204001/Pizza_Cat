@@ -1,4 +1,5 @@
 <!--浅倉 2/5  -->
+<%@ page import ="bean.Message"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <html>
@@ -6,6 +7,19 @@
 <title>管理者ログインページ</title>
 </head>
 <body>
+<%
+			try{
+				Message message = (Message)(request.getAttribute("result"));
+				if(message.getFlag()){
+					session.setAttribute("loginmanager",null);
+				}
+			}catch(ClassCastException e1){
+
+			}catch(Exception e2){
+
+			}
+
+		%>
 <h1>管理者専用ページ</h1>
 <h2>ログインしてください</h2>
 <form method="post" action="management">

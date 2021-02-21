@@ -10,17 +10,23 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class LoginNecessityChecker{
-	  public boolean isRequredLogin(HttpServletRequest req,HttpServletResponse res)throws IOException,ServletException{
+	  public String isRequredLogin(HttpServletRequest req,HttpServletResponse res)throws IOException,ServletException{
 
 	    String path = req.getServletPath();
-		boolean flag = false;
+		String judge = "";
 
 		for(int i=0;i<UnNeedLoginPageList.LIST.size();i++){
 			if(path.equals(UnNeedLoginPageList.LIST.get(i))){
-				flag = true;
+				judge = "user";
 				break;
 			}
 		}
-		return !flag;
+		for(int i=0;i<ManagerLoginPageList.MLIST.size();i++){
+			if(path.equals(ManagerLoginPageList.MLIST.get(i))){
+				judge = "manager";
+				break;
+			}
+		}
+		return judge;
 	}
 }
