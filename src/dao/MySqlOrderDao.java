@@ -63,8 +63,8 @@ public class MySqlOrderDao implements OrderDao {
 		st.setBoolean(1, order.getOrder_delivery());
 		st.setInt(2, order.getOrder_id());
 
-		rs = st.executeQuery();
-		rs.next();
+		st.executeUpdate();
+
 
 	}catch(SQLException e){
         e.printStackTrace();

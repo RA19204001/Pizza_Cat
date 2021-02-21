@@ -24,5 +24,6 @@ interface UnNeedLoginPageList{
         {add("/sales");}
         {add("/showSales");}
         {add("/addressee");}
+        {add("/doneDelivery");}
     });
 }

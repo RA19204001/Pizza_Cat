@@ -75,7 +75,7 @@ public class AddProductsCommand extends AbstractCommand {
                	sd.updateSideImage(image_name);
         	}
         	 ImageNavigation in = new ImageNavigation();
- 	        in.imageNavi(judgeParameter(reqc),product_id.getProduct_id());
+ 	        in.imageNavi(judgeParameter(reqc),product_id.getProduct_id(),reqc);
         }
 
 
