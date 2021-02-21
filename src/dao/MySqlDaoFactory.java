@@ -1,3 +1,4 @@
+//0221染谷
 package dao;
 
 public class MySqlDaoFactory extends AbstractDaoFactory{
@@ -27,5 +28,8 @@ public class MySqlDaoFactory extends AbstractDaoFactory{
   }
   public OrderDao getOrderDao() {
 	  return new MySqlOrderDao();
+  }
+  public SalesDao getSalesDao() {
+	  return new MySqlSalesDao();
   }
 }

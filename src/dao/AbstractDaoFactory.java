@@ -1,5 +1,5 @@
 //1/29 いが
-
+//0221染谷
 
 package dao;
 
@@ -42,4 +42,5 @@ public abstract class AbstractDaoFactory {
 		  public abstract ConnectionManager getConnectionManager();
 		  public abstract OrderDetailDao getOrderDetailDao();
 		  public abstract OrderDao getOrderDao();
+		  public abstract SalesDao getSalesDao();
 }
