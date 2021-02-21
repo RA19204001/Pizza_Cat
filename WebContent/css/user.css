@@ -1,7 +1,7 @@
-/*{
+*{
 margin:0px;
 paddng:0px;
-}*/
+}*
 h1
 {
 	text-align:center;
@@ -18,9 +18,10 @@ input[type=password]{
     height:6%;
 }
 input[type=tel]{
-	width:60%;
-	height:6%;
+    width:60%;
+    height:6%;
 }
+
 #moji
 {
 	text-decoration: none;
