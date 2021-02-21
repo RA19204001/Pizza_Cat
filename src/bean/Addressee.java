@@ -15,7 +15,7 @@ public class Addressee implements Bean {
 	private int product_amount;
 	private String user_address;
 	private int price;
-
+	private boolean Order_delivery;
 	public Addressee() {}
 
 	public String getOrder_date() {
@@ -98,5 +98,13 @@ public class Addressee implements Bean {
 
 	public void setUser_address(String user_address) {
 		this.user_address = user_address;
+	}
+
+	public boolean getOrder_delivery() {
+		return Order_delivery;
+	}
+
+	public void setOrder_delivery(boolean order_delivery) {
+		Order_delivery = order_delivery;
 	}
 }

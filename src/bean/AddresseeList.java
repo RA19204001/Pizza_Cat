@@ -11,7 +11,7 @@ public class AddresseeList implements Bean {
 		return addresseeList;
 	}
 
-	public void setaddresseeList(ArrayList<Addressee> addresseeList) {
+	public void setAddresseeList(ArrayList<Addressee> addresseeList) {
 		this.addresseeList = addresseeList;
 	}
 
