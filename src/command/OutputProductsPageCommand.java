@@ -15,9 +15,9 @@ import bean.Products;
 import context.ResponseContext;
 import dao.AbstractDaoFactory;
 import dao.ConnectionManager;
-import dao.MySqlPizzaDao;
-import dao.MySqlPizzaOptionDao;
-import dao.MySqlSideDao;
+import dao.PizzaDao;
+import dao.PizzaOptionDao;
+import dao.SideDao;
 import exception.PizzaViewFailedException;
 
 public class OutputProductsPageCommand extends AbstractCommand {
@@ -27,22 +27,19 @@ public class OutputProductsPageCommand extends AbstractCommand {
 
 		AbstractDaoFactory factory = AbstractDaoFactory.getFactory();
 		ConnectionManager cm = factory.getConnectionManager();
+		PizzaDao pdao = factory.getPizzaDao();
+		PizzaOptionDao opdao = factory.getPizzaOptionDao();
+		SideDao sdao = factory.getSideDao();
 
 		cm.beginTransaction();
 
 		try {
 
-			MySqlPizzaDao dao = new MySqlPizzaDao();
+			ArrayList arrayList = pdao.getPizza();
 
-			MySqlPizzaOptionDao myOptionDao = new  MySqlPizzaOptionDao();
+			ArrayList optionlist = opdao.getPizzaOption();
 
-			MySqlSideDao sideDao = new MySqlSideDao();
-
-			ArrayList arrayList = dao.getPizza();
-
-			ArrayList optionlist = myOptionDao.getPizzaOption();
-
-			ArrayList sideList = sideDao.getSide();
+			ArrayList sideList = sdao.getSide();
 
 			Products ps = new Products();
 
