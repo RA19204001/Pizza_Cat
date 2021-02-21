@@ -23,14 +23,14 @@ public class MySqlDeliveryDao implements DeliveryDao{
 
 	    try {
 	    	String sql = "select order_date,order_id, orderdetail_id, user_number, user_name, user_address, custom_id, product_amount,order_delivery," +
-	    						"IFNULL(pizza_id,IFNULL(pizzaoption_id,side_id)) AS product_id," +
-	    						"IFNULL(pizza_name,IFNULL(pizzaoption_name,side_name)) AS product_name" +
-	    					"FROM ORDER_table" +
-	    						"RIGHT JOIN ORDERDETAIL_TABLE USING(order_id)" +
-	    						"LEFT JOIN USER_TABLE USING(user_number)" +
-	    						"LEFT JOIN PIZZA_TABLE ON ORDERDETAIL_TABLE.product_id = PIZZA_TABLE.pizza_id" +
-	    						"LEFT JOIN PIZZAOPTION_TABLE ON ORDERDETAIL_TABLE.product_id = PIZZAOPTION_TABLE.pizzaoption_id" +
-	    						"LEFT JOIN SIDE_TABLE ON ORDERDETAIL_TABLE.product_id = SIDE_TABLE.side_id" +
+	    						" IFNULL(pizza_id,IFNULL(pizzaoption_id,side_id)) AS product_id," +
+	    						" IFNULL(pizza_name,IFNULL(pizzaoption_name,side_name)) AS product_name" +
+	    					" FROM ORDER_table" +
+	    						" RIGHT JOIN ORDERDETAIL_TABLE USING(order_id)" +
+	    						" LEFT JOIN USER_TABLE USING(user_number)" +
+	    						" LEFT JOIN PIZZA_TABLE ON ORDERDETAIL_TABLE.product_id = PIZZA_TABLE.pizza_id" +
+	    						" LEFT JOIN PIZZAOPTION_TABLE ON ORDERDETAIL_TABLE.product_id = PIZZAOPTION_TABLE.pizzaoption_id" +
+	    						" LEFT JOIN SIDE_TABLE ON ORDERDETAIL_TABLE.product_id = SIDE_TABLE.side_id" +
 	    					"WHERE order_date = CURDATE()" +
 	    					"ORDER BY order_id DESC;";
 
