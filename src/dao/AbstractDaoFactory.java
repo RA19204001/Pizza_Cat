@@ -43,4 +43,5 @@ public abstract class AbstractDaoFactory {
 		  public abstract OrderDetailDao getOrderDetailDao();
 		  public abstract OrderDao getOrderDao();
 		  public abstract SalesDao getSalesDao();
+		  public abstract DeliveryDao getDeliveryDao();
 }

@@ -14,5 +14,6 @@ public interface ManagerLoginPageList {
 	        {add("/editDisplayResult");}
 	        {add("/sales");}
 	        {add("/showSales");}
+	        {add("/addressee");}
 	    });
 	}

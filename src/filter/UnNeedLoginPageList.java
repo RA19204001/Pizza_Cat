@@ -23,5 +23,6 @@ interface UnNeedLoginPageList{
         {add("/managerlogout");}
         {add("/sales");}
         {add("/showSales");}
+        {add("/addressee");}
     });
 }

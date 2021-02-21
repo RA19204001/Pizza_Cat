@@ -32,4 +32,7 @@ public class MySqlDaoFactory extends AbstractDaoFactory{
   public SalesDao getSalesDao() {
 	  return new MySqlSalesDao();
   }
+  public DeliveryDao getDeliveryDao() {
+	  return new MySqlDeliveryDao();
+  }
 }
