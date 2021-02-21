@@ -55,4 +55,21 @@ public class MySqlOrderDao implements OrderDao {
 		return order;
 	}
 
+	public void updateDelivery(Order order) {
+	try {
+		String sql = "UPDATE order_table set order_delivery = ? WHERE order_id = ?";
+		st=cn.prepareStatement(sql);
+
+		st.setBoolean(1, order.getOrder_delivery());
+		st.setInt(2, order.getOrder_id());
+
+		rs = st.executeQuery();
+		rs.next();
+
+	}catch(SQLException e){
+        e.printStackTrace();
+        throw new IntegrationException(e.getMessage(),e);
+	}
+	}
+
 }
