@@ -17,7 +17,7 @@
 			<c:forEach var="order" items="${result.addresseeList}">
 				<form method="post" action="doneDelivery">
 					<tr><td>${order.user_name}</td><td>${order.custom_id}</td><td>${order.product_name}</td>
-					<td>${order.order_delivery}</td><td>${order.user_address}</td><td>${order.user_address}</td>
+					<td>${order.product_amount}</td><td>${order.user_address}</td><td>${order.order_delivery}</td>
 					<td><input type="submit" value="配達終了"></td></tr>
 				</form>
 			</c:forEach>
