@@ -12,5 +12,7 @@ public interface ManagerLoginPageList {
 	        {add("/addProductsResult");}
 	        {add("/editDisplay");}
 	        {add("/editDisplayResult");}
+	        {add("/sales");}
+	        {add("/showSales");}
 	    });
 	}
