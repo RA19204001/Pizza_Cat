@@ -23,16 +23,16 @@ public class MySqlDeliveryDao implements DeliveryDao{
 
 	    try {
 	    	String sql = "select order_date,order_id, orderdetail_id, user_number, user_name, user_address, custom_id, product_amount,order_delivery," +
-	    						"IFNULL(pizza_id,IFNULL(pizzaoption_id,side_id)) AS product_id," +
-	    						"IFNULL(pizza_name,IFNULL(pizzaoption_name,side_name)) AS product_name" +
-	    					"FROM ORDER_table" +
-	    						"RIGHT JOIN ORDERDETAIL_TABLE USING(order_id)" +
-	    						"LEFT JOIN USER_TABLE USING(user_number)" +
-	    						"LEFT JOIN PIZZA_TABLE ON ORDERDETAIL_TABLE.product_id = PIZZA_TABLE.pizza_id" +
-	    						"LEFT JOIN PIZZAOPTION_TABLE ON ORDERDETAIL_TABLE.product_id = PIZZAOPTION_TABLE.pizzaoption_id" +
-	    						"LEFT JOIN SIDE_TABLE ON ORDERDETAIL_TABLE.product_id = SIDE_TABLE.side_id" +
-	    					"WHERE order_date = CURDATE()" +
-	    					"ORDER BY order_id DESC;";
+	    						" IFNULL(pizza_id,IFNULL(pizzaoption_id,side_id)) AS product_id," +
+	    						" IFNULL(pizza_name,IFNULL(pizzaoption_name,side_name)) AS product_name" +
+	    					" FROM ORDER_table" +
+	    						" RIGHT JOIN ORDERDETAIL_TABLE USING(order_id)" +
+	    						" LEFT JOIN USER_TABLE USING(user_number)" +
+	    						" LEFT JOIN PIZZA_TABLE ON ORDERDETAIL_TABLE.product_id = PIZZA_TABLE.pizza_id" +
+	    						" LEFT JOIN PIZZAOPTION_TABLE ON ORDERDETAIL_TABLE.product_id = PIZZAOPTION_TABLE.pizzaoption_id" +
+	    						" LEFT JOIN SIDE_TABLE ON ORDERDETAIL_TABLE.product_id = SIDE_TABLE.side_id" +
+	    					" WHERE order_date = CURDATE()" +
+	    					" ORDER BY order_id DESC;";
 
 	    	st=cn.prepareStatement(sql);
 	    	rs = st.executeQuery();
@@ -41,15 +41,16 @@ public class MySqlDeliveryDao implements DeliveryDao{
 	    		Addressee Addressee = new Addressee();
 
 	    		Addressee.setOrder_date(rs.getString(1));
-	    		Addressee.setOrderdetail_id(rs.getInt(2));
-	    		Addressee.setUser_number(rs.getInt(3));
-	    		Addressee.setUser_name(rs.getString(4));
-	    		Addressee.setUser_address(rs.getString(5));
-	    		Addressee.setCustom_id(rs.getInt(6));
-	    		Addressee.setProduct_amount(rs.getInt(7));
-	    		Addressee.setOrder_delivery(rs.getBoolean(8));
-	    		Addressee.setProduct_id(rs.getInt(9));
-	    		Addressee.setProduct_name(rs.getString(10));
+	    		Addressee.setOrder_id(rs.getInt(2));
+	    		Addressee.setOrderdetail_id(rs.getInt(3));
+	    		Addressee.setUser_number(rs.getInt(4));
+	    		Addressee.setUser_name(rs.getString(5));
+	    		Addressee.setUser_address(rs.getString(6));
+	    		Addressee.setCustom_id(rs.getInt(7));
+	    		Addressee.setProduct_amount(rs.getInt(8));
+	    		Addressee.setOrder_delivery(rs.getBoolean(9));
+	    		Addressee.setProduct_id(rs.getInt(10));
+	    		Addressee.setProduct_name(rs.getString(11));
 
 	    		list.add(Addressee);
 	    	}
