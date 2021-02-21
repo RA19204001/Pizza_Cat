@@ -8,10 +8,11 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>お届け先なんたら～</title>
+		<title>注文一覧</title>
 	</head>
 	<body>
-	   <p>多分一覧</p>
+	   <p>注文一覧</p>
+	   <p><a href="/PizzaCat/managementTop">管理者TOPへ</a></p>
 	   <table border="1">
 	   <tr><th>注文者</th><th>カスタムid</th><th>商品名</th><th>個数</th><th>住所</th><th>配達状況</th></tr>
 			<c:forEach var="order" items="${result.addresseeList}">
