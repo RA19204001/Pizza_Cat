@@ -21,5 +21,7 @@ interface UnNeedLoginPageList{
         {add("/editDisplay");}
         {add("/editDisplayResult");}
         {add("/managerlogout");}
+        {add("/sales");}
+        {add("/showSales");}
     });
 }

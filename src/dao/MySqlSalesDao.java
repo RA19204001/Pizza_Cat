@@ -27,7 +27,7 @@ public class MySqlSalesDao implements SalesDao {
 	    	String sql = ("SELECT order_date,order_id,user_number,user_name,orderdetail_id,custom_id, " +
 	    					"IFNULL(pizza_id,IFNULL(pizzaoption_id,side_id)) AS product_id, " +
 	    					"IFNULL(pizza_name,IFNULL(pizzaoption_name,side_name)) AS product_name, " +
-	    					"IFNULL(pizza_category,IFNULL(pizzaoption_category,side_category)) AS product_category " +
+	    					"IFNULL(pizza_category,IFNULL(pizzaoption_category,side_category)) AS product_category, " +
 	    					"IFNULL(pizza_price,IFNULL(pizzaoption_price,side_price)) AS product_price, " +
 	    					"product_amount " +
 	    				"FROM ORDER_TABLE " +
