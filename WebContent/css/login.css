@@ -4,6 +4,15 @@
 	paddng:0px;
 }
 
+input[type="text"]{
+	width:400px;
+	height:30px;
+}
+input[type="password"]{
+	width:400px;
+	height:30px;
+}
+
 header {
    width: 100%;
    padding: 10px 0px 10px;
@@ -12,14 +21,19 @@ header {
    display: flex;
 }
 
-
-
 #moji
 {
 	text-decoration: none;
 	margin:0 auto;
 	display:block;
 	width:119px;
+}
+.mame
+{
+  text-align:left;
+  color: #5c6956;
+  font-size: 15px;
+  padding: 0 0 10 0;
 }
 h1
 {
