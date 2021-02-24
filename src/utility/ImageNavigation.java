@@ -1,32 +1,68 @@
 package utility;
 
-//2/10 大川
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
+import java.io.File;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.Part;
+
+import context.RequestContext;
 
 public class ImageNavigation {
 
-		public void imageNavi(String fullPath,String fileName){
+		public void imageNavi(String fullPath,String fileName,RequestContext reqc){
 
 
 
-	        try {
-		            //移動元
-		            FileInputStream input=new FileInputStream(fullPath);
-		            //移動先
-		            FileOutputStream output=new FileOutputStream("C:\\PizzaCatImage\\"+fileName+".jpg");
+//	        try {
+//		            //移動元
+//		            FileInputStream input=new FileInputStream(fullPath);
+//		            //移動先
+//		            FileOutputStream output=new FileOutputStream("C:\\PizzaCatImage\\"+fileName+".jpg");
+//
+//		            byte buf[]=new byte[256];
+//		            int len;
+//		            while((len=input.read(buf))!=-1){
+//		            output.write(buf,0,len);
+//	            }
+//		            output.flush();
+//		            output.close();
+//		            input.close();
+//
+//		            System.out.println("ファイル名、場所を変更しました。");
+//	        } catch (Exception e) {
+//        }
+			try {
+	            //移動元
+//	            FileInputStream input=new FileInputStream(fullPath);
 
-		            byte buf[]=new byte[256];
-		            int len;
-		            while((len=input.read(buf))!=-1){
-		            output.write(buf,0,len);
-	            }
-		            output.flush();
-		            output.close();
-		            input.close();
+        		//Part
+	            Part part=((HttpServletRequest)reqc.getRequest()).getPart("file");
 
-		            System.out.println("ファイル名、場所を変更しました。");
-	        } catch (Exception e) {
-        }
+	            //移動先
+//	            FileOutputStream output=new FileOutputStream("C:\\PizzaCatImage\\"+fileName+".jpg");
+
+	            //ファイル名の取得
+	            String filenames=part.getSubmittedFileName();
+	            String file=filenames.substring(0,filenames.indexOf("."));
+
+	            //アップロード先の指定
+	            String path="c:\\pizza";
+
+	            System.out.println("ファイル名"+fileName+".jpg");
+
+	            part.write(path+File.separator+fileName+".jpg");
+//	            byte buf[]=new byte[256];
+//	            int len;
+//	            while((len=input.read(buf))!=-1){
+//	            output.write(buf,0,len);
+//            }
+//	            output.flush();
+//	            output.close();
+//	            input.close();
+
+	            System.out.println("ファイル名、場所を変更しました。");
+        } catch (Exception e) {
+        	e.printStackTrace();
+    }
     }
 }
