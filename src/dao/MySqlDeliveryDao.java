@@ -25,7 +25,7 @@ public class MySqlDeliveryDao implements DeliveryDao{
 	    	String sql = "select order_date,order_id, orderdetail_id, user_number, user_name, user_address, custom_id, product_amount,order_delivery," +
 	    						" IFNULL(pizza_id,IFNULL(pizzaoption_id,side_id)) AS product_id," +
 	    						" IFNULL(pizza_name,IFNULL(pizzaoption_name,side_name)) AS product_name" +
-	    					" FROM ORDER_table" +
+	    					" FROM ORDER_TABLE" +
 	    						" RIGHT JOIN ORDERDETAIL_TABLE USING(order_id)" +
 	    						" LEFT JOIN USER_TABLE USING(user_number)" +
 	    						" LEFT JOIN PIZZA_TABLE ON ORDERDETAIL_TABLE.product_id = PIZZA_TABLE.pizza_id" +

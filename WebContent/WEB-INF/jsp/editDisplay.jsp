@@ -190,6 +190,18 @@
 			content:1px;
 			padding:0px;
 		}
+
+.menu {
+	flex: 1 0 auto;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	margin-left: 1%;
+	margin-right: 2%;
+	background: #EEE;
+}
+
 	</style>
 
 	<title>商品一覧</title>
@@ -200,7 +212,7 @@
 
 <h1 style="text-align:center;color:#d36015;">商品表示編集</h1>
 
-
+<div class="menu">
 <div class="tab-wrap">
     <input id="TAB-01" type="radio" name="TAB" class="tab-switch" checked="checked" />
     <label class="tab-label" for="TAB-01">
@@ -215,6 +227,25 @@
 		        	<p>${menu.price}円</p>
 		        	<input type="hidden" name="id" value="${menu.product_id}">
 		        	<input type="hidden" name="display" value="0">
+		        	</button>
+		        </form>
+        </c:forEach>
+    </div>
+
+
+    <input id="TAB-04" type="radio" name="TAB" class="tab-switch"/>
+    <label class="tab-label" for="TAB-04">
+    	<h2 style="width :500px ;">非表示済みピザ</h2>
+    </label>
+    <div class="tab-content">
+        <c:forEach var="menu" items="${result.hidepizzaList}" varStatus="status">
+			<form method="post" action="editDisplayResult" onSubmit="return displaycheck()">
+				<button>
+			    	<img src="pizza/${menu.image}">
+		        	<p>${menu.name}</p>
+		        	<p>${menu.price}円</p>
+		        	<input type="hidden" name="id" value="${menu.product_id}">
+		        	<input type="hidden" name="display" value="1">
 		        	</button>
 		        </form>
         </c:forEach>
@@ -238,43 +269,6 @@
         </c:forEach>
     </div>
 
-    <input id="TAB-03" type="radio" name="TAB" class="tab-switch"/>
-    <label class="tab-label" for="TAB-03">
-    	<h2 style="width :500px ;">表示済みオプション</h2>
-    </label>
-    <div class="tab-content">
-        <c:forEach var="menu" items="${result.optionList}" varStatus="status" begin="6">
-
-				<form method="post" action="editDisplayResult" onSubmit="return hidecheck()">
-				<button>
-			    	<img src="pizza/${menu.image}">
-		        	<p>${menu.name}</p>
-		        	<p>${menu.price}円</p>
-		        	<input type="hidden" name="id" value="${menu.product_id}">
-		        	<input type="hidden" name="display" value="0">
-		        	</button>
-		        </form>
-
-        </c:forEach>
-    </div>
-
-    <input id="TAB-04" type="radio" name="TAB" class="tab-switch"/>
-    <label class="tab-label" for="TAB-04">
-    	<h2 style="width :500px ;">非表示済みピザ</h2>
-    </label>
-    <div class="tab-content">
-        <c:forEach var="menu" items="${result.hidepizzaList}" varStatus="status">
-			<form method="post" action="editDisplayResult" onSubmit="return displaycheck()">
-				<button>
-			    	<img src="pizza/${menu.image}">
-		        	<p>${menu.name}</p>
-		        	<p>${menu.price}円</p>
-		        	<input type="hidden" name="id" value="${menu.product_id}">
-		        	<input type="hidden" name="display" value="1">
-		        	</button>
-		        </form>
-        </c:forEach>
-    </div>
 
     <input id="TAB-05" type="radio" name="TAB" class="tab-switch" />
     <label class="tab-label" for="TAB-05">
@@ -297,6 +291,27 @@
         </c:forEach>
     </div>
 
+
+    <input id="TAB-03" type="radio" name="TAB" class="tab-switch"/>
+    <label class="tab-label" for="TAB-03">
+    	<h2 style="width :500px ;">表示済みオプション</h2>
+    </label>
+    <div class="tab-content">
+        <c:forEach var="menu" items="${result.optionList}" varStatus="status" begin="6">
+
+				<form method="post" action="editDisplayResult" onSubmit="return hidecheck()">
+				<button>
+		        	<p>${menu.name}</p>
+		        	<p>${menu.price}円</p>
+		        	<input type="hidden" name="id" value="${menu.product_id}">
+		        	<input type="hidden" name="display" value="0">
+		        	</button>
+		        </form>
+
+        </c:forEach>
+    </div>
+
+
     <input id="TAB-06" type="radio" name="TAB" class="tab-switch" />
     <label class="tab-label" for="TAB-06">
     	<h2 style="width :500px ;">非表示済みオプション</h2>
@@ -305,7 +320,6 @@
         <c:forEach var="menu" items="${result.hideoptionList}" varStatus="status">
         	<form method="post" action="editDisplayResult" onSubmit="return displaycheck()">
 				<button>
-			    	<img src="pizza/${menu.image}">
 		        	<p>${menu.name}</p>
 		        	<p>${menu.price}円</p>
 		        	<input type="hidden" name="id" value="${menu.product_id}">
@@ -313,6 +327,7 @@
 		        </button>
 		     </form>
         </c:forEach>
+    </div>
     </div>
 </div>
 <p><a href="/PizzaCat/managementTop">管理者TOPへ</a></p>
