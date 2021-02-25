@@ -544,7 +544,7 @@ button{
 			<button>
 		    	<img src="pizza/${menu.image}" class="opimg">
 	        	<p>${menu.name}</p>
-	        	<p>¥${menu.price}</p>
+	        	<p>￥${menu.price}</p>
 	    	</button>
 	   	</a>
 
@@ -587,7 +587,7 @@ button{
 				<input type="submit" value="カートに入れる">
 
             </form>
-            <p>¥${menu.price}</p>
+            <p>￥${menu.price}</p>
             <p><a id="modals-close" class="buttons-link">閉じる</a></p>
             <!-- モーダルウィンドウのコンテンツ終了 -->
         </div>
@@ -598,7 +598,7 @@ button{
             <button>
 		        <img src="pizza/${menu.image}" class="opimg">
 	            <p>${menu.name}</p>
-	            <p>¥${menu.price}</p>
+	            <p>￥${menu.price}</p>
             </button>
         </a>
 
