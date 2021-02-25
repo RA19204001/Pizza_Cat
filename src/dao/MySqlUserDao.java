@@ -105,7 +105,7 @@ public class MySqlUserDao implements UserDao {
     //引数に古いIDもってきてぇぇぇぇええ
     public void editUser(String id, User user) {
     	try {
-    		String sql = "update user_table set user_id=?, user_pass=?, user_name=?, user_address=?, user_age=?, user_point=?, user_phonenumber=? where user_id=?";
+    		String sql = "update USER_TABLE set user_id=?, user_pass=?, user_name=?, user_address=?, user_age=?, user_point=?, user_phonenumber=? where user_id=?";
 
     		st = cn.prepareStatement(sql);
 
