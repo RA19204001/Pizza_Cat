@@ -1,14 +1,13 @@
 header {
-	position: sticky;/*固定する*/
-	position: -webkit-sticky;/*Safari用ベンダープレフィックス*/
-	top: 0;
-   	width: 100%;
-   	padding: 10px 0px 10px;
-   	background-color: #fff;
-   	top: 0;
-   	display: flex;
+   width: 100%;
+   padding: 10px 0px 10px;
+   background-color: #fff;
+   top: 0;
+   display: flex;
+   position: sticky;/*固定する*/
+  position: -webkit-sticky;/*Safari用ベンダープレフィックス*/
+  top: 0;
 }
-
 #moji
 {
 	text-decoration: none;
@@ -16,6 +15,7 @@ header {
 	display:block;
 	width:119px;
 }
+
 
 .username {
   display:none;

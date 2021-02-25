@@ -435,7 +435,7 @@ button{
 
 <header class="header">
 	<p><a href="/PizzaCat/" id="moji"><font size="6">PizzaCat</font></a></p>
-	<p>${sessionScope.loginuser.id}様</p>
+	<p class="username">${sessionScope.loginuser.id}様</p>
 </header>
 
 <!-- カートの中身と値段の表示 -->
