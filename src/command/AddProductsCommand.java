@@ -1,9 +1,5 @@
 package command;
 
-//2/10 大川
-//2/12 大川
-import java.io.File;
-
 import bean.Message;
 import bean.Product;
 import context.RequestContext;
@@ -37,9 +33,9 @@ public class AddProductsCommand extends AbstractCommand {
         product.setExplanation(products_explanation);
         product.setPrice(products_price);
         product.setProductstype(type);
-        String image_name = new File(judgeParameter(reqc)).getName();
+//        String image_name = new File(judgeParameter(reqc)).getName();
         //product.setImage(judgeParameter(reqc));
-        product.setImage(image_name);
+//        product.setImage(image_name);
         //product.setProduct_display(products_display);
         product.setProduct_category(products_category);
 
@@ -65,17 +61,17 @@ public class AddProductsCommand extends AbstractCommand {
             	message.setMessage("pizza登録完了");
             	product_id = pd.getPizzaId(products_name,products_explanation);
 
-            	pd.updatePizzaImage(image_name);
+            	pd.updatePizzaImage(product_id.getProduct_id());
             //sideメニューの時
         	}else{
         		sd.addSide(product);
             	message.setMessage("side登録完了");
             	product_id = sd.getSideId(products_name,products_explanation);
 
-               	sd.updateSideImage(image_name);
+               	sd.updateSideImage(product_id.getProduct_id());
         	}
         	 ImageNavigation in = new ImageNavigation();
- 	        in.imageNavi(judgeParameter(reqc),product_id.getProduct_id(),reqc);
+ 	        in.imageNavi(product_id.getProduct_id(),reqc);
         }
 
 
