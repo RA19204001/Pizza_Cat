@@ -26,7 +26,7 @@ public class MySqlSideDao implements SideDao{
     		st = cn.prepareStatement(sql);
 
     		st.setString(1, p.getName());
-    		st.setString(2, p.getImage());
+    		st.setString(2, "image");
     		st.setString(3, p.getExplanation());
     		st.setInt(4, p.getPrice());
     		//st.setString(5, p.getProduct_display());
