@@ -527,10 +527,10 @@ button{
 				<c:forEach var="option" items="${result.optionList}" begin="6">
 					<p>${option.name}: \ ${option.price}</p>
                     <select name="option">
-                    	<option value="${option.name}:0:${option.price}:${option.product_id}">0</option>
-						<option value="${option.name}:2:${option.price}:${option.product_id}">2倍</option>
-                        <option value="${option.name}:3:${option.price}:${option.product_id}">3倍</option>
-                        <option value="${option.name}:4:${option.price}:${option.product_id}">4倍</option>
+                    	<option value="${option.name}:0:${option.price}:${option.product_id}">0個</option>
+						<option value="${option.name}:1:${option.price}:${option.product_id}">1個</option>
+                        <option value="${option.name}:2:${option.price}:${option.product_id}">2個</option>
+                        <option value="${option.name}:3:${option.price}:${option.product_id}">3個</option>
                     </select>
 					<br>
 				</c:forEach>
