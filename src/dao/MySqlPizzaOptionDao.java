@@ -100,7 +100,7 @@ public class MySqlPizzaOptionDao implements PizzaOptionDao{
 
     public void editPizzaOption(String id, Product p) {
     	try {
-    		String sql = "update pizzaoption_table set pizzaoption_name=?, pizzaoption_explanation=?, pizzaoption_price=?, pizzaoption_display=?, pizzaoption_category=? where pizzaoption_id=?";
+    		String sql = "update PIZZAOPTION_TABLE set pizzaoption_name=?, pizzaoption_explanation=?, pizzaoption_price=?, pizzaoption_display=?, pizzaoption_category=? where pizzaoption_id=?";
 
     		st = cn.prepareStatement(sql);
 
@@ -121,7 +121,7 @@ public class MySqlPizzaOptionDao implements PizzaOptionDao{
     }
     public void editDisplayPizzaOption(String product_id, Product p) {
     	try {
-    		String sql = "update pizzaoption_table set pizzaoption_display=? where pizzaoption_id=?";
+    		String sql = "update PIZZAOPTION_TABLE set pizzaoption_display=? where pizzaoption_id=?";
 
     		st = cn.prepareStatement(sql);
 

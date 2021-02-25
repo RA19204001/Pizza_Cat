@@ -105,7 +105,7 @@ public class MySqlSideDao implements SideDao{
 
     public void editSide(String id, Product p) {
     	try {
-    		String sql = "update side_table set side_name=?, side_explanation=?, side_price=?, side_display=?, side_category=? where side_id=?";
+    		String sql = "update SIDE_TABLE set side_name=?, side_explanation=?, side_price=?, side_display=?, side_category=? where side_id=?";
 
     		st = cn.prepareStatement(sql);
 
@@ -164,7 +164,7 @@ public class MySqlSideDao implements SideDao{
     }
     public void editDisplaySide(String product_id, Product p) {
     	try {
-    		String sql = "update side_table set side_display=? where side_id=?";
+    		String sql = "update SIDE_TABLE set side_display=? where side_id=?";
 
     		st = cn.prepareStatement(sql);
 

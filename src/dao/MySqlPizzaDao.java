@@ -114,7 +114,7 @@ public class MySqlPizzaDao implements PizzaDao{
 
     public void editPizza(String id, Product p) {
     	try {
-    		String sql = "update pizza_table set pizza_name=?, pizza_explanation=?, pizza_price=?, pizza_display=?, pizza_category=? where pizza_id=?";
+    		String sql = "update PIZZA_TABLE set pizza_name=?, pizza_explanation=?, pizza_price=?, pizza_display=?, pizza_category=? where pizza_id=?";
 
     		st = cn.prepareStatement(sql);
 
