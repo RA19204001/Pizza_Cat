@@ -19,6 +19,7 @@ public class AddProductsCommand extends AbstractCommand {
 		RequestContext reqc = getRequestContext();
 
 		String products_name = reqc.getParameter("name")[0];
+		System.out.println(products_name);
         String products_explanation = reqc.getParameter("explanation")[0];
         String price = reqc.getParameter("price")[0];
         String type = reqc.getParameter("type")[0];
