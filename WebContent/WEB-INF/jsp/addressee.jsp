@@ -11,6 +11,15 @@
 		<title>注文一覧</title>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 		<script>
+		function check(){
+
+			if(window.confirm('削除しますか？')){
+				return true;
+			}else{
+				return false;
+			}
+		}
+
 			$(function(){
 				var button=document.getElementsByClassName("button");
 				var flag=document.getElementsByClassName("flag");
@@ -22,7 +31,9 @@
 						buttonhide.style.display="none";
 					}
 				}
+
 			});
+
 		</script>
 	</head>
 	<body>
@@ -31,7 +42,7 @@
 	   <table border="1">
 	   <tr><th>注文番号</th><th>注文者</th><th>カスタムid</th><th>商品名</th><th>個数</th><th>住所</th><th>配達状況</th><th>配達終了</th></tr>
 			<c:forEach var="order" items="${result.addresseeList}">
-				<form method="post" action="doneDelivery">
+				<form method="post" action="doneDelivery"  onSubmit="return check()" >
 					<tr><td>${order.order_id}</td><td>${order.user_name}</td><td>${order.custom_id}</td><td>${order.product_name}</td>
 					<td>${order.product_amount}</td><td>${order.user_address}</td><td>${order.order_delivery}</td>
 					<td><input type="submit" value="配達終了" class="button"></td></tr>
