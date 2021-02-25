@@ -20,12 +20,11 @@ header {
 .username {
   display:none;
   font-weight:bold;
-  margin: 0 5% 0 auto;
   list-style: none;
   font-size: 0;
   width: 220px;
   text-align: center;
-  margin: 0 0 0 auto;
+  margin: 0 0 0 70% ;
   display: inline-block;
   font-size: 16px;
 }
