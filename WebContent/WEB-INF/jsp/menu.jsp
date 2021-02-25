@@ -577,7 +577,7 @@ button{
 				   <input type="hidden" name="cart_custamid" value="${cart.custamid}">
 				</c:forEach>
 
-            	<input type="text" name="amount" value="1">
+            	<input type="text" name="amount" pattern="^[0-9]+$" value="1">
             	<input type="hidden" name="id" value="${menu.product_id}">
 
                 	<input type="hidden" name="name" value="${menu.name}">
