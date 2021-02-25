@@ -391,9 +391,9 @@ a{
 	right: 0px;
 	display: flex;
 	justify-content: center;
-	top: 0px;
+	top: 10%;
 	width: 20%;
-	height: 90%;
+	height: 80%;
 	color: rgb(114, 36, 50);
 	background: #FFF;
 	overflow-y: scroll;
@@ -436,10 +436,12 @@ button{
 <header class="header">
 	<p><a href="/PizzaCat/" id="moji"><font size="6">PizzaCat</font></a></p>
 	<p class="username">${sessionScope.loginuser.id}様</p>
+	<h2>カート</h2>
 </header>
 
 <!-- カートの中身と値段の表示 -->
 <div class="cart" align="right">
+
 
 <table border="1">
 <tr><th>削除</th><th>商品名</th><th>値段</th><th>個数</th></tr>
@@ -508,7 +510,7 @@ button{
 				<!-- サイズ -->
 				<c:forEach var="option" items="${result.optionList}" begin="0" end="1">
 				<label>
-					<input type="radio" name="optionSize" value="${option.name}:1:${option.price}:${option.product_id}" required>${option.name}
+					<input type="radio" name="optionSize" value="${option.name}:1:${option.price}:${option.product_id}" required>${option.name}: \ ${option.price}
 					<br>
 				</label>
 				</c:forEach>
