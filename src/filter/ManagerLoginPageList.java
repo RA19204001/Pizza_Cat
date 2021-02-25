@@ -16,5 +16,6 @@ public interface ManagerLoginPageList {
 	        {add("/showSales");}
 	        {add("/addressee");}
 	        {add("/doneDelivery");}
+	        {add("/addPizzaOptionResult");}
 	    });
 	}
