@@ -36,6 +36,7 @@ if(list != null){
 	<head>
 		<meta charset="UTF-8">
 		<meta name="robots" content="noindex,nofollow">
+		<link rel="stylesheet" type="text/css" href="css/menu.css">
 
 		<!-- ビューポートの設定 -->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -423,6 +424,8 @@ button{
 	border:outset;
 	content:1px;
 }
+
+
 		</style>
 
 		<title>商品一覧</title>
@@ -430,9 +433,10 @@ button{
 	</head>
 <body>
 
-
-
-<h1 style="text-align:center;color:#d36015;">メニュー</h1>
+<header class="header">
+	<p><a href="/PizzaCat/" id="moji"><font size="6">PizzaCat</font></a></p>
+	<p>${sessionScope.loginuser.id}様</p>
+</header>
 
 <!-- カートの中身と値段の表示 -->
 <div class="cart" align="right">
@@ -464,7 +468,7 @@ button{
 	<table>
 		<form method="post" action="confirmPurchase">
 			<tr><td><h3>合計金額</h3></td><td><input type="submit" value="購入" id="buy"></td></tr>
-			<tr><td><p id="cart_total"></p></td></tr>
+			<tr><td><span>￥</span><span id="cart_total"></span></span></td></tr>
 
 		</form>
 	</table>
@@ -608,8 +612,6 @@ button{
 
 </div>
 </div>
-
-<p><a href="/PizzaCat/">TOPへ</a></p>
 
 
 </body>

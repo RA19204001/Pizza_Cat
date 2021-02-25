@@ -1,0 +1,31 @@
+header {
+	position: sticky;/*固定する*/
+	position: -webkit-sticky;/*Safari用ベンダープレフィックス*/
+	top: 0;
+   	width: 100%;
+   	padding: 10px 0px 10px;
+   	background-color: #fff;
+   	top: 0;
+   	display: flex;
+}
+
+#moji
+{
+	text-decoration: none;
+	margin:0 auto;
+	display:block;
+	width:119px;
+}
+
+.username {
+  display:none;
+  font-weight:bold;
+  margin: 0 5% 0 auto;
+  list-style: none;
+  font-size: 0;
+  width: 220px;
+  text-align: center;
+  margin: 0 0 0 auto;
+  display: inline-block;
+  font-size: 16px;
+}
