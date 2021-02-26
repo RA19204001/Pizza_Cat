@@ -128,12 +128,10 @@ public class MySqlSideDao implements SideDao{
 
 		try {
 
-			String sql = "select side_id from SIDE_TABLE where side_name = ? AND side_explanation = ?";
+			String sql = "select side_id from SIDE_TABLE order by side_id desc";
 
 			st=cn.prepareStatement(sql);
 
-			st.setString(1,name);
-			st.setString(2,explanation);
 
 
 			rs = st.executeQuery();
@@ -153,8 +151,8 @@ public class MySqlSideDao implements SideDao{
 
     		st = cn.prepareStatement(sql);
 
-            st.setString(1,product.getProduct_id()+".jpg");
-            st.setString(2,product.getProduct_id());
+            st.setString(1,Integer.toString(Integer.parseInt(product_id)+1)+".jpg");
+            st.setString(2,Integer.toString(Integer.parseInt(product_id)+1));
 
             st.executeUpdate();
     	}catch(SQLException e) {

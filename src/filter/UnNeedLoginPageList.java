@@ -26,5 +26,6 @@ interface UnNeedLoginPageList{
         {add("/addressee");}
         {add("/doneDelivery");}
         {add("/addPizzaOptionResult");}
+        {add("/addSideResult");}
     });
 }

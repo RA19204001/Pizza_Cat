@@ -1,52 +1,81 @@
 package utility;
 
 import java.io.File;
+import java.io.UnsupportedEncodingException;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.Part;
+
+import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.fileupload.FileUploadException;
+import org.apache.commons.fileupload.disk.DiskFileItemFactory;
+import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 import context.RequestContext;
 
 public class ImageNavigation {
+	Map fields = new HashMap();
+	public Map imageNavi(String id,RequestContext reqc){
+		HttpServletRequest req = (HttpServletRequest)reqc.getRequest();
 
-		public void imageNavi(String fileName,RequestContext reqc){
+		//使ってない、デバッグ用の処理
+		String path = req.getServletContext().getRealPath("data");
+		System.out.println("ImageUploadManager:path="+path);
 
+		DiskFileItemFactory factory = new DiskFileItemFactory();
+	    ServletFileUpload sfu = new ServletFileUpload(factory);
 
+	    try {
+	        List list = sfu.parseRequest(req);
+	        Iterator iterator = list.iterator();
+	        System.out.println(list.size());
 
-//	        try {
+	        //送られてきたデータの個数分回る
+	        while(iterator.hasNext()){
+	          FileItem item = (FileItem)iterator.next();
+	          //画像かそうでないか判別
+	          if (!item.isFormField()){
+	            String filename = item.getName();
 
-			try {
-	            //移動元
-//	            FileInputStream input=new FileInputStream(fullPath);
+	            //画像かつファイルの名前が取得出来てたら保存する
+	            if ((filename != null) && (!filename.equals(""))) {
+	            	id=(Integer.toString(Integer.parseInt(id)+1));
+	            	System.out.println(id);
+	              item.write(new File("C:\\pizza\\" + id + ".jpg"));
 
-        		//Part
-	            Part part=((HttpServletRequest)reqc.getRequest()).getPart("file");
+	              //ファイルの名前をMapに格納
+	              fields.put("itemImage",filename);
+	            }
+	          }else if (item.isFormField()) {
+	        	  this.setFormField(item);
+	          }
+	        }
+	      }catch (FileUploadException e) {
+	        e.printStackTrace();
+	      }catch (Exception e) {
+	        e.printStackTrace();
+	      }
+	    return fields;
+	}
 
-	            //移動先
-//	            FileOutputStream output=new FileOutputStream("C:\\PizzaCatImage\\"+fileName+".jpg");
+	//画像以外を取得したときに呼び出される処理
+	//name属性とその中身をMapに格納する
+	private void setFormField(FileItem item) throws ServletException {
+		try {
+			String name = item.getFieldName();
+			String field = item.getString("UTF8");
 
-	            //ファイル名の取得
-	            String filenames=part.getSubmittedFileName();
-	            String file=filenames.substring(0,filenames.indexOf("."));
-
-	            //アップロード先の指定
-	            String path="c:\\pizza";
-
-	            System.out.println("ファイル名"+fileName+".jpg");
-
-	            part.write(path+File.separator+fileName+".jpg");
-//	            byte buf[]=new byte[256];
-//	            int len;
-//	            while((len=input.read(buf))!=-1){
-//	            output.write(buf,0,len);
-//            }
-//	            output.flush();
-//	            output.close();
-//	            input.close();
-
-	            System.out.println("ファイル名、場所を変更しました。");
-        } catch (Exception e) {
-        	e.printStackTrace();
-    }
-    }
+			fields.put(name,field);
+			System.out.println("ImageUploadManager:name="+name+",field="+field);
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+	}
+	public Map getFields() {
+		return fields;
+	}
 }

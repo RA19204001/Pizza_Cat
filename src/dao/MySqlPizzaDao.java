@@ -137,17 +137,16 @@ public class MySqlPizzaDao implements PizzaDao{
 
 		try {
 
-			String sql = "select pizza_id from PIZZA_TABLE where pizza_name = ? AND pizza_explanation = ?";
+			String sql = "select pizza_id from PIZZA_TABLE order by pizza_id desc";
 
 			st=cn.prepareStatement(sql);
 
-			st.setString(1,name);
-			st.setString(2,explanation);
 
 
 			rs = st.executeQuery();
 			rs.next();
 			product.setProduct_id(rs.getString(1));
+			System.out.println(rs.getString(1));
 
 		}catch(SQLException e){
 			e.printStackTrace();
@@ -158,14 +157,15 @@ public class MySqlPizzaDao implements PizzaDao{
     public void updatePizzaImage(String product_id) {
 
     	try {
-    		String sql = "update pizza_table set pizza_image=? where pizza_id=?";
+    		String sql = "update PIZZA_TABLE set pizza_image=? where pizza_id=?";
 
     		st = cn.prepareStatement(sql);
 
-            st.setString(1,product.getProduct_id()+".jpg");
-            st.setString(2,product.getProduct_id());
+            st.setString(1,Integer.toString(Integer.parseInt(product_id)+1)+".jpg");
+            st.setString(2,Integer.toString(Integer.parseInt(product_id)+1));
 
             st.executeUpdate();
+
     	}catch(SQLException e) {
     		e.printStackTrace();
     		throw new EditUserFailedException(e.getMessage(),e);
@@ -174,7 +174,7 @@ public class MySqlPizzaDao implements PizzaDao{
 
     public void editDisplayPizza(String product_id, Product p) {
     	try {
-    		String sql = "update pizza_table set pizza_display=? where pizza_id=?";
+    		String sql = "update PIZZA_TABLE set pizza_display=? where pizza_id=?";
 
     		st = cn.prepareStatement(sql);
 
