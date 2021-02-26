@@ -8,7 +8,9 @@ import java.sql.SQLException;
 
 import bean.Card;
 import exception.AddCardFailedException;
+import exception.EditUserFailedException;
 import exception.IntegrationException;
+import exception.UnUniquUserIdException;
 
 public class MySqlCardDao implements CardDao{
     Connection cn = MySqlConnectionManager.getInstance().getConnection();
@@ -57,4 +59,51 @@ public class MySqlCardDao implements CardDao{
     	}
     	return card;
     }
+
+    public boolean isUniqueCardId(String creditnumber){
+        boolean flag=true;
+        try{
+            String sql="select count(card_id) from CARD_TABLE where creditnumber=?";
+
+            st=cn.prepareStatement(sql);
+
+            st.setString(1,creditnumber);
+            rs=st.executeQuery();
+            rs.next();
+            String count=rs.getString(1);
+            System.out.println(count);
+            if(count.equals("1")){
+                flag=false;
+            }
+        }catch(SQLException e){
+            e.printStackTrace();
+            throw new UnUniquUserIdException(e.getMessage(),e);
+        }
+        System.out.println(flag);
+        return flag;
+    }
+
+  //引数に古いID(hiddun用)
+    public void editCard(String card_id,Card card) {
+    	try {
+    		String sql = "update CARD_TABLE creditnumber=?, security_code=?, expiration_date=?, mail_address=? where card_id=?";
+
+    		st = cn.prepareStatement(sql);
+
+            st.setString(1,card.getCreditnumber());
+            st.setString(2,card.getSecurity_code());
+            st.setString(3,card.getException_date());
+            st.setString(4,card.getMail_address());
+            st.setString(5,card.getCard_id());
+            //古いID
+            st.setString(6, card_id);
+
+            st.executeUpdate();
+    	}catch(SQLException e) {
+    		e.printStackTrace();
+    		throw new EditUserFailedException(e.getMessage(),e);
+    	}
+
+    }
+
 }

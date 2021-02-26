@@ -28,7 +28,7 @@
 </header>
 <h1>カード情報の登録</h1>
 <form method='post' action='addCardResult' onSubmit="return check()" id="textbox">
-    クレジットカード番号(数字)<br><input type='text' maxlength='16' pattern="^[0-9]+$" placeholder="半角数字を入力して下さい。" name='creditnumber' required autofocus>${result.message}<br>
+    クレジットカード番号(数字)<br><input type='text' maxlength='16' pattern="^[0-9]+$" placeholder="半角数字を入力して下さい。" name='creditnumber' required autofocus><br>
     セキュリティ番号<br><input type='password' minlength='3' maxlength='4' pattern="^[0-9]+$" placeholder="半角数字を入力して下さい。" name='security_code' required><br>
     有効期限(年)<br><input type='number' name='expiration_year' placeholder="下2桁" min="00"max="99" required><br>
     有効期限(月)<br><select name='expiration_month' required>
@@ -47,6 +47,7 @@
     			</select><br>
     メールアドレス<br><input type='text' maxlength='256' name='mail_address' required placeholder="例:tarou1234@gmail.com"><br><br>
     <input type='hidden' name='userId' required value="${sessionScope.loginuser.id}"><br>
+    ${result.message}<br>
     <input type='submit' value='登録' class="btn">
 
 </form>
