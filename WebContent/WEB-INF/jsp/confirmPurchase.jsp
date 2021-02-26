@@ -52,6 +52,18 @@ if(list != null){
 	    var inputresult = document.getElementById("total");
 	    inputresult.value=total;
 
+	  //サイズと生地の削除ボタンを見えなくする
+	    cart_id=document.getElementsByClassName("cart_id");
+	    for(let i =0;i<cart_id.length;i++){
+
+		    	var hide=cart_id[i];
+		    	console.log(hide.value);
+		    	if(hide.value >= 10001 && hide.value<=10006){
+		    		var deletebutton=document.getElementsByClassName("delete")[i];
+		    		deletebutton.style.display="none";
+		    	}
+
+	    }
  });
 </script>
 </head>
@@ -65,7 +77,7 @@ if(list != null){
 	<input type='hidden' name="custom_id" required value="${status.count}">
 	<form method="post" action="deleteCart">
 	<tr>
-	<td><input type="submit" value="削除" id="saku">
+	<td><input type="submit" value="削除" id="saku" class="delete">
 	<td><input type='hidden' name="name" required value="${product.name}">${product.name}</td>
 	<td class="price"><input type='hidden' name="price" required value="${product.price}">${product.price}</td>
 	<td><input type='hidden' name="id" required value="${product.id}">${product.id}</td>
@@ -77,7 +89,7 @@ if(list != null){
 	          <input type="hidden" name="cart_amount" value="${cart.amount}">
 	          <input type="hidden" name="cart_custamid" value="${cart.custamid}">
 	 </c:forEach>
-	 <input type="hidden" name="delete_id" value="${product.id}">
+	 <input type="hidden" name="delete_id" value="${product.id}" class="cart_id">
 	 <input type="hidden" name="delete_custam_id" value="${product.custamid}">
 	 <input type="hidden" name="flag" value="flag">
 	</form>
