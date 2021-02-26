@@ -48,7 +48,8 @@ if(list != null){
 		console.log(price[i].textContent);
 	    }
 	    var result = document.getElementById("result");
-	    result.innerHTML = total;
+	    result.innerHTML = "\\"+total;
+
 	    var inputresult = document.getElementById("total");
 	    inputresult.value=total;
 
@@ -108,7 +109,8 @@ if(list != null){
 	<h3>合計金額</h3><br>
 	<p id="result" class="gra"></p>
 	<input type="hidden" name="total" id="total">
-    <input type='submit' value='支払い' class="btn">
+    <input type='submit' value='現金で支払う' class="btn"><br><br>
+    <input type='submit' value='クレジットカードで支払う' class="btn">
 </form>
 
 
