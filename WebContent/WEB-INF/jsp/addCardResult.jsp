@@ -19,7 +19,7 @@ try{
 }catch(ClassCastException e){}
 %>
 <header>
-<p><a href="/PizzaCat/" id="moji"><font size="6">PizzaCat</font></a></p>
+<p><a href="/PizzaCat/" id="moji"><font size="6"><img src="css/image/iconlogo.png"></font></a></p>
 <p class="username">${sessionScope.loginuser.id}様</p>
 </header>
 <h1>${result.message}</h1>
