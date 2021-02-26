@@ -242,6 +242,19 @@ $(function(){
 		buybutton.style.display="none";
     }
 
+    //サイズと生地の削除ボタンを見えなくする
+    if(!(typeof flagcartbutton === "undefined")){
+	    cart_id=document.getElementsByClassName("cart_id");
+	    for(let i =0;i<cart_id.length;i++){
+		    	var hide=cart_id[i];
+		    	if(hide.value >= 10001 && hide.value<=10006){
+		    		var deletebutton=document.getElementsByClassName("delete")[i];
+		    		deletebutton.style.display="none";
+		    	}
+
+	    }
+    }
+
     //保存されたピザ、サイドのタブの状態を適応　開始
 	var tabstatus = sessionStorage.getItem('tabstatus');
     //<input id="TAB-01" type="radio" name="TAB" class="tab-switch" onclick="changetab('tab1')"/>
@@ -434,7 +447,7 @@ button{
 <body>
 
 <header class="header">
-	<p><a href="/PizzaCat/" id="moji"><font size="6">PizzaCat</font></a></p>
+	<p><a href="/PizzaCat/" id="moji"><font size="6"><img src="css/image/iconlogo.png"></font></a></p>
 	<p class="username">${sessionScope.loginuser.id}様</p>
 	<h2>カート</h2>
 </header>
@@ -443,15 +456,15 @@ button{
 <div class="cart" align="right">
 
 
-<table border="1">
+<table>
 <tr><th>削除</th><th>商品名</th><th>値段</th><th>個数</th></tr>
    <c:forEach var="cart" items="${sessionScope.cart}">
 	<form method="post" action="deleteCart">
-		   <tr><td><input type="submit" value="削除"></td>
+		   <tr><td><input type="submit" value="削除" class="delete"></td>
 		   <td>${cart.name}</td>
 		   <td class="cart_price">${cart.price}</td>
 		   <td class="cart_amount">${cart.amount}</td></tr>
-		   <input type="hidden" name="delete_id" value="${cart.id}">
+		   <input type="hidden" name="delete_id" value="${cart.id}" class="cart_id">
 		   <input type="hidden" name="delete_custam_id" value="${cart.custamid}">
 
 		   <c:forEach var="cart" items="${sessionScope.cart}">
@@ -483,7 +496,7 @@ button{
 <div class="tab-wrap">
     <input id="TAB-01" type="radio" name="TAB" class="tab-switch" onclick="changetab('tab1')" />
     <label class="tab-label" for="TAB-01">
-    	<h2 style="width :570px ;">ピザ</h2>
+    	<h2 style="width :750px ;">ピザ</h2>
     </label>
     <div class="tab-content">
         <c:forEach var="menu" items="${result.list}" varStatus="status">
@@ -564,7 +577,7 @@ button{
 
     <input id="TAB-02" type="radio" name="TAB" class="tab-switch" onclick="changetab('tab2')" />
 	    <label class="tab-label" for="TAB-02">
-	    	<h2 style="width :570px ;">サイド</h2>
+	    	<h2 style="width :750px ;">サイド</h2>
 	    </label>
     <div class="tab-content">
         <c:forEach var="menu" items="${result.sideList}" varStatus="status">
