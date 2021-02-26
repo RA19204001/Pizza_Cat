@@ -14,7 +14,7 @@
 	</head>
 	<body>
 	<header>
-		<p><a href="/PizzaCat/" id="moji"><font size="6">PizzaCat</font></a></p>
+		<p><a href="/PizzaCat/" id="moji"><font size="6"><img src="css/image/iconlogo.png"></font></a></p>
 		<p class="username">${sessionScope.loginuser.id}様</p>
 	</header>
 		<h1>ユーザー情報の変更</h1>
@@ -32,6 +32,7 @@
 		</form>
 		<p id="botom">
 		  <a href="addCard" class="btn">カード登録画面へ</a>
+		  <a href="editCard" class="btn">カード編集画面へ</a>
 		</p>
 		<br>
 

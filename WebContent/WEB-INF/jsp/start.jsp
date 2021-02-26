@@ -74,7 +74,7 @@
 		%>
 
 		<header>
-			<p><a href="/PizzaCat/" id="moji"><font size="6">PizzaCat</font></a></p>
+			<p><a href="/PizzaCat/" id="moji"><font size="6"><img src="css/image/iconlogo.png"></font></a></p>
 			<div id='page1' class='page1'>
 			   <ul id="nav">
 				<li><p><a href="addUser">会員登録画面へ</a></p></li>
@@ -92,8 +92,11 @@
 		</header>
 
 		<div class="menu">
-		    <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+		  <div class="image">
+
+		    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 			<p><a href="menu" class="menu_button">メニューを見る</a></p>
+		  </div>
 	    </div>
 
 	</body>

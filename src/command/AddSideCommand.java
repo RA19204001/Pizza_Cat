@@ -9,19 +9,20 @@ import context.ResponseContext;
 import dao.AbstractDaoFactory;
 import dao.ConnectionManager;
 import dao.PizzaDao;
+import dao.SideDao;
 import utility.ImageNavigation;
 
-public class AddProductsCommand extends AbstractCommand {
+public class AddSideCommand extends AbstractCommand {
 
-	public ResponseContext execute(ResponseContext responseContext) {
-
-
+	@Override
+	public ResponseContext execute(ResponseContext resc) {
 		RequestContext reqc = getRequestContext();
 
 
         AbstractDaoFactory factory = AbstractDaoFactory.getFactory();
         ConnectionManager cm = factory.getConnectionManager();
         PizzaDao pd = factory.getPizzaDao();
+        SideDao dao=factory.getSideDao();
 
         Message message=new Message();
         Product product_id = null;
@@ -29,7 +30,7 @@ public class AddProductsCommand extends AbstractCommand {
         cm.beginTransaction();
 
 
-        		product_id = pd.getPizzaId("","");
+        		product_id = dao.getSideId("","");
         		ImageNavigation in = new ImageNavigation();
         		Map map=in.imageNavi(product_id.getProduct_id(),reqc);
         		String products_name = (String)map.get("name");
@@ -49,35 +50,24 @@ public class AddProductsCommand extends AbstractCommand {
 //        		product.setProductstype(type);
 
         		product.setProduct_category(products_category);
-        		pd.addPizza(product);
-            	message.setMessage("pizza登録完了");
+        		dao.addSide(product);
+            	message.setMessage("side登録完了");
 
-            	pd.updatePizzaImage(product_id.getProduct_id());
+            	dao.updateSideImage(product_id.getProduct_id());
 
 
 
+        resc.setTarget("addProductsResult");
 
         cm.commit();
 
         cm.closeConnection();
 
-        responseContext.setTarget("addProductsResult");
-        responseContext.setResult(message);
+        resc.setResult(message);
 
 
-		return responseContext;
+		return resc;
+
 	}
 
-	private String judgeParameter(RequestContext reqc) {
-
-		String products_image = "";
-		try {
-		products_image = reqc.getParameter("file")[0];
-
-    	}catch(NullPointerException e){
-    		e.printStackTrace();
-    	}finally {
-    		return products_image;
-    	}
-	}
 }

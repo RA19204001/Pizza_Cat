@@ -105,7 +105,7 @@ public class MySqlSideDao implements SideDao{
 
     public void editSide(String id, Product p) {
     	try {
-    		String sql = "update side_table set side_name=?, side_explanation=?, side_price=?, side_display=?, side_category=? where side_id=?";
+    		String sql = "update SIDE_TABLE set side_name=?, side_explanation=?, side_price=?, side_display=?, side_category=? where side_id=?";
 
     		st = cn.prepareStatement(sql);
 
@@ -128,12 +128,10 @@ public class MySqlSideDao implements SideDao{
 
 		try {
 
-			String sql = "select side_id from SIDE_TABLE where side_name = ? AND side_explanation = ?";
+			String sql = "select side_id from SIDE_TABLE order by side_id desc";
 
 			st=cn.prepareStatement(sql);
 
-			st.setString(1,name);
-			st.setString(2,explanation);
 
 
 			rs = st.executeQuery();
@@ -153,8 +151,8 @@ public class MySqlSideDao implements SideDao{
 
     		st = cn.prepareStatement(sql);
 
-            st.setString(1,product.getProduct_id()+".jpg");
-            st.setString(2,product.getProduct_id());
+            st.setString(1,Integer.toString(Integer.parseInt(product_id)+1)+".jpg");
+            st.setString(2,Integer.toString(Integer.parseInt(product_id)+1));
 
             st.executeUpdate();
     	}catch(SQLException e) {
@@ -164,7 +162,7 @@ public class MySqlSideDao implements SideDao{
     }
     public void editDisplaySide(String product_id, Product p) {
     	try {
-    		String sql = "update side_table set side_display=? where side_id=?";
+    		String sql = "update SIDE_TABLE set side_display=? where side_id=?";
 
     		st = cn.prepareStatement(sql);
 

@@ -74,7 +74,7 @@ function check(){
     </div>
     </form>
 
-<form method='post' action='addProductsResult' onSubmit="return check()">
+<form method='post' action='addPizzaOptionResult' onSubmit="return check()">
     <div id="pizzaOption">
      	商品名<input type='text' maxlength='15' title="半角英数字を入力して下さい。" name='name' required autofocus>${result.message}<br>
     	説明<input type='text' maxlength='500' name='explanation' required><br>
@@ -90,7 +90,7 @@ function check(){
     </div>
     </form>
 
-<form method='post' action='addProductsResult' enctype="multipart/form-data" onSubmit="return check()">
+<form method='post' action='addSideResult' enctype="multipart/form-data" onSubmit="return check()">
     <div id="side">
 		商品名<input type='text' maxlength='15' title="半角英数字を入力して下さい。" name='name' required autofocus><br>
     	画像<input type='file' name="file" accept="image/*" required><br>

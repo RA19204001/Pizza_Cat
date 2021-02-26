@@ -9,7 +9,7 @@
 <title>Login</title></head>
 <body>
 <header>
-		<p><a href="/PizzaCat/" id="moji"><font size="6">PizzaCat</font></a></p>
+		<p><a href="/PizzaCat/" id="moji"><font size="6"><img src="css/image/iconlogo.png"></font></a></p>
 </header>
 <h1>ログイン</h1>
 <!-- <span class="class">ログイン</span> -->

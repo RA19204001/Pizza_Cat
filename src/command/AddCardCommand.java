@@ -12,6 +12,7 @@ import dao.AbstractDaoFactory;
 import dao.CardDao;
 import dao.ConnectionManager;
 import dao.UserDao;
+import exception.IntegrationException;
 
 public class AddCardCommand extends AbstractCommand{
 
@@ -41,14 +42,28 @@ public class AddCardCommand extends AbstractCommand{
 
         cm.beginTransaction();
 
-        dao.addCard(card);
-
-
 
         Message message=new Message();
 
-        //失敗することがない
-        message.setMessage("登録完了しました");
+        boolean flag = true;
+
+        flag=dao.isUniqueCardId(creditnumber);
+
+        if(flag) {
+        	try{
+                dao.addCard(card);
+                message.setMessage("登録完了しました");
+            }catch(IntegrationException e){
+                cm.rollback();
+                message.setMessage("登録に失敗しました");
+                e.printStackTrace();
+
+            }
+            responseContext.setTarget("addCardResult");
+        }else{
+        	message.setMessage("その番号は使われています。");
+            responseContext.setTarget("addCard");
+        }
 
         String userId = reqc.getParameter("userId")[0];
 
@@ -57,10 +72,6 @@ public class AddCardCommand extends AbstractCommand{
         System.out.println(card_id.getCard_id());
 
         udao.addCardId(userId,card_id);
-
-
-        //確認画面へ
-        responseContext.setTarget("addCardResult");
 
         cm.commit();
 
