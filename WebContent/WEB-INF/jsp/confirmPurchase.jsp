@@ -3,6 +3,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import ="bean.Card"%>
 <%@ page import ="bean.Products"%>
 <%@ page import ="java.util.ArrayList"%>
 
@@ -11,18 +12,19 @@ try{
 Products pros = (Products)(request.getAttribute("result"));
 ArrayList list = pros.getAddList();
 if(list != null){
-	//ArrayList array = (ArrayList)session.getAttribute("cart");
-
-	//for(int i = 0;i<list.size();i++){
-		//array.add(list.get(i));
-
-	//}
 
 	session.setAttribute("cart",list);
 
 	}
 }catch(ClassCastException e){
+	try{
+		Card card = (Card)(request.getAttribute("result"));
+		if(card != null){
+			session.setAttribute("cr",card);
+		}
+	}catch(ClassCastException ex){
 
+	}
 }
 //else{
 	//	session.setAttribute("cart",new ArrayList());
@@ -52,8 +54,9 @@ if(list != null){
 	    result.innerHTML = "\\"+total;
 
 	    var inputresult = document.getElementsByClassName("total");
-	    inputresult.value=total;
-
+	    for(let i=0;i<inputresult.length;i++){
+	    	inputresult[i].value=total;
+	    }
 	  //サイズと生地の削除ボタンを見えなくする
 	    var cart_id=document.getElementsByClassName("cart_id");
 	    for(let i =0;i<cart_id.length;i++){
@@ -76,9 +79,9 @@ if(list != null){
 
  });
 function dis(){
-
+		var creditnumber = document.getElementById("creditnumber");
 	 	// 「OK」時の処理開始 ＋ 確認ダイアログの表示
-		if(window.confirm('このクレジットカードでよろしいですか？\n')){
+		if(window.confirm('このクレジットカードでよろしいですか？\n下4桁：'+creditnumber.value.slice(-4))){
 
 
 
@@ -149,7 +152,7 @@ function dis(){
 	<input type="hidden" name="total" class="total">
     <input type='submit' value='クレジットカードで支払う' class="btn" id="card_btn">
     <input type="hidden" name="card_id" required value="${sessionScope.loginuser.card_id}" id="card_flag">
-    <input type="text" name="card_id" required value="${result.carditnumber}">
+    <input type="hidden" name="creditnumber" value="${sessionScope.cr.creditnumber}" id="creditnumber">
 </form>
 
 <a href="/PizzaCat/menu" class="btn2">戻&emsp;る</a>

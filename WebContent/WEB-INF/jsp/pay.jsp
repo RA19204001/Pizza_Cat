@@ -11,7 +11,26 @@
 <title>支払い完了しました</title>
 <%
 session.setAttribute("cart",null);
+session.setAttribute("cr",null);
 %>
+<script>
+$(function(){
+    var price = document.getElementsByClassName("price");
+    var amount = document.getElementsByClassName("amount");
+    var total = 0;
+    for (var i = 0;i < price.length; i++){
+    	total += (Number(price[i].textContent) * Number(amount[i].textContent));
+	console.log(price[i].textContent);
+    }
+    var result = document.getElementById("result");
+    result.innerHTML = "\\"+total;
+
+    var inputresult = document.getElementsByClassName("total");
+    inputresult.value=total;
+
+
+});
+</script>
 </head>
 <body>
 <!-- <p class="syasinn"><img src="css/image/concrete.jpg" alt="concrete" style="float: left; margin: 0.8em 0.8em 0.8em 0;"></p> -->
@@ -24,6 +43,8 @@ session.setAttribute("cart",null);
 	</table></h2>
 <p>----------------------------------------------</p>
 <h2>合計&emsp;&emsp;&emsp;￥${result.total}</h2>
+<p id="result" class="gra"></p>
+<input type="hidden" name="total" class="total">
 <p><a href="/PizzaCat/" id="top">TOPへ</a></p>
 </body>
 </html>

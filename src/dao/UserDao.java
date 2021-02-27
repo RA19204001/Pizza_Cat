@@ -4,6 +4,7 @@ import bean.Card;
 // 1.29 移行 大川
 // 1.29変更 内田
 // 2.4 追加 大川
+// 2.27 浅倉
 import bean.User;
 
 public interface UserDao {

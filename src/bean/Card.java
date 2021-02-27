@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 //10.29 移行 大川
 //2.16 手直し
+//2.27 浅倉
 public class Card implements Bean {
 	private String card_id;
 	private String creditnumber;
