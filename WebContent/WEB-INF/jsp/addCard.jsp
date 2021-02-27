@@ -29,7 +29,7 @@
 <h1>カード情報の登録</h1>
 <h2>※カードの登録は一枚までです。</h2>
 <form method='post' action='addCardResult' onSubmit="return check()" id="textbox">
-    クレジットカード番号(数字)<br><input type='text' maxlength='16' pattern="^[0-9]+$" placeholder="半角数字を入力して下さい。" name='creditnumber' required autofocus><br>
+    クレジットカード番号(数字)<br><input type='text' minlength='14' maxlength='16' pattern="^[0-9]+$" placeholder="半角数字を入力して下さい。" name='creditnumber' required autofocus><br>
     セキュリティ番号<br><input type='password' minlength='3' maxlength='4' pattern="^[0-9]+$" placeholder="半角数字を入力して下さい。" name='security_code' required><br>
     有効期限(年)<br><input type='number' name='expiration_year' placeholder="下2桁" min="00"max="99" required><br>
     有効期限(月)<br><select name='expiration_month' required>
