@@ -20,6 +20,7 @@ public class EditUserCommand extends AbstractCommand {
 
         String id = reqc.getParameter("id")[0];
         String pass = reqc.getParameter("pass")[0];
+        String pass2 = reqc.getParameter("pass2")[0];
         String name = reqc.getParameter("name")[0];
         String address = reqc.getParameter("address")[0];
         String age = reqc.getParameter("age")[0];
@@ -60,30 +61,37 @@ public class EditUserCommand extends AbstractCommand {
         	}
         }
 
-        if(flag=false) {
+        if (!flag) {
         	message.setMessage("そのIDは使われています。");
     	    responseContext.setResult(message);
-        }else {
+
+        } else if (!pass.equals(pass2)) {
+        	// パスワードの重複処理
+        	cm.rollback();
+        	message.setMessage("設定したパスワードと確認用パスワードが一致していません");
+        	responseContext.setResult(message);
+        	responseContext.setTarget("editUser");
+
+        } else {
         	try{
+        		// 成功時の処理
         	    dao.editUser(oldId, user);
-
         	    responseContext.setResult(user);
-
                 responseContext.setTarget("editUserResult");
+
             }catch(EditUserFailedException e){
                  cm.rollback();
-
                  message.setMessage("ユーザー情報の変更に失敗しました");
                  responseContext.setResult(message);
                  e.printStackTrace();
         	}
+
         }
+
 
         cm.commit();
 
         cm.closeConnection();
-
-
 
         return responseContext;
     }

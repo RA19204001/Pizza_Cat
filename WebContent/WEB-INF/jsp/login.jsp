@@ -14,13 +14,13 @@
 <h1>ログイン</h1>
 <!-- <span class="class">ログイン</span> -->
 <form name="myform" method='post' action='start' onSubmit="return check()" id="log">
+    <label style="color :red;">${result.message}</label><br>
     ID<br><input type='text' maxlength='15' placeholder="登録されたID" pattern="^[0-9A-Za-z]+$" title="半角英数字を入力して下さい。" name='id'required autofocus><br>
     <tr><td><label class="mame">※英数字</label></td></tr><br><br>
     パスワード<br><input type='password' maxlength='20' placeholder="登録されたパスワード" pattern="^[0-9A-Za-z]+$" title="半角英数字を入力して下さい。" name='pass' required><br><br><br>
     <input type='submit' value='ログイン' class="btn">
 </form>
 
-<p style="color :red;">${result.message}</p>
 
 <!-- <p style="font-size:25px;"> </p> -->
 <p id="botom">

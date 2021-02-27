@@ -53,7 +53,7 @@ public class AddUserCommand extends AbstractCommand {
         } else if (!pass.equals(pass2)) {
 
         	cm.rollback();
-        	message.setMessage("パスワードが同じではありません");
+        	message.setMessage("設定したパスワードと確認用パスワードが一致していません");
         	responseContext.setTarget("addUser");
 
         } else {
