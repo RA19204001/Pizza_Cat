@@ -23,9 +23,12 @@
 <p><a href="/PizzaCat/" id="moji"><font size="6"><img src="css/image/iconlogo.png"></font></a></p>
 <h1>会員登録</h1>
 <form name="myform" method='post' action='addUserResult' onSubmit="return check()"  id="log">
-    ID<br><input type='text' maxlength='15' placeholder="ID" pattern="^[0-9A-Za-z]+$" title="半角英数字を入力して下さい。" name='id' required autofocus>${result.message}<br>
+    ${result.message}<br>
+    ID<br><input type='text' maxlength='15' placeholder="ID" pattern="^[0-9A-Za-z]+$" title="半角英数字を入力して下さい。" name='id' required autofocus><br>
     <tr><td><label class="kome">※半角英数字15文字</label></td></tr><br><br>
     パスワード<br><input type='password' maxlength='20' placeholder="パスワード" pattern="^[0-9A-Za-z]+$" title="半角英数字を入力して下さい。" name='pass' required><br>
+    <tr><td><label class="kome">※半角英数字20文字</label></td></tr><br><br>
+    パスワード(確認用)<br><input type='password' maxlength='20' placeholder="パスワード" pattern="^[0-9A-Za-z]+$" title="半角英数字を入力して下さい。" name='pass2' required><br>
     <tr><td><label class="kome">※半角英数字20文字</label></td></tr><br><br>
     名前<br><input type='text' maxlength='20' placeholder="例）ピザキャト子" name='name' required><br>
     <tr><td><label class="kome">※20文字</label></td></tr><br><br>

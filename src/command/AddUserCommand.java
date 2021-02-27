@@ -20,6 +20,7 @@ public class AddUserCommand extends AbstractCommand {
         String id = reqc.getParameter("id")[0];
         String name = reqc.getParameter("name")[0];
         String pass = reqc.getParameter("pass")[0];
+        String pass2 = reqc.getParameter("pass2")[0];
         String phoneNumber = reqc.getParameter("phoneNumber")[0];
 
 				int ages =  Integer.parseInt(age);
@@ -43,22 +44,31 @@ public class AddUserCommand extends AbstractCommand {
         Message message=new Message();
 
         boolean flag=dao.isUniqueUserId(user.getId());
-        if(flag){
 
-            try{
-                dao.addUser(user);
-                message.setMessage("登録完了しました");
-            }catch(IntegrationException e){
-                cm.rollback();
-                message.setMessage("登録失敗しました");
-                e.printStackTrace();
+        if (!flag) {
 
-            }
-            responseContext.setTarget("addUserResult");
-        }else{
         	message.setMessage("そのIDは使われています。");
-            responseContext.setTarget("addUser");
+        	responseContext.setTarget("addUser");
+
+        } else if (!pass.equals(pass2)) {
+
+        	cm.rollback();
+        	message.setMessage("パスワードが同じではありません");
+        	responseContext.setTarget("addUser");
+
+        } else {
+
+	        try{
+		        dao.addUser(user);
+		        message.setMessage("登録完了しました");
+	        }catch(IntegrationException e){
+	        	cm.rollback();
+	        	message.setMessage("登録失敗しました");
+		        e.printStackTrace();
+	        }
+	        responseContext.setTarget("addUserResult");
         }
+
         cm.commit();
 
         cm.closeConnection();
