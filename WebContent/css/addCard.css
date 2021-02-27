@@ -3,6 +3,12 @@ margin:0px;
 paddng:0px;
 }
 
+h2{
+	text-align:center;
+}
+#fff{
+	font-color:red;
+}
 header {
    width: 100%;
    padding: 10px 0px 10px;
