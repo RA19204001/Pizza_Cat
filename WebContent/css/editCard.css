@@ -30,6 +30,32 @@ h2
     text-align:center;
 
 }
+#btn23{
+  background-color: white;
+  text-align:center;
+  border-radius: 3px;
+  box-shadow: 0 10px 15px -2px rgba(27, 33, 58, 0.4);
+  padding: 20px;
+}
+.btn{
+  text-align: center;
+  display: inline-block;
+  padding: 2% 10%;
+  background: #3ea60c;
+  border-radius: 4px;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  line-heigt: 1.2em;
+}
+.btn:hover {
+  background: #ffffff;
+  border: solid 2px #3ea60c;
+  color: #3ea60c;
+  opacity: 0.8;
+}
+
 #log
 {
   background-color: white;

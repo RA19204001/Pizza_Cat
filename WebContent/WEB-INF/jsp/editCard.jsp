@@ -23,6 +23,8 @@
 			    メールアドレス<br><p>${card.mail_address}</p><br>
 			</c:forEach>
 		</div>
-		<a href="/PizzaCat/editUser" class="btn2" style="text-align:center">１つ戻る</a>
+		<div id="btn23">
+		<a href="/PizzaCat/editUser" class="btn">戻る</a>
+		</div>
 	</body>
 </html>

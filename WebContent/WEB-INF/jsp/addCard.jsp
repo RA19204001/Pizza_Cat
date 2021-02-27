@@ -47,8 +47,8 @@
 					<option value="12">12</option>
     			</select><br>
     メールアドレス<br><input type='text' maxlength='256' name='mail_address' required placeholder="例:tarou1234@gmail.com"><br><br>
-    <input type='hidden' name='userId' required value="${sessionScope.loginuser.id}"><br>
-    ${result.message}<br>
+    <input type='hidden' name='userId' required value="${sessionScope.loginuser.id}">
+   <label style="color :red;">${result.message}</label><br>
     <input type='submit' value='登録' class="btn">
 
 </form>
