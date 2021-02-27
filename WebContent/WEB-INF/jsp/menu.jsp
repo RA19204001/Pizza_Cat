@@ -7,6 +7,7 @@
 <!--浅倉 2/17 -->
 <!--浅倉 2/19 -->
 <!-- 染谷 02/20 -->
+<!--浅倉 2/27-->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -503,7 +504,7 @@ button{
 		<form method="post" action="confirmPurchase">
 			<tr><td><h3>合計金額</h3></td><td><input type="submit" value="購入" id="buy"></td></tr>
 			<tr><td><span>￥</span><span id="cart_total"></span></span></td></tr>
-
+			<input type="hidden" name="card_id" value="${sessionScope.loginuser.card_id}">
 		</form>
 	</table>
 </div>
