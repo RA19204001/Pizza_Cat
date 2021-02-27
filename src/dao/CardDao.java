@@ -11,4 +11,5 @@ public interface CardDao{
   public Card getCardId(String creditnumber,String security_code);
   public boolean isUniqueCardId(String creditnumber);
   public ArrayList getCard(String card_id);
+  public Card getCardNumber(String card_id);
 }

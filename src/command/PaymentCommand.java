@@ -1,7 +1,5 @@
 package command;
 
-import java.util.ArrayList;
-
 import bean.Card;
 import bean.Message;
 import context.RequestContext;
@@ -19,13 +17,14 @@ public class PaymentCommand extends AbstractCommand {
 
 		String card_id = reqc.getParameter("card_id")[0];
 
+		Card card = new Card();
+
 		System.out.println(card_id);
 
 
 
 
 
-        Message message=new Message();
 
         if(!(card_id.equals("0"))) {
 
@@ -37,14 +36,16 @@ public class PaymentCommand extends AbstractCommand {
 
         	cm.beginTransaction();
 
-        	ArrayList array = dao.getCard(card_id);
-        	Card card = new Card();
-        	card.setCardInfo(array);
-
+        	card = dao.getCardNumber(card_id);
         	cm.commit();
 
         	cm.closeConnection();
         	resc.setResult(card);
+        }else {
+
+        	Message message=new Message();
+
+    		resc.setResult(message);
         }
 
 

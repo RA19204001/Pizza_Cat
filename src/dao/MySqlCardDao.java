@@ -111,5 +111,31 @@ public class MySqlCardDao implements CardDao{
     	}
     	return list;
     }
+    public Card getCardNumber(String card_id) {
+
+    	try {
+    		String sql = "select creditnumber,security_code,expiration_date,mail_address from CARD_TABLE where card_id=?";
+
+    		st = cn.prepareStatement(sql);
+
+    		st.setString(1,card_id);
+
+    		rs=st.executeQuery();
+    		if(rs.next()) {
+    			card.setCreditnumber(rs.getString(1));
+    			card.setSecurity_code(rs.getString(2));
+    			card.setExpiration_date(rs.getString(3));
+    			card.setMail_address(rs.getString(4));
+    		}else {
+
+    			throw new LoginFailedException("",new Throwable());
+    		}
+
+    	}catch(SQLException e) {
+    		e.printStackTrace();
+    		throw new EditCardFailedException(e.getMessage(),e);
+    	}
+    	return card;
+    }
 
 }
