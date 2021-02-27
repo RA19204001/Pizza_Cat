@@ -263,7 +263,7 @@ $(function(){
 
     for(let i=0;i<sizeclass.length;i++){
 
-    	if(sizeclass[i].value=="M:1:500:10001"){
+    	if(sizeclass[i].value=="M:1:0:10001"){
     		sizeclass[i].checked=true;
     	}
     }
