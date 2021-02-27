@@ -27,6 +27,7 @@
 <p class="username">${sessionScope.loginuser.id}様</p>
 </header>
 <h1>カード情報の登録</h1>
+<h2>※カードの登録は一枚までです。</h2>
 <form method='post' action='addCardResult' onSubmit="return check()" id="textbox">
     クレジットカード番号(数字)<br><input type='text' maxlength='16' pattern="^[0-9]+$" placeholder="半角数字を入力して下さい。" name='creditnumber' required autofocus><br>
     セキュリティ番号<br><input type='password' minlength='3' maxlength='4' pattern="^[0-9]+$" placeholder="半角数字を入力して下さい。" name='security_code' required><br>

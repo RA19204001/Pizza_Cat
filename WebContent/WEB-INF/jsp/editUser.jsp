@@ -38,7 +38,10 @@
 		</form>
 		<p id="botom">
 		  <a href="addCard" class="btn">カード登録画面へ</a>
-		  <a href="editCard?card_id=${sessionScope.loginuser.card_id}" class="btn">カード編集画面へ</a>
+		  <form method="post" name="form1" action="editCard">
+		    <input type="hidden" name="card_id" value="${sessionScope.loginuser.card_id}">
+		    <a href="javascript:form1.submit()" class="btn">カード情報確認画面へ</a>
+		  </form>
 		</p>
 		<br>
 

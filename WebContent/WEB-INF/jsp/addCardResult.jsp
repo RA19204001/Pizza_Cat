@@ -1,7 +1,9 @@
 <!--浅倉 2/20  -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ page import ="bean.Card"%>
+    <%@ page import ="bean.CardInfo"%>
+    <%@ page import ="bean.User"%>
+    <%@ page import = "java.util.ArrayList"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,13 +13,18 @@
 </head>
 <body>
 <%
-try{
-	Card card = (Card)(request.getAttribute("result"));
-	if(card != null){
-		session.setAttribute("logincard",card);
-	}
-}catch(ClassCastException e){}
-%>
+		try{
+			CardInfo card = (CardInfo)(request.getAttribute("result"));
+			ArrayList list = card.getCardList();
+			User user = (User)list.get(0);
+			if(user != null){
+				session.setAttribute("loginuser",user);
+			}
+		}catch(ClassCastException e){
+					}
+
+
+		%>
 <header>
 <p><a href="/PizzaCat/" id="moji"><font size="6"><img src="css/image/iconlogo.png"></font></a></p>
 <p class="username">${sessionScope.loginuser.id}様</p>

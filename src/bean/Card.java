@@ -1,5 +1,7 @@
 package bean;
 
+import java.util.ArrayList;
+
 //10.29 移行 大川
 //2.16 手直し
 public class Card implements Bean {
@@ -8,6 +10,7 @@ public class Card implements Bean {
 	private String security_code;
 	private String expiration_date;
 	private String mail_address;
+	private ArrayList cardInfo;
 
 	public Card() {}
 	//-------------------------------------------------Creditnumber
@@ -26,7 +29,7 @@ public class Card implements Bean {
 		this.security_code = security_code;
 	}
 	//-------------------------------------------------Exception_date
-	public String getException_date() {
+	public String getExpiration_date() {
 		return expiration_date;
 	}
 	public void setExpiration_date(String expiration_date) {
@@ -45,5 +48,12 @@ public class Card implements Bean {
 	}
 	public void setCard_id(String card_id) {
 		this.card_id = card_id;
+	}
+	//-------------------------------------------------cardIndo
+	public ArrayList getCardInfo() {
+		return cardInfo;
+	}
+	public void setCardInfo(ArrayList cardInfo) {
+		this.cardInfo = cardInfo;
 	}
 }
