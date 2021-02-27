@@ -67,9 +67,10 @@ if(list != null){
 
 	    }
 
-	    var card_flag = document.getElmentById("card_flag");
+	    //クレカ持ってない人には見えないようにする
+	    var card_flag = document.getElementById("card_flag");
 		if(card_flag.value==0){
-			let card_btn = document.getElmentById("card_btn");
+			let card_btn = document.getElementById("card_btn");
 			card_btn.style.display="none";
 		}
 
@@ -148,6 +149,7 @@ function dis(){
 	<input type="hidden" name="total" class="total">
     <input type='submit' value='クレジットカードで支払う' class="btn" id="card_btn">
     <input type="hidden" name="card_id" required value="${sessionScope.loginuser.card_id}" id="card_flag">
+    <input type="text" name="card_id" required value="${result.carditnumber}">
 </form>
 
 <a href="/PizzaCat/menu" class="btn2">戻&emsp;る</a>
