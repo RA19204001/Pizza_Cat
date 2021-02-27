@@ -20,7 +20,7 @@
 <title>会員登録画面</title>
 </head>
 <body>
-<p><a href="/PizzaCat/" id="moji"><font size="6">PizzaCat</font></a></p>
+<p><a href="/PizzaCat/" id="moji"><font size="6"><img src="css/image/iconlogo.png"></font></a></p>
 <h1>会員登録</h1>
 <form name="myform" method='post' action='addUserResult' onSubmit="return check()"  id="log">
     ID<br><input type='text' maxlength='15' placeholder="ID" pattern="^[0-9A-Za-z]+$" title="半角英数字を入力して下さい。" name='id' required autofocus>${result.message}<br>
