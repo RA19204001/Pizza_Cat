@@ -226,6 +226,7 @@ $(function(){
 
 	}
 
+	//カートの合計金額の計算
 	var price = document.getElementsByClassName("cart_price");
     var amount = document.getElementsByClassName("cart_amount");
     var total = 0;
@@ -236,6 +237,7 @@ $(function(){
     var inputresult = document.getElementById("cart_total");
     inputresult.innerHTML=total;
 
+    //カートに商品が入っていなければ購入ボタンを表示しない
     var flagcartbutton=document.getElementsByClassName("cart_price")[0];
     if(typeof flagcartbutton === "undefined"){
 		var buybutton=document.getElementById("buy");
@@ -253,6 +255,23 @@ $(function(){
 		    	}
 
 	    }
+    }
+
+    //ピザのサイズと生地（Mサイズとスタンダード）にchecked属性の付与
+	var sizeclass=document.getElementsByClassName("optionsize");
+    var doughclass=document.getElementsByClassName("optiondough");
+
+    for(let i=0;i<sizeclass.length;i++){
+
+    	if(sizeclass[i].value=="M:1:500:10001"){
+    		sizeclass[i].checked=true;
+    	}
+    }
+    for(let i=0;i<doughclass.length;i++){
+
+    	if(doughclass[i].value=="スタンダード:1:0:10003"){
+    		doughclass[i].checked=true;
+    	}
     }
 
     //保存されたピザ、サイドのタブの状態を適応　開始
@@ -523,7 +542,7 @@ button{
 				<!-- サイズ -->
 				<c:forEach var="option" items="${result.optionList}" begin="0" end="1">
 				<label>
-					<input type="radio" name="optionSize" value="${option.name}:1:${option.price}:${option.product_id}" required>${option.name}: \ ${option.price}
+					<input type="radio" name="optionSize" value="${option.name}:1:${option.price}:${option.product_id}" class="optionsize" required>${option.name}: \ ${option.price}
 					<br>
 				</label>
 				</c:forEach>
@@ -531,7 +550,7 @@ button{
 				<!-- 生地 -->
 				<c:forEach var="option" items="${result.optionList}" begin="2" end="5">
 				<label>
-					<input type="radio" name="optionDough" value="${option.name}:1:${option.price}:${option.product_id}" required>${option.name}
+					<input type="radio" name="optionDough" value="${option.name}:1:${option.price}:${option.product_id}" class="optiondough" required>${option.name}
 					<br>
 				</label>
 				</c:forEach>
