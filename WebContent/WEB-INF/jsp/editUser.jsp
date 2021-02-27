@@ -36,13 +36,13 @@
 		    <input type='hidden' name='oldId' required value="${sessionScope.loginuser.id}"><br>
 		    <input type='submit' value='変更する' class="btn">
 		</form>
-		<p id="botom">
+		<div class="botom1">
 		  <a href="addCard" class="btn">カード登録画面へ</a>
 		  <form method="post" name="form1" action="editCard">
 		    <input type="hidden" name="card_id" value="${sessionScope.loginuser.card_id}">
 		    <a href="javascript:form1.submit()" class="btn">カード情報確認画面へ</a>
 		  </form>
-		</p>
+		</div>
 		<br>
 
 	</body>
