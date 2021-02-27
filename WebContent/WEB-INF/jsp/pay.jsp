@@ -14,7 +14,7 @@ session.setAttribute("cart",null);
 </head>
 <body>
 <!-- <p class="syasinn"><img src="css/image/concrete.jpg" alt="concrete" style="float: left; margin: 0.8em 0.8em 0.8em 0;"></p> -->
-	<h1>購入完了しました</h1><br>
+	<h1>購入が確定しました</h1><br>
 <h2><table class="border">
 	<tr><th>商品名</th><th>数量</th><th>値段</th></tr>
 	<c:forEach var="product" items="${result.list}">
