@@ -32,7 +32,7 @@
 		</form>
 		<p id="botom">
 		  <a href="addCard" class="btn">カード登録画面へ</a>
-		  <a href="editCard" class="btn">カード編集画面へ</a>
+		  <a href="editCard?card_id=${sessionScope.loginuser.card_id}" class="btn">カード編集画面へ</a>
 		</p>
 		<br>
 
