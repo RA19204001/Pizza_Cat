@@ -11,6 +11,38 @@
 
         <meta charset="UTF-8">
         <title>ユーザー情報の変更</title>
+        <script type="text/javascript" language="javascript">
+			function SelectPage( page ) {
+
+			    var elementPage1 = document.getElementById( "re" );
+			    var elementPage2 = document.getElementById( "check" );
+
+			    switch( page ) {
+			    case 1:
+			        elementPage1.style.display = 'block';
+			        elementPage2.style.display = 'none';
+			        break;
+
+			    case 2:
+			        elementPage1.style.display = 'block';
+			        elementPage2.style.display = 'block';
+			        break;
+			        }
+			};
+
+			window.onload = function () {
+				var judgment = document.getElementById("change").getAttribute("value");
+				var number;
+				if(judgment==0)
+				{
+					number = 1;
+				}else
+				{
+					number = 2;
+				}
+				SelectPage(number);
+			};
+		</script>
 	</head>
 	<body>
 	<header>
@@ -37,12 +69,16 @@
 		    <input type='submit' value='変更する' class="btn">
 		</form>
 		<div class="botom1">
+		<div id="re">
 		  <a href="addCard" class="btn">カード登録画面へ</a>
+		  </div>
+		  <div id="check">
 		  <form method="post" name="form1" action="editCard">
-		    <input type="hidden" name="card_id" value="${sessionScope.loginuser.card_id}">
+		    <input type="hidden" id="change" name="card_id" value="${sessionScope.loginuser.card_id}">
 		    <a href="javascript:form1.submit()" class="btn">カード情報確認画面へ</a>
 		  </form>
-		</div>
+		  </div>
+		  </div>
 		<br>
 
 	</body>
