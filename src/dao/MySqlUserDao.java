@@ -75,7 +75,7 @@ public class MySqlUserDao implements UserDao {
     public User authenticateUser(String id, String pass){
     	User user=new User();
     	try {
-    		String sql="select user_number, user_id, user_pass,user_name,user_address,user_age,user_phonenumber from USER_TABLE where user_id=? AND user_pass=?";
+    		String sql="select user_number, user_id, user_pass,user_name,user_address,user_age,user_phonenumber,card_id from USER_TABLE where user_id=? AND user_pass=?";
 
     		st=cn.prepareStatement(sql);
     		st.setString(1,id);
@@ -90,6 +90,7 @@ public class MySqlUserDao implements UserDao {
     			user.setAddress(rs.getString(5));
     			user.setAge(rs.getInt(6));
     			user.setPhoneNumber(rs.getString(7));
+    			user.setCard_id(rs.getInt(8));
     		}else {
 
     			throw new LoginFailedException("",new Throwable());
