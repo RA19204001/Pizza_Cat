@@ -13,4 +13,5 @@ public interface UserDao {
 	public User authenticateUser(String id, String pass);
 	public void editUser(String id, User user);
 	public void addCardId(String id,Card card_id);
+	public User getUser(String id);
 }

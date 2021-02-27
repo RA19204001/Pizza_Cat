@@ -1,11 +1,7 @@
 
 package command;
 
-import java.util.ArrayList;
-
 import bean.Card;
-import bean.CardInfo;
-import bean.Message;
 import bean.User;
 //10.29 移行 大川
 //02.04 大川
@@ -43,25 +39,25 @@ public class AddCardCommand extends AbstractCommand{
         ConnectionManager cm = factory.getConnectionManager();
         CardDao dao = factory.getCardDao();
         UserDao udao = factory.getUserDao();
-        ArrayList list  = new ArrayList();
 
         cm.beginTransaction();
 
 
-        Message message=new Message();
+        User user = new User();
 
         boolean flag = true;
 
         flag=dao.isUniqueCardId(creditnumber);
 
+        String message = null;
+
         if(flag) {
         	try{
                 dao.addCard(card);
-                message.setMessage("登録完了しました");
+                message = "登録完了しました";
             }catch(IntegrationException e){
                 cm.rollback();
-                message.setMessage("登録に失敗しました");
-                responseContext.setResult(message);
+                message = "登録に失敗しました";
                 e.printStackTrace();
 
             }
@@ -71,18 +67,19 @@ public class AddCardCommand extends AbstractCommand{
 
              udao.addCardId(userId,card_id);
 
-             User user = new User();
+             user = udao.getUser(userId);
+
+             user.setMessage(message);
+
              int card_ids = Integer.parseInt(card_id.getCard_id());
              user.setCard_id(card_ids);
-             CardInfo ci = new CardInfo();
-             list.add(user);
-             list.add(message);
-             ci.setCardList(list);
-             responseContext.setResult(ci);
-            responseContext.setTarget("addCardResult");
+
+             responseContext.setResult(user);
+
+             responseContext.setTarget("addCardResult");
         }else{
-        	message.setMessage("その番号は使われています。");
-        	responseContext.setResult(message);
+        	user.setMessage("その番号は使われています。");
+        	responseContext.setResult(user);
             responseContext.setTarget("addCard");
         }
 

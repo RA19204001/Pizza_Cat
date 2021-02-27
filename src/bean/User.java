@@ -10,8 +10,17 @@ public class User implements Bean {
 	private int point;
 	private String phoneNumber;
 	private int card_id;
+	private String message;
 
 	public User() {}
+
+	public String getMessage() {
+		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
 
 	//-------------------------------------------------Number
 	public int getNumber() {

@@ -50,11 +50,11 @@ if(list != null){
 	    var result = document.getElementById("result");
 	    result.innerHTML = "\\"+total;
 
-	    var inputresult = document.getElementById("total");
+	    var inputresult = document.getElementsByClsaa("total");
 	    inputresult.value=total;
 
 	  //サイズと生地の削除ボタンを見えなくする
-	    cart_id=document.getElementsByClassName("cart_id");
+	    var cart_id=document.getElementsByClassName("cart_id");
 	    for(let i =0;i<cart_id.length;i++){
 
 		    	var hide=cart_id[i];
@@ -65,7 +65,31 @@ if(list != null){
 		    	}
 
 	    }
+
+	    var card_flag = document.getElmentById("card_flag");
+		if(card_flag.value==0){
+			let card_btn = document.getElmentById("card_btn");
+			card_btn.style.display="none";
+		}
+
  });
+function dis(){
+
+	 	// 「OK」時の処理開始 ＋ 確認ダイアログの表示
+		if(window.confirm('このクレジットカードでよろしいですか？\n')){
+
+
+
+		}
+		// 「OK」時の処理終了
+
+		// 「キャンセル」時の処理開始
+		else{
+			return false;
+		}
+		// 「キャンセル」時の処理終了
+
+}
 </script>
 </head>
 <body>
@@ -108,11 +132,22 @@ if(list != null){
 	</c:forEach>
 	<h3>合計金額</h3><br>
 	<p id="result" class="gra"></p>
-	<input type="hidden" name="total" id="total">
-    <input type='submit' value='現金で支払う' class="btn"><br><br>
-    <input type='submit' value='クレジットカードで支払う' class="btn">
+	<input type="hidden" name="total" class="total">
+    <input type='submit' value='現金で支払う' class="btn">
 </form>
-
+<form method="post" action="pay" onsubmit="return dis()">
+	<c:forEach var="product" items="${sessionScope.cart}" varStatus="status">
+		<input type='hidden' name="name" required value="${product.name}">
+		<input type='hidden' name="price" required value="${product.price}">
+		<input type='hidden' name='user_number' required value="${sessionScope.loginuser.number}">
+		<input type="hidden" name="customid" value="${product.custamid}">
+		<input type='hidden' name="id" required value="${product.id}">
+		<input type='hidden' name="amount" required value="${product.amount}">
+	</c:forEach>
+	<input type="hidden" name="total" class="total">
+    <input type='submit' value='クレジットカードで支払う' class="btn" id="card_btn">
+    <input type="hidden" name="card_id" required value="${sessionScope.loginuser.card_id}" id="card_flag">
+</form>
 
 <a href="/PizzaCat/menu" class="btn2">戻&emsp;る</a>
 
