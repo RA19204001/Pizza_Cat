@@ -51,7 +51,7 @@ if(list != null){
 	    var result = document.getElementById("result");
 	    result.innerHTML = "\\"+total;
 
-	    var inputresult = document.getElementsByClsaa("total");
+	    var inputresult = document.getElementsByClassName("total");
 	    inputresult.value=total;
 
 	  //サイズと生地の削除ボタンを見えなくする
