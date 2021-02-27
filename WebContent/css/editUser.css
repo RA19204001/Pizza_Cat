@@ -30,11 +30,21 @@ input[type=text]{
 	width:60%;
 	height:6%;
 }
+input[type=password]{
+    width:60%;
+    height:6%;
+}
 input[type=tel]{
 	width:60%;
 	height:6%;
 }
-
+.kome
+{
+  text-align:left;
+  color: #5c6956;
+  font-size: 15px;
+  padding: 0 0 10 0;
+}
 #log
 {
   background-color: white;
