@@ -57,14 +57,10 @@ h1
 }
 .table{
 
-	margin-left: 36%;
-    margin-right: 30%;
-	text-align:center;
+	margin-left: 21%;
 	border-collapse: collapse;
 
 }
-
-
 
 .username {
   display:none;
@@ -77,4 +73,18 @@ h1
   margin: 0 0 0 auto;
   display: inline-block;
   font-size: 16px;
+}
+.lololl
+{
+    right:443px;
+    bottom:95px;
+    transition:1s;
+   display: inline-block;
+   padding: 1% 10%;
+   background: #3ea60c;
+   border-radius: 4px;
+   color: #ffffff;
+   text-decoration: none;
+   font-size: 14px;
+   border: none;
 }

@@ -19,14 +19,14 @@
 		<div id="log">
 			<table border="1" class="table">
 				<form method="post" action="displayOrderHistory">
-						<tr><th>注文番号</th><th>注文日</th><th>支払い方法</th></tr>
+						<tr><th>注文番号</th><th>注文日(クリックで詳細)</th><th>支払い方法</th></tr>
 					<c:forEach var="history" items="${result.orderHistoryList}">
 						<tr>
 						<td>
 							${history.order_id}
 						</td>
 						<td>
-							<input type="submit" value="${history.order_date}">
+							<input type="submit" value="${history.order_date}" class="lololl">
 							<input type="hidden" name="order_id" value="${history.order_id}">
 						</td>
 						<td>

@@ -584,8 +584,8 @@ button{
 				</label>
 				</c:forEach>
 				<br><input type="submit" value="カートに入れる" class="lolol"><br>
-				<br>
-				<br>
+
+				<br><h3>＊ オプションリスト ＊</h3>
 				<c:forEach var="option" items="${result.optionList}" begin="6">
 					<p>${option.name}: \ ${option.price}</p>
                     <select name="option">
