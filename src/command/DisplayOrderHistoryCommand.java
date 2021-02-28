@@ -1,3 +1,4 @@
+//2.28 浅倉
 package command;
 
 
@@ -7,7 +8,7 @@ import context.RequestContext;
 import context.ResponseContext;
 import dao.AbstractDaoFactory;
 import dao.ConnectionManager;
-import dao.OrderDao;
+import dao.OrderHistoryDao;
 import exception.DisplayOrderHistoryFailedException;
 
 public class DisplayOrderHistoryCommand extends AbstractCommand {
@@ -16,12 +17,12 @@ public class DisplayOrderHistoryCommand extends AbstractCommand {
 	public ResponseContext execute(ResponseContext resc) {
 		RequestContext reqc = getRequestContext();
 
-		String user_number = reqc.getParameter("user_number")[0];
+		String order_id = reqc.getParameter("order_id")[0];
 
-		int int_user_number = Integer.parseInt(user_number);
+		int int_order_id = Integer.parseInt(order_id);
 
 		AbstractDaoFactory factory = AbstractDaoFactory.getFactory();
-        OrderDao order = factory.getOrderDao();
+        OrderHistoryDao order = factory.getOrderHistoryDao();
         ConnectionManager cm = factory.getConnectionManager();
         OrderHistoryList orderHistoryList = new OrderHistoryList();
 
@@ -29,16 +30,16 @@ public class DisplayOrderHistoryCommand extends AbstractCommand {
 
         try {
 
-        	orderHistoryList = order.getOrderHistoryList(int_user_number);
+        	orderHistoryList = order.getOrderHistoryList(int_order_id);
 
             resc.setResult(orderHistoryList);
-            resc.setTarget("orderHistory");
+            resc.setTarget("displayOrderHistory");
 
         }catch(DisplayOrderHistoryFailedException e) {
 
-        Message message=new Message();
-        message.setMessage("注文履歴が表示できません。");
-        e.printStackTrace();
+	        Message message=new Message();
+	        message.setMessage("注文履歴が表示できません。");
+	        e.printStackTrace();
 
         }
         cm.commit();

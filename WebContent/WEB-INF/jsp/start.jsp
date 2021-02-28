@@ -2,6 +2,7 @@
 <!--浅倉 2/3  -->
 <!-- 内田2/19 -->
 <!--浅倉 2/20  -->
+<!--浅倉 2/28  -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page import ="bean.User"%>

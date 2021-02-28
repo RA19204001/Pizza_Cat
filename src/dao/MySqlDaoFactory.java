@@ -1,4 +1,5 @@
 //0221染谷
+//2.28 浅倉
 package dao;
 
 public class MySqlDaoFactory extends AbstractDaoFactory{
@@ -35,4 +36,7 @@ public class MySqlDaoFactory extends AbstractDaoFactory{
   public DeliveryDao getDeliveryDao() {
 	  return new MySqlDeliveryDao();
   }
+	public OrderHistoryDao getOrderHistoryDao() {
+		return new MySqlOrderHistoryDao();
+	}
 }

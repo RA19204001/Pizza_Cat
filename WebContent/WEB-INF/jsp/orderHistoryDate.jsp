@@ -1,3 +1,4 @@
+<!--浅倉 2/28  -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -19,7 +20,7 @@
 				</td>
 				<td>
 					<input type="submit" value="${history.order_date}">
-					<input type="hidden" name="user_number" value="${history.order_id}">
+					<input type="hidden" name="order_id" value="${history.order_id}">
 				</td>
 				</tr>
 			</c:forEach>
