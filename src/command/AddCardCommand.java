@@ -43,15 +43,20 @@ public class AddCardCommand extends AbstractCommand{
         String month1 = month_format.format(calender.getTime());
         int month = Integer.parseInt(month1);
 
-        if(com_year<=year && com_month<=month){
+        if(com_year<year){
+	    		message = "カードの期限が切れています。";
 
-    		message = "過去の日付は入れられません";
+	    		user.setMessage(message);
+	    		responseContext.setResult(user);
+	            responseContext.setTarget("addCard");
 
-    		 user.setMessage(message);
-    		responseContext.setResult(user);
-            responseContext.setTarget("addCard");
+		    }else if(com_year==year && com_month<=month){
+	        	message = "カードの期限が切れています。";
 
-        }else {
+	    		user.setMessage(message);
+	    		responseContext.setResult(user);
+	            responseContext.setTarget("addCard");
+			}else {
 
 	        if(com_year<=9) {
 	        	expiration_year = String.valueOf(com_year);
