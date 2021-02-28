@@ -12,6 +12,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
+	<link rel="stylesheet" type="text/css" href="css/menu2.css">
 		<meta charset="UTF-8">
 		<script>
 			function hidecheck(){
@@ -45,46 +46,6 @@
 			margin:0;
 			padding:0;
 		}
-
-		/* ここまでデモページ用のコード */
-
-		.modal-content {
-			width: 50% ;
-			height :70%;
-			margin: 0 ;
-			padding: 10px 20px ;
-			border: 2px solid #aaa ;
-			background: #fff ;
-			position: fixed ;
-			display: none ;
-			z-index: 2 ;
-			overflow-y: scroll;
-			overflow-y: hidden visible;
-
-		}
-
-		#modal-overlay {
-			z-index: 1 ;
-			display: none ;
-			position: fixed ;
-			top: 0 ;
-			left: 0 ;
-			width: 100% ;
-			height: 120% ;
-			background-color: rgba( 0,0,0, 0.75 ) ;
-		}
-
-		.button-link {
-			color: #00f ;
-			text-decoration: underline ;
-		}
-
-		.button-link:hover {
-			cursor: pointer ;
-			color: #f00 ;
-		}
-
-
 		.tab-wrap {
 		    display: flex;
 		    flex-wrap: wrap;
@@ -100,83 +61,28 @@
 		    width: 100%;
 		    display: none;
 		}
-		/* アクティブなタブ */
 		.tab-switch:checked+.tab-label {
 		    background: DeepSkyBlue;
 		}
 		.tab-switch:checked+.tab-label+.tab-content {
 		     display: block;
 		}
-		/* ラジオボタン非表示 */
 		.tab-switch {
 		    display: none;
 		}
 
+/*justify-content: center;*/
 
-		/*size*/
-		.modals-content {
-			width: 50% ;
-			margin: 0 ;
-			padding: 10px 20px ;
-			border: 2px solid #aaa ;
-			background: #fff ;
-			position: fixed ;
-			display: none ;
-			z-index: 2 ;
-		}
-
-		#modals-overlay {
-			z-index: 1 ;
-			display: none ;
-			position: fixed ;
-			top: 0 ;
-			left: 0 ;
-			width: 100% ;
-			height: 120% ;
-			background-color: rgba( 0,0,0, 0.75 ) ;
-		}
-
-		.buttons-link {
-			color: #00f ;
-			text-decoration: underline ;
-		}
-
-		.buttons-link:hover {
-			cursor: pointer ;
-			color: #f00 ;
-		}
-
-
-
-		.cart {
-			margin-top: 0;
-			position: webkit-sticky;
-			position: sticky;
-			position: fixed;
-			right: 0px;
-			display: flex;
-			justify-content: center;
-			top: 0px;
-			width: 20%;
-			height: 90%;
-			color: rgb(114, 36, 50);
-			background: #FFF;
-			overflow-y: scroll;
-			overflow-y: hidden visible;
-		}
-		.cart-total{
-			position: webkit-sticky;
-			position: sticky;
-			position: fixed;
-			bottom:0px;
-			right: 0px;
-			display: flex;
-			width: 20%;
-			height: 10%;
-			color: rgb(114, 36, 50);
-			background: #FEFEFE;
-			border-style: ridge;
-		}
+/*.header{
+ width: 100%;
+   padding: 10px 0px 10px;
+   top: 0;
+   display: flex;
+   position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+justify-content: stretch;
+}*/
 
 		img{
 			width:50%;
@@ -191,17 +97,14 @@
 			padding:0px;
 		}
 
-.menu {
-	flex: 1 0 auto;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	height: 100%;
-	margin-left: 1%;
-	margin-right: 2%;
-	background: #EEE;
-}
-
+		.menu {
+			flex: 1 0 auto;
+			justify-content: stretch;
+			height: 100%;
+			margin-left: 1%;
+			margin-right: 2%;
+			background: #EEE;
+		}
 	</style>
 
 	<title>商品一覧</title>
@@ -211,14 +114,18 @@
 
 
 <h1 style="text-align:center;color:#d36015;">商品表示編集</h1>
+<h2><a href="/PizzaCat/managementTop">管理者TOPへ</a></h2>
 
 <div class="menu">
 <div class="tab-wrap">
     <input id="TAB-01" type="radio" name="TAB" class="tab-switch" checked="checked" />
     <label class="tab-label" for="TAB-01">
+    <header class="header">
     	<h2 style="width :500px ;">表示済みピザ</h2>
+    </header>
     </label>
     <div class="tab-content">
+    <table>
         <c:forEach var="menu" items="${result.list}" varStatus="status">
 			<form method="post" action="editDisplayResult" onSubmit="return hidecheck()">
 				<button>
@@ -230,14 +137,18 @@
 		        	</button>
 		        </form>
         </c:forEach>
+        </table>
     </div>
 
 
     <input id="TAB-04" type="radio" name="TAB" class="tab-switch"/>
     <label class="tab-label" for="TAB-04">
+    <header class="header">
     	<h2 style="width :500px ;">非表示済みピザ</h2>
+    	</header>
     </label>
     <div class="tab-content">
+    <table>
         <c:forEach var="menu" items="${result.hidepizzaList}" varStatus="status">
 			<form method="post" action="editDisplayResult" onSubmit="return displaycheck()">
 				<button>
@@ -249,13 +160,17 @@
 		        	</button>
 		        </form>
         </c:forEach>
+        </table>
     </div>
 
     <input id="TAB-02" type="radio" name="TAB" class="tab-switch"/>
     <label class="tab-label" for="TAB-02">
+    <header class="header">
     	<h2 style="width :500px ;">表示済みサイド</h2>
+    	</header>
     </label>
     <div class="tab-content">
+    <table>
         <c:forEach var="menu" items="${result.sideList}" varStatus="status">
 				<form method="post" action="editDisplayResult" onSubmit="return hidecheck()">
 				<button>
@@ -267,14 +182,18 @@
 		        	</button>
 		        </form>
         </c:forEach>
+        </table>
     </div>
 
 
     <input id="TAB-05" type="radio" name="TAB" class="tab-switch" />
     <label class="tab-label" for="TAB-05">
+    <header class="header">
     	<h2 style="width :500px ;">非表示済みサイド</h2>
+    	</header>
     </label>
     <div class="tab-content">
+    <table>
         <c:forEach var="menu" items="${result.hidesideList}" varStatus="status">
 
 				<form method="post" action="editDisplayResult" onSubmit="return displaycheck()">
@@ -289,14 +208,18 @@
 		        </form>
 			   </form>
         </c:forEach>
+        </table>
     </div>
 
 
     <input id="TAB-03" type="radio" name="TAB" class="tab-switch"/>
     <label class="tab-label" for="TAB-03">
+    <header class="header">
     	<h2 style="width :500px ;">表示済みオプション</h2>
+    	</header>
     </label>
     <div class="tab-content">
+    <table>
         <c:forEach var="menu" items="${result.optionList}" varStatus="status" begin="6">
 
 				<form method="post" action="editDisplayResult" onSubmit="return hidecheck()">
@@ -309,14 +232,18 @@
 		        </form>
 
         </c:forEach>
+        </table>
     </div>
 
 
     <input id="TAB-06" type="radio" name="TAB" class="tab-switch" />
     <label class="tab-label" for="TAB-06">
+    <header class="header">
     	<h2 style="width :500px ;">非表示済みオプション</h2>
+    	</header>
     </label>
     <div class="tab-content">
+    <table>
         <c:forEach var="menu" items="${result.hideoptionList}" varStatus="status">
         	<form method="post" action="editDisplayResult" onSubmit="return displaycheck()">
 				<button>
@@ -327,6 +254,7 @@
 		        </button>
 		     </form>
         </c:forEach>
+        </table>
     </div>
     </div>
 </div>
