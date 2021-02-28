@@ -9,4 +9,5 @@ public interface OrderDao {
 	public Order getOrderId(int user_number);
 	public void updateDelivery(Order order);
 	public OrderHistoryList getOrderHistoryList(int user_number);
+	public OrderHistoryList getOrderDate(int user_number);
 }

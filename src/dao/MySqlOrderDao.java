@@ -84,15 +84,15 @@ public class MySqlOrderDao implements OrderDao {
 
 	    try {
 	    	String sql = "select order_date,order_id, orderdetail_id, custom_id, product_amount, order_delivery," +
-	    				"	IFNULL(pizza_id,IFNULL(pizzaoption_id,side_id)) AS product_id," +
-	    				"	IFNULL(pizza_price,IFNULL(pizzaoption_price,side_price)) AS product_price," +
-	    				"   IFNULL(pizza_name,IFNULL(pizzaoption_name,side_name)) AS product_name" +
-	    				"FROM ORDER_table" +
-	    				"	RIGHT JOIN ORDERDETAIL_TABLE USING(order_id)" +
-	    				"	LEFT JOIN PIZZA_TABLE ON ORDERDETAIL_TABLE.product_id = PIZZA_TABLE.pizza_id" +
-	    				"   LEFT JOIN PIZZAOPTION_TABLE ON ORDERDETAIL_TABLE.product_id = PIZZAOPTION_TABLE.pizzaoption_id" +
-	    				"   LEFT JOIN SIDE_TABLE ON ORDERDETAIL_TABLE.product_id = SIDE_TABLE.side_id" +
-	    				"WHERE User_number = ?" +
+	    				"IFNULL(pizza_id,IFNULL(pizzaoption_id,side_id)) AS product_id," +
+	    				"IFNULL(pizza_price,IFNULL(pizzaoption_price,side_price)) AS product_price," +
+	    				"IFNULL(pizza_name,IFNULL(pizzaoption_name,side_name)) AS product_name " +
+	    				"FROM ORDER_TABLE " +
+	    				"RIGHT JOIN ORDERDETAIL_TABLE USING(order_id) " +
+	    				"LEFT JOIN PIZZA_TABLE ON ORDERDETAIL_TABLE.product_id = PIZZA_TABLE.pizza_id " +
+	    				"LEFT JOIN PIZZAOPTION_TABLE ON ORDERDETAIL_TABLE.product_id = PIZZAOPTION_TABLE.pizzaoption_id " +
+	    				"LEFT JOIN SIDE_TABLE ON ORDERDETAIL_TABLE.product_id = SIDE_TABLE.side_id " +
+	    				"WHERE user_number = ?" +
 	    				"ORDER BY order_id DESC;";
 
 	    	st=cn.prepareStatement(sql);
@@ -125,5 +125,31 @@ public class MySqlOrderDao implements OrderDao {
 
 		return orderHistoryList;
 	}
+	public OrderHistoryList getOrderDate(int user_number){
+        OrderHistoryList ohlist = new OrderHistoryList();
+        ArrayList list = new ArrayList();
+
+        try {
+            String sql = "select order_date,order_id from ORDER_TABLE where user_number = ? order by order_id desc";
+            st=cn.prepareStatement(sql);
+
+            st.setInt(1,user_number);
+
+            rs = st.executeQuery();
+            while(rs.next()) {
+                OrderHistory orderHistory = new OrderHistory();
+
+                orderHistory.setOrder_date(rs.getString(1));
+                orderHistory.setOrder_id(rs.getInt(2));
+                list.add(orderHistory);
+            }
+            ohlist.setOrderHistoryList(list);
+
+        }catch(SQLException e){
+            e.printStackTrace();
+            throw new IntegrationException(e.getMessage(),e);
+        }
+        return ohlist;
+    }
 
 }
