@@ -7,8 +7,15 @@ public class Order implements Bean {
 	private String order_date;
 	private int user_number;
 	private boolean Order_delivery;
-
+	private String order_payment;
 	public Order() {}
+
+	public String getOrder_payment() {
+		return order_payment;
+	}
+	public void setOrder_payment(String order_payment) {
+		this.order_payment = order_payment;
+	}
 	public String getOrder_date() {
 		return order_date;
 	}

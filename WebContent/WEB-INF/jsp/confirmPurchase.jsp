@@ -140,6 +140,7 @@ function dis(){
 			<p id="result" class="gra"></p>
 			<input type="hidden" name="total" class="total">
 		    <input type='submit' value='現金で支払う' class="btn">
+		    <input type="hidden" name="payment" value="現金">
 		</form>
 		<form method="post" action="pay" onsubmit="return dis()">
 			<c:forEach var="product" items="${sessionScope.cart}" varStatus="status">
@@ -154,6 +155,7 @@ function dis(){
 		    <input type='submit' value='クレジットカードで支払う' class="btn3" id="card_btn">
 		    <input type="hidden" name="card_id" required value="${sessionScope.loginuser.card_id}" id="card_flag">
 		    <input type="hidden" name="creditnumber" value="${sessionScope.cr.creditnumber}" id="creditnumber">
+		    <input type="hidden" name="payment" value="クレジット">
 		</form>
 
 		<a href="/PizzaCat/menu" class="btn2">戻&emsp;る</a>

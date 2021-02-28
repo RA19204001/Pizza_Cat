@@ -9,9 +9,21 @@ public class OrderHistory implements Bean {
 	private String product_name;
 	private int product_price;
 	private int product_amount;
-	private boolean Order_delivery;
+	private boolean order_delivery;
+	private String order_payment;
 
 	public OrderHistory() {}
+
+	public String getOrder_payment() {
+		return order_payment;
+	}
+
+
+	public void setOrder_payment(String order_payment) {
+		this.order_payment = order_payment;
+	}
+
+
 
 
 	public String getOrder_date() {
@@ -78,11 +90,11 @@ public class OrderHistory implements Bean {
 	}
 
 
-	public boolean isOrder_delivery() {
-		return Order_delivery;
+	public boolean getOrder_delivery() {
+		return order_delivery;
 	}
 	public void setOrder_delivery(boolean order_delivery) {
-		Order_delivery = order_delivery;
+		this.order_delivery = order_delivery;
 	}
 
 }

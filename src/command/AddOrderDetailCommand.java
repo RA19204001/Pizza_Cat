@@ -21,7 +21,10 @@ public class AddOrderDetailCommand extends AbstractCommand {
 		RequestContext reqc = getRequestContext();
 
 		String users_number = reqc.getParameter("user_number")[0];
+		String payment = reqc.getParameter("payment")[0];
+
 		int user_number =  Integer.parseInt(users_number);
+
 
 		AbstractDaoFactory factory = AbstractDaoFactory.getFactory();
 		ConnectionManager cm = factory.getConnectionManager();
@@ -31,7 +34,7 @@ public class AddOrderDetailCommand extends AbstractCommand {
 
 		cm.beginTransaction();
 
-		odao.addOrder(user_number);
+		odao.addOrder(user_number,payment);
 
 		Order order_id = null;
 

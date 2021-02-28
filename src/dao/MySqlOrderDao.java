@@ -28,7 +28,7 @@ public class MySqlOrderDao implements OrderDao {
 
             //st.setString(1,order_date);
             st.setInt(1,user_number);
-            st.setString(1,order_payment);
+            st.setString(2,order_payment);
             //st.setInt(sysdate);
 
             st.executeUpdate();
