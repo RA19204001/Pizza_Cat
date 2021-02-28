@@ -84,6 +84,10 @@
 			<div id='page2' class='page2'>
 			   <ul id="nav">
 				<li><p><a href="editUser">ユーザー/カード情報の編集</a></p></li>
+			   <li><p><form method="post" action="orderHistoryDate">
+				   <input type="submit" value="注文履歴">
+				   <input type="hidden" name="user_number" value="${sessionScope.loginuser.number}">
+			   </form></p></li>
 				<li><p>${sessionScope.loginuser.id}様</p></li>
 				<li><p><a href="logout">ログアウト</a></p></li>
 			   </ul>
