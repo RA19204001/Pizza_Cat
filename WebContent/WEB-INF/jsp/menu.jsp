@@ -472,11 +472,19 @@ button{
    font-weight: bold;
    border: none;
 }
-.lolol:hover {
-  background: #ffffff;
-  border: solid 2px #3ea60c;
-  color: #3ea60c;
-  opacity: 0.8;
+.lololl
+{
+    right:443px;
+    bottom:95px;
+    transition:1s;
+   display: inline-block;
+   padding: 1% 10%;
+   background: #3ea60c;
+   border-radius: 4px;
+   color: #ffffff;
+   text-decoration: none;
+   font-size: 16px;
+   border: none;
 }
 
 		</style>
@@ -500,7 +508,7 @@ button{
 <tr><th>削除</th><th>商品名</th><th>値段</th><th>個数</th></tr>
    <c:forEach var="cart" items="${sessionScope.cart}">
 	<form method="post" action="deleteCart">
-		   <tr><td><input type="submit" value="削除" class="delete"></td>
+		   <tr><td><input type="submit" value="削除" class="delete lololl"></td>
 		   <td>${cart.name}</td>
 		   <td class="cart_price">${cart.price}</td>
 		   <td class="cart_amount">${cart.amount}</td></tr>
@@ -522,7 +530,7 @@ button{
 <div class="cart-total">
 	<table>
 		<form method="post" action="confirmPurchase">
-			<tr><td><h3>合計金額</h3></td><td><input type="submit" value="購入" id="buy" class="lolol"></td></tr>
+			<tr><td><h3>合計金額</h3></td><td><input type="submit" value="購入" id="buy" class="lololl"></td></tr>
 			<tr><td><span>￥</span><span id="cart_total"></span></span></td></tr>
 			<input type="hidden" name="card_id" value="${sessionScope.loginuser.card_id}">
 		</form>
@@ -575,6 +583,7 @@ button{
 					<br>
 				</label>
 				</c:forEach>
+				<br><input type="submit" value="カートに入れる" class="lolol"><br>
 				<br>
 				<br>
 				<c:forEach var="option" items="${result.optionList}" begin="6">
@@ -621,7 +630,7 @@ button{
 	    </label>
     <div class="tab-content">
         <c:forEach var="menu" items="${result.sideList}" varStatus="status">
-        <!-- 1つ目（サイドメニュー）のコンテンツ [開始] -->
+        <!-- 2つ目（サイドメニュー）のコンテンツ [開始] -->
         <div id="modals-content-${status.index}" class="modals-content" name="favDialog">
             <!-- モーダルウィンドウのコンテンツ開始 -->
             <img src="pizza/${menu.image}">
@@ -635,15 +644,15 @@ button{
 				   <input type="hidden" name="cart_amount" value="${cart.amount}">
 				   <input type="hidden" name="cart_custamid" value="${cart.custamid}">
 				</c:forEach>
-
-            	<input type="text" name="amount" pattern="^[0-9]+$" value="1">
+                <p>1回で選択できる個数は10個までです</p>
+            	<input type="number" name="amount" pattern="^[0-9]+$" value="1" min="0" max="10">
             	<input type="hidden" name="id" value="${menu.product_id}">
 
                 	<input type="hidden" name="name" value="${menu.name}">
                 	<input type="hidden" name="price" value="${menu.price}">
 					<br>
 
-				<input type="submit" value="カートに入れる">
+				<input type="submit" value="カートに入れる" class="lolol">
 
             </form>
             <p>￥${menu.price}</p>
