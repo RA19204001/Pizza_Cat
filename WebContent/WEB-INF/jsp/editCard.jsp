@@ -15,10 +15,11 @@
         </header>
 		<h1>カード情報の確認</h1>
 		<h2>カード情報の登録は１枚までです</h2>
+		<h2>変更したい場合はカード登録からお願いします</h2>
 		<div id="log">
 			<c:forEach var="card" items="${result.cardInfo}" ><br>
 			    クレジットカード番号(数字)<br><p>${card.creditnumber}</p><br>
-			    セキュリティ番号<br><p>${card.security_code}</p><br>
+			    <!-- セキュリティ番号<br><p>${card.security_code}</p><br> -->
 			    有効期限<br><p>${card.expiration_date}</p><br>
 			    メールアドレス<br><p>${card.mail_address}</p><br>
 			</c:forEach>
