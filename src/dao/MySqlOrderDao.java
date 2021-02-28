@@ -18,16 +18,17 @@ public class MySqlOrderDao implements OrderDao {
     PreparedStatement st = null;
     ResultSet rs=null;
 
-	public void addOrder(int user_number) {
+	public void addOrder(int user_number,String order_payment) {
 
 		try{
 			//sysdateがnowかもしれない
-            String sql = "insert into ORDER_TABLE(order_date, user_number)"+"value(CURDATE(),?)";
+            String sql = "insert into ORDER_TABLE(order_date, user_number,order_payment)"+"value(CURDATE(),?,?)";
 
             st = cn.prepareStatement(sql);
 
             //st.setString(1,order_date);
             st.setInt(1,user_number);
+            st.setString(1,order_payment);
             //st.setInt(sysdate);
 
             st.executeUpdate();
@@ -81,7 +82,7 @@ public class MySqlOrderDao implements OrderDao {
         ArrayList list = new ArrayList();
 
         try {
-            String sql = "select order_date,order_id from ORDER_TABLE where user_number = ? order by order_id desc";
+            String sql = "select order_date,order_id,order_payment from ORDER_TABLE where user_number = ? order by order_id desc";
             st=cn.prepareStatement(sql);
 
             st.setInt(1,user_number);
@@ -92,6 +93,7 @@ public class MySqlOrderDao implements OrderDao {
 
                 orderHistory.setOrder_date(rs.getString(1));
                 orderHistory.setOrder_id(rs.getInt(2));
+                orderHistory.setOrder_payment(rs.getString(3));
                 list.add(orderHistory);
             }
             ohlist.setOrderHistoryList(list);
