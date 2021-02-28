@@ -7,6 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="css/displayOrderHistory.css">
 <script type="text/javascript">
 	$(function(){
 	    var price = document.getElementsByClassName("price");
@@ -19,14 +20,16 @@
 	    result.innerHTML = total;
 	});
 </script>
-<title>Insert title here</title>
+<title>注文履歴詳細</title>
 </head>
 <body>
-	<h1>注文履歴</h1>
-	<p>合計金額</p>
-	<span id="total"></span>円
+<div id="log">
+	<h1><a href="/PizzaCat/" id="moji"><img src="css/image/iconlogo.png"></a></h1>
+	<h2>注文履歴</h2>
+	<h3>合計金額</h3>
+	<h3><span id="total"></span>円</h3>
 
-	<table border = "1">
+	<table class="border">
 	<tr><th>注文日</th><th>商品名</th><th>個数</th><th>値段</th></tr>
 
 	<c:forEach var="history" items="${result.orderHistoryList}">
@@ -38,8 +41,9 @@
 
 
 	<form method="post" action="orderHistoryDate">
-	   <input type="submit" value="注文履歴">
+	   <br><br><input type="submit" value="戻る" class="btn2">
 	   <input type="hidden" name="user_number" value="${sessionScope.loginuser.number}">
 	</form>
+	</div>
 </body>
 </html>

@@ -457,7 +457,27 @@ button{
 	border:outset;
 	content:1px;
 }
-
+.lolol
+{
+	right:443px;
+	bottom:95px;
+	transition:1s;
+   display: inline-block;
+   padding: 1% 40%;
+   background: #3ea60c;
+   border-radius: 4px;
+   color: #ffffff;
+   text-decoration: none;
+   font-size: 18px;
+   font-weight: bold;
+   border: none;
+}
+.lolol:hover {
+  background: #ffffff;
+  border: solid 2px #3ea60c;
+  color: #3ea60c;
+  opacity: 0.8;
+}
 
 		</style>
 
@@ -502,7 +522,7 @@ button{
 <div class="cart-total">
 	<table>
 		<form method="post" action="confirmPurchase">
-			<tr><td><h3>合計金額</h3></td><td><input type="submit" value="購入" id="buy"></td></tr>
+			<tr><td><h3>合計金額</h3></td><td><input type="submit" value="購入" id="buy" class="lolol"></td></tr>
 			<tr><td><span>￥</span><span id="cart_total"></span></span></td></tr>
 			<input type="hidden" name="card_id" value="${sessionScope.loginuser.card_id}">
 		</form>
@@ -568,9 +588,9 @@ button{
 					<br>
 				</c:forEach>
 
-				<input type="submit" value="カートに入れる">
+				<br><input type="submit" value="カートに入れる" class="lolol"><br>
             </form>
-            <p>${menu.price}</p>
+            <p>￥${menu.price}</p>
 
             <p><a id="modal-close" class="button-link">閉じる</a></p>
             <!-- モーダルウィンドウのコンテンツ終了 -->

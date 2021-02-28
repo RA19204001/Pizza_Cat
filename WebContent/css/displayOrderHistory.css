@@ -1,0 +1,84 @@
+
+h2
+{
+	text-align:center;
+	font-size:38px;
+}
+
+#moji
+{
+	text-decoration: none;
+	margin:0 auto;
+	display:block;
+	width:119px;
+}
+
+.border
+{
+	margin-left: auto;
+	margin-right: auto;
+}
+#top
+{
+	display: table;
+    max-width: 180px;
+    text-align: left;
+    border: 2px solid #6a16d9;
+    font-size: 16px;
+    color: #5709bd;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 16px;
+    border-radius: 20px;
+    transition: .4s;
+}
+body{
+	 margin: 50px auto 0;
+	 width: 500px;
+	 height: 477px;
+	 background-image: url('image/concrete2.jpg');
+	 background-repeat: repeat;
+	 background-position: 0% 50%, 100% 0%;
+	 background-attachment:scroll;
+
+    margin-left: auto;
+	margin-right: auto;
+}
+p.syasinn img{
+    width: 300px;  /* 横幅を200pxに */
+}
+#log
+{
+  background-color: white;
+  text-align:center;
+  margin: 15px;
+  margin-left: -10%;
+  margin-right: -10%;
+  border-radius: 3px;
+  box-shadow: 0 10px 15px -2px rgba(10, 10, 10, 0.4);
+  padding: 30px;
+}
+.btn2{
+	margin-left: 28%;
+	margin-right: 28%;
+  display: inline-block;
+  padding: 10px 60px;
+  background: #3ea60c;
+  border-radius: 4px;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+}
+.btn2:hover {
+  background: #ffffff;
+  border: solid 2px #3ea60c;
+  color: #3ea60c;
+  opacity: 0.8;
+}
+/*html{
+    height: 100%;
+    text-align: center;
+    margin: 0;
+}*/
