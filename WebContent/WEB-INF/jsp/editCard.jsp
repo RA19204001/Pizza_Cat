@@ -14,8 +14,8 @@
             <p class="username">${sessionScope.loginuser.id}様</p>
         </header>
 		<h1>カード情報の確認</h1>
-		<h2>カード情報の登録は１枚までです</h2>
-		<h2>変更したい場合はカード登録からお願いします</h2>
+		<h2 style="color:red">※カード情報の登録は１枚までです(二枚目以降は上書きされます)</h2>
+		<h2>変更したい場合は、戻る＞カード登録からお願いします</h2>
 		<div id="log">
 			<c:forEach var="card" items="${result.cardInfo}" ><br>
 			    クレジットカード番号(数字)<br><p>${card.creditnumber}</p><br>
