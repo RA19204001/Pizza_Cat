@@ -29,7 +29,7 @@ public class MySqlSalesDao implements SalesDao {
 	    					"IFNULL(pizza_name,IFNULL(pizzaoption_name,side_name)) AS product_name, " +
 	    					"IFNULL(pizza_category,IFNULL(pizzaoption_category,side_category)) AS product_category, " +
 	    					"IFNULL(pizza_price,IFNULL(pizzaoption_price,side_price)) AS product_price, " +
-	    					"product_amount " +
+	    					"product_amount,order_payment " +
 	    				"FROM ORDER_TABLE " +
 	    					"RIGHT JOIN ORDERDETAIL_TABLE USING(order_id) " +
 	    					"LEFT JOIN USER_TABLE USING(user_number) " +
@@ -59,6 +59,7 @@ public class MySqlSalesDao implements SalesDao {
 	    		sale.setProduct_category(rs.getString(9));
 	    		sale.setProduct_price(rs.getInt(10));
 	    		sale.setProduct_amount(rs.getInt(11));
+	    		sale.setOrder_payment(rs.getString(12));
 
 	    		list.add(sale);
 	    	}

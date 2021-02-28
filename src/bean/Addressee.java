@@ -16,7 +16,18 @@ public class Addressee implements Bean {
 	private String user_address;
 	private int price;
 	private boolean Order_delivery;
+	private String order_payment;
+
 	public Addressee() {}
+
+	public String getOrder_payment() {
+		return order_payment;
+	}
+
+	public void setOrder_payment(String order_payment) {
+		this.order_payment = order_payment;
+	}
+
 
 	public String getOrder_date() {
 		return order_date;

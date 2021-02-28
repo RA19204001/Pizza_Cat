@@ -13,7 +13,14 @@ public class Sale implements Bean {
 	private String product_category;
 	private int product_price;
 	private int product_amount;
+	private String order_payment;
 
+	public String getOrder_payment() {
+		return order_payment;
+	}
+	public void setOrder_payment(String order_payment) {
+		this.order_payment = order_payment;
+	}
 	public String getOrder_date() {
 		return order_date;
 	}

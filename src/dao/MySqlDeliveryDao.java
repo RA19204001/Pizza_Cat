@@ -24,7 +24,8 @@ public class MySqlDeliveryDao implements DeliveryDao{
 	    try {
 	    	String sql = "select order_date,order_id, orderdetail_id, user_number, user_name, user_address, custom_id, product_amount,order_delivery," +
 	    						" IFNULL(pizza_id,IFNULL(pizzaoption_id,side_id)) AS product_id," +
-	    						" IFNULL(pizza_name,IFNULL(pizzaoption_name,side_name)) AS product_name" +
+	    						" IFNULL(pizza_name,IFNULL(pizzaoption_name,side_name)) AS product_name," +
+	    						"order_payment "+
 	    					" FROM ORDER_TABLE" +
 	    						" RIGHT JOIN ORDERDETAIL_TABLE USING(order_id)" +
 	    						" LEFT JOIN USER_TABLE USING(user_number)" +
@@ -51,6 +52,7 @@ public class MySqlDeliveryDao implements DeliveryDao{
 	    		Addressee.setOrder_delivery(rs.getBoolean(9));
 	    		Addressee.setProduct_id(rs.getInt(10));
 	    		Addressee.setProduct_name(rs.getString(11));
+	    		Addressee.setOrder_payment(rs.getString(12));
 
 	    		list.add(Addressee);
 	    	}
