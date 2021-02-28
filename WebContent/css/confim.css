@@ -27,8 +27,8 @@ h3
 	margin: center;
 }
 .btn{
-	margin-left: 41%;/*500px*/
-  margin-right: 41%;
+	margin-left: 29%;
+	margin-right: 29%;
   display: inline-block;
   padding: 10px 99px;
   background: #3ea60c;
@@ -45,11 +45,30 @@ h3
   color: #3ea60c;
   opacity: 0.8;
 }
-.btn2{
-	margin-left: 41%;
-  margin-right: 41%;
+.btn3{
+  margin-left: 26%;
+  margin-right: 24%;
   display: inline-block;
-  padding: 10px 99px;
+  padding: 10px 45px;
+  background: #3ea60c;
+  border-radius: 4px;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+}
+.btn3:hover {
+  background: #ffffff;
+  border: solid 2px #3ea60c;
+  color: #3ea60c;
+  opacity: 0.8;
+}
+.btn2{
+	margin-left: 28%;
+	margin-right: 28%;
+  display: inline-block;
+  padding: 10px 60px;
   background: #3ea60c;
   border-radius: 4px;
   color: #ffffff;
@@ -69,8 +88,8 @@ body{
 	 /*width: 500px;
 	 height: 477px;*/
 	 background-image: url('image/itigo3.jpg'), url('image/itigo3.jpg');
-	 background-repeat: repeat-y, repeat-y;
-	 background-position: 0% 50%, 100% 0%;
+	 background-repeat: repeat;
+	 /*background-position: 0% 50%, 100% 0%;*/
 	 background-attachment:scroll;
 
     margin-left: auto;
@@ -88,4 +107,15 @@ body{
     color:#fff;
     background-color:#1f4f07;
     border-radius:25px;
+}
+#log
+{
+  background-color: white;
+  text-align:center;
+  margin: 15px;
+  margin-left: 25%;
+  margin-right: 25%;
+  border-radius: 3px;
+  box-shadow: 0 10px 15px -2px rgba(10, 10, 10, 0.4);
+  padding: 30px;
 }

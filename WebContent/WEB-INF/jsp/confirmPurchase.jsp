@@ -98,64 +98,66 @@ function dis(){
 </script>
 </head>
 <body>
+    <div id="log">
 
-	<h1 style="color:#2c8005">購入の確認</h1>
+		<h1 style="color:#2c8005">購入の確認</h1>
 
-	<table id="kakuninn">
-	<tr><th>削除</th><th>商品名</th><th>値段</th><th>商品番号</th><th>数量</th></tr>
-	<c:forEach var="product" items="${sessionScope.cart}" varStatus="status">
-	<input type='hidden' name="custom_id" required value="${status.count}">
-	<form method="post" action="deleteCart">
-	<tr>
-	<td><input type="submit" value="削除" id="saku" class="delete">
-	<td><input type='hidden' name="name" required value="${product.name}">${product.name}</td>
-	<td class="price"><input type='hidden' name="price" required value="${product.price}">${product.price}</td>
-	<td><input type='hidden' name="id" required value="${product.id}">${product.id}</td>
-	<td class="amount"><input type='hidden' name="amount" required value="${product.amount}">${product.amount}</td>
-	<c:forEach var="cart" items="${sessionScope.cart}">
-	          <input type="hidden" name="cart_name" value="${cart.name}">
-	          <input type="hidden" name="cart_price" value="${cart.price}">
-	          <input type="hidden" name="cart_id" value="${cart.id}">
-	          <input type="hidden" name="cart_amount" value="${cart.amount}">
-	          <input type="hidden" name="cart_custamid" value="${cart.custamid}">
-	 </c:forEach>
-	 <input type="hidden" name="delete_id" value="${product.id}" class="cart_id">
-	 <input type="hidden" name="delete_custam_id" value="${product.custamid}">
-	 <input type="hidden" name="flag" value="flag">
-	</form>
-	</tr>
-	</c:forEach>
-	</table>
-<form method="post" action="pay">
-	<c:forEach var="product" items="${sessionScope.cart}" varStatus="status">
-		<input type='hidden' name="name" required value="${product.name}">
-		<input type='hidden' name="price" required value="${product.price}">
-		<input type='hidden' name='user_number' required value="${sessionScope.loginuser.number}">
-		<input type="hidden" name="customid" value="${product.custamid}">
-		<input type='hidden' name="id" required value="${product.id}">
-		<input type='hidden' name="amount" required value="${product.amount}">
-	</c:forEach>
-	<h3>合計金額</h3><br>
-	<p id="result" class="gra"></p>
-	<input type="hidden" name="total" class="total">
-    <input type='submit' value='現金で支払う' class="btn">
-</form>
-<form method="post" action="pay" onsubmit="return dis()">
-	<c:forEach var="product" items="${sessionScope.cart}" varStatus="status">
-		<input type='hidden' name="name" required value="${product.name}">
-		<input type='hidden' name="price" required value="${product.price}">
-		<input type='hidden' name='user_number' required value="${sessionScope.loginuser.number}">
-		<input type="hidden" name="customid" value="${product.custamid}">
-		<input type='hidden' name="id" required value="${product.id}">
-		<input type='hidden' name="amount" required value="${product.amount}">
-	</c:forEach>
-	<input type="hidden" name="total" class="total">
-    <input type='submit' value='クレジットカードで支払う' class="btn" id="card_btn">
-    <input type="hidden" name="card_id" required value="${sessionScope.loginuser.card_id}" id="card_flag">
-    <input type="hidden" name="creditnumber" value="${sessionScope.cr.creditnumber}" id="creditnumber">
-</form>
+		<table id="kakuninn">
+		<tr><th>削除</th><th>商品名</th><th>値段</th><th>商品番号</th><th>数量</th></tr>
+		<c:forEach var="product" items="${sessionScope.cart}" varStatus="status">
+		<input type='hidden' name="custom_id" required value="${status.count}">
+		<form method="post" action="deleteCart">
+		<tr>
+		<td><input type="submit" value="削除" id="saku" class="delete">
+		<td><input type='hidden' name="name" required value="${product.name}">${product.name}</td>
+		<td class="price"><input type='hidden' name="price" required value="${product.price}">${product.price}</td>
+		<td><input type='hidden' name="id" required value="${product.id}">${product.id}</td>
+		<td class="amount"><input type='hidden' name="amount" required value="${product.amount}">${product.amount}</td>
+		<c:forEach var="cart" items="${sessionScope.cart}">
+		          <input type="hidden" name="cart_name" value="${cart.name}">
+		          <input type="hidden" name="cart_price" value="${cart.price}">
+		          <input type="hidden" name="cart_id" value="${cart.id}">
+		          <input type="hidden" name="cart_amount" value="${cart.amount}">
+		          <input type="hidden" name="cart_custamid" value="${cart.custamid}">
+		 </c:forEach>
+		 <input type="hidden" name="delete_id" value="${product.id}" class="cart_id">
+		 <input type="hidden" name="delete_custam_id" value="${product.custamid}">
+		 <input type="hidden" name="flag" value="flag">
+		</form>
+		</tr>
+		</c:forEach>
+		</table>
+		<form method="post" action="pay">
+			<c:forEach var="product" items="${sessionScope.cart}" varStatus="status">
+				<input type='hidden' name="name" required value="${product.name}">
+				<input type='hidden' name="price" required value="${product.price}">
+				<input type='hidden' name='user_number' required value="${sessionScope.loginuser.number}">
+				<input type="hidden" name="customid" value="${product.custamid}">
+				<input type='hidden' name="id" required value="${product.id}">
+				<input type='hidden' name="amount" required value="${product.amount}">
+			</c:forEach>
+			<h3>合計金額</h3><br>
+			<p id="result" class="gra"></p>
+			<input type="hidden" name="total" class="total">
+		    <input type='submit' value='現金で支払う' class="btn">
+		</form>
+		<form method="post" action="pay" onsubmit="return dis()">
+			<c:forEach var="product" items="${sessionScope.cart}" varStatus="status">
+				<input type='hidden' name="name" required value="${product.name}">
+				<input type='hidden' name="price" required value="${product.price}">
+				<input type='hidden' name='user_number' required value="${sessionScope.loginuser.number}">
+				<input type="hidden" name="customid" value="${product.custamid}">
+				<input type='hidden' name="id" required value="${product.id}">
+				<input type='hidden' name="amount" required value="${product.amount}">
+			</c:forEach>
+			<input type="hidden" name="total" class="total">
+		    <input type='submit' value='クレジットカードで支払う' class="btn3" id="card_btn">
+		    <input type="hidden" name="card_id" required value="${sessionScope.loginuser.card_id}" id="card_flag">
+		    <input type="hidden" name="creditnumber" value="${sessionScope.cr.creditnumber}" id="creditnumber">
+		</form>
 
-<a href="/PizzaCat/menu" class="btn2">戻&emsp;る</a>
+		<a href="/PizzaCat/menu" class="btn2">戻&emsp;る</a>
+    </div>
 
 </body>
 </html>
