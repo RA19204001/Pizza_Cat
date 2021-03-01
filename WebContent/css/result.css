@@ -1,65 +1,68 @@
+*{
+margin:0px;
+paddng:0px;
+}
+
+header {
+   width: 100%;
+   padding: 10px 0px 10px;
+   background-color: #fff;
+   top: 0;
+   display: flex;
+}
+.username {
+  display:none;
+  font-weight:bold;
+  margin: 0 5% 0 auto;
+  list-style: none;
+  font-size: 0;
+  width: 220px;
+  text-align: center;
+  margin: 0 0 0 auto;
+  display: inline-block;
+  font-size: 16px;
+}
+#log
+{
+  background-color: white;
+  text-align:center;
+  margin: 15px;
+  margin-left: 25%;
+  margin-right: 25%;
+  border-radius: 3px;
+  box-shadow: 0 10px 15px -2px rgba(10, 10, 10, 0.4);
+  padding: 30px;
+
+}
 h1
 {
-	text-align:center;
-}
-.border
-{
-	margin-left: auto;
-	margin-right: auto;
-}
-#total
-{
-	/*text-align:center;*/
-}
-#top
-{
-	display: table;
-    max-width: 180px;
-    text-align: left;
-    border: 2px solid #6a16d9;
-    font-size: 16px;
-    color: #5709bd;
-    text-decoration: none;
-    font-weight: bold;
-    padding: 8px 16px;
-    border-radius: 20px;
-    transition: .4s;
-}
-body{
-	/*background-image:url('image/concrete.jpg');
-	background-repeat:repeat-x;
-	/*background-repeat:no-repeat;
-	background-repeat: space repeat;
-	/*background-repeat:repeat-y; 垂直repeat
-	/*background-attachment:fixed;
-	background-attachment:scroll;/*一緒に*/
-	/*position: fixed; 固定*/
-
-	 margin: 50px auto 0;
-	 width: 500px;
-	 height: 477px;
-	 background-image: url('image/concrete2.jpg'), url('image/concrete2.jpg');
-	 background-repeat: repeat-y, repeat-y;
-	 background-position: 0% 50%, 100% 0%;
-	 background-attachment:scroll;
-
-    /*width:400px;*/
-    /*margin-top: 0;*/
-    margin-left: auto;
-	margin-right: auto;
-    /*background: #fff000;*/
-}
-p.syasinn img{
-    width: 300px;  /* 横幅を200pxに */
+    text-align:center;
+    background-image: url('image/concrete3.jpg');
+    background-repeat:repeat-x;
+    height:80px; padding:10px;
 }
 
-/*img.body{
-width: 96px;
-height: 65px;
-}*/
-html{
-    height: 100%;
-    /*background-color: #095fab;*/
-    text-align: center;
-    margin: 0;
+.btn{
+  display: inline-block;
+  padding: 2% 10%;
+  background: #3ea60c;
+  border-radius: 4px;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+
+}
+.btn:hover {
+  background: #ffffff;
+  border: solid 2px #3ea60c;
+  color: #3ea60c;
+  opacity: 0.8;
+}
+.table{
+
+    margin-left: 21%;
+    border-collapse: collapse;
+
 }
