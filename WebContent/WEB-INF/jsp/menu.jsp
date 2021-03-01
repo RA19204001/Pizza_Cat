@@ -649,7 +649,7 @@ button{
                 <br>
                 <h3>￥${menu.price}</h3>
                 <p>購入数
-            	<input type="number" name="amount" pattern="^[0-9]+$" value="1" min="0" max="10">個</p>
+            	<input type="number" name="amount" pattern="^[0-9]+$" value="1" min="1" max="10">個</p>
             	<input type="hidden" name="id" value="${menu.product_id}">
                 <p>(1回で選択できる個数は10個までです)</p>
 
