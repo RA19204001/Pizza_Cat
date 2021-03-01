@@ -72,6 +72,7 @@
 		<div id="re">
 		  <a href="addCard" class="btn">カード登録画面へ</a>
 		  </div>
+		  <br>
 		  <div id="check">
 		  <form method="post" name="form1" action="editCard">
 		    <input type="hidden" id="change" name="card_id" value="${sessionScope.loginuser.card_id}">
