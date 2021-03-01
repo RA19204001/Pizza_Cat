@@ -568,6 +568,8 @@ button{
                	<input type="hidden" name="name" value="${menu.name}">
                	<input type="hidden" name="price" value="${menu.price}">
 				<br>
+				<h3>￥${menu.price}</h3>
+				<br>
 				<!-- サイズ -->
 				<c:forEach var="option" items="${result.optionList}" begin="0" end="1">
 				<label>
@@ -599,7 +601,7 @@ button{
 
 				<br><input type="submit" value="カートに入れる" class="lolol"><br>
             </form>
-            <p>￥${menu.price}</p>
+            <br>
 
             <p><a id="modal-close" class="button-link">閉じる</a></p>
             <!-- モーダルウィンドウのコンテンツ終了 -->
@@ -644,9 +646,12 @@ button{
 				   <input type="hidden" name="cart_amount" value="${cart.amount}">
 				   <input type="hidden" name="cart_custamid" value="${cart.custamid}">
 				</c:forEach>
-                <p>1回で選択できる個数は10個までです</p>
-            	<input type="number" name="amount" pattern="^[0-9]+$" value="1" min="0" max="10">
+                <br>
+                <h3>￥${menu.price}</h3>
+                <p>購入数
+            	<input type="number" name="amount" pattern="^[0-9]+$" value="1" min="0" max="10">個</p>
             	<input type="hidden" name="id" value="${menu.product_id}">
+                <p>(1回で選択できる個数は10個までです)</p>
 
                 	<input type="hidden" name="name" value="${menu.name}">
                 	<input type="hidden" name="price" value="${menu.price}">
@@ -655,7 +660,7 @@ button{
 				<input type="submit" value="カートに入れる" class="lolol">
 
             </form>
-            <p>￥${menu.price}</p>
+            <br>
             <p><a id="modals-close" class="buttons-link">閉じる</a></p>
             <!-- モーダルウィンドウのコンテンツ終了 -->
         </div>
