@@ -25,10 +25,12 @@ public class EditUserCommand extends AbstractCommand {
         String address = reqc.getParameter("address")[0];
         String age = reqc.getParameter("age")[0];
         String phoneNumber = reqc.getParameter("phoneNumber")[0];
+        String number=reqc.getParameter("number")[0];
         //古いID
         String oldId = reqc.getParameter("oldId")[0];
 
 				int ages =  Integer.parseInt(age);
+				int numbers=Integer.parseInt(number);
 
         User user = new User();
         user.setId(id);
@@ -37,6 +39,8 @@ public class EditUserCommand extends AbstractCommand {
         user.setAddress(address);
         user.setAge(ages);
         user.setPhoneNumber(phoneNumber);
+        user.setNumber(numbers);
+
 
 
 

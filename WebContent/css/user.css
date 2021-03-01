@@ -2,6 +2,12 @@
 margin:0px;
 paddng:0px;
 }
+header {
+   width: 100%;
+   padding: 10px 0px 10px;
+   top: 0;
+   display: flex;
+}
 h1
 {
 	text-align:center;

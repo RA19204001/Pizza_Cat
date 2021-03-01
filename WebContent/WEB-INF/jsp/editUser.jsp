@@ -66,6 +66,7 @@
 		    電話番号<br><input type='tel' maxlength='11' pattern="^[0-9]+$" title="半角数字で入力して下さい。" name='phoneNumber' required value="${sessionScope.loginuser.phoneNumber}"><br>
 		    <tr><td><label class="kome">※‐(ハイフン)なし</label></td></tr><br><br>
 		    <input type='hidden' name='oldId' required value="${sessionScope.loginuser.id}"><br>
+		    <input type="hidden" name="number" value="${sessionScope.loginuser.number}">
 		    <input type='submit' value='変更する' class="btn">
 		</form>
 		<div class="botom1">
