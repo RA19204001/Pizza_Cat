@@ -32,7 +32,10 @@ input[type=number]{
 	width:400px;
 	height:30px;
 }
-
+input[type=email]{
+	width:400px;
+	height:30px;
+}
 #moji
 {
 	text-decoration: none;
