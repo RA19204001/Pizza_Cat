@@ -20,7 +20,9 @@
 <title>会員登録画面</title>
 </head>
 <body>
+<header>
 <p><a href="/PizzaCat/" id="moji"><font size="6"><img src="css/image/iconlogo.png"></font></a></p>
+</header>
 <h1>会員登録</h1>
 <form name="myform" method='post' action='addUserResult' onSubmit="return check()"  id="log">
     <label style="color :red;">${result.message}</label><br>
