@@ -21,9 +21,9 @@
 		<br>
 		<div id="log">
 			<table border="1" class="table">
-				<form method="post" action="displayOrderHistory">
-						<tr><th>注文番号</th><th>注文日(クリックで詳細)</th><th>支払い方法</th></tr>
-					<c:forEach var="history" items="${result.orderHistoryList}">
+					<tr><th>注文番号</th><th>注文日(クリックで詳細)</th><th>支払い方法</th></tr>
+				<c:forEach var="history" items="${result.orderHistoryList}">
+					<form method="post" action="displayOrderHistory">
 						<tr>
 						<td>
 							${history.order_id}
@@ -36,8 +36,8 @@
 						  ${history.order_payment}
 						</td>
 						</tr>
-					</c:forEach>
-				</form>
+					</form>
+				</c:forEach>
 			</table>
 			<br>
 			<a href="/PizzaCat/" class="btn2">戻る</a>
