@@ -8,6 +8,8 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
+		<!-- タブアイコン設定 -->
+		<link rel="shortcut icon" href="css/image/pizzaicon.ico" type="image/vnd.microsoft.icon">
 		<title>注文一覧</title>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 		<script>

@@ -6,6 +6,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<!-- タブアイコン設定 -->
+<link rel="shortcut icon" href="css/image/pizzaicon.ico" type="image/vnd.microsoft.icon">
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <link rel="stylesheet" type="text/css" href="css/displayOrderHistory.css">
 <script type="text/javascript">

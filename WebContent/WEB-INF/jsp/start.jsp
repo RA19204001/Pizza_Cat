@@ -10,6 +10,8 @@
 
 <html>
 	<head>
+		<!-- タブアイコン設定 -->
+		<link rel="shortcut icon" href="css/image/pizzaicon.ico" type="image/vnd.microsoft.icon">
 		<!-- cssを適用させる -->
 		<link rel="stylesheet" type="text/css" href="css/start.css">
 

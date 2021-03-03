@@ -8,6 +8,8 @@
 	<head>
 		<meta charset="UTF-8">
 		<link rel="stylesheet" type="text/css" href="css/result.css">
+		<!-- タブアイコン設定 -->
+		<link rel="shortcut icon" href="css/image/pizzaicon.ico" type="image/vnd.microsoft.icon">
 		<title>支払い完了しました</title>
 		<%
 		session.setAttribute("cart",null);

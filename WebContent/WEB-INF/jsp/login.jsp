@@ -5,6 +5,8 @@
 	pageEncoding="UTF-8"%>
 <html>
 <head>
+<!-- タブアイコン設定 -->
+<link rel="shortcut icon" href="css/image/pizzaicon.ico" type="image/vnd.microsoft.icon">
 <link rel="stylesheet" type="text/css" href="css/login.css">
 <title>Login</title></head>
 <body>

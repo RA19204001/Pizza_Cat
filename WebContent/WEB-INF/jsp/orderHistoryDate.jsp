@@ -7,6 +7,9 @@
 	<head>
 	    <link rel="stylesheet" type="text/css" href="css/orderHistoryDate.css">
 		<meta charset="UTF-8">
+
+		<!-- タブアイコン設定 -->
+		<link rel="shortcut icon" href="css/image/pizzaicon.ico" type="image/vnd.microsoft.icon">
 		<title>注文履歴一覧</title>
 	</head>
 	<body>

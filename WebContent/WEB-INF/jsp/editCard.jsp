@@ -4,6 +4,8 @@
 <!DOCTYPE html>
 <html>
 	<head>
+	<!-- タブアイコン設定 -->
+	<link rel="shortcut icon" href="css/image/pizzaicon.ico" type="image/vnd.microsoft.icon">
         <link rel="stylesheet" type="text/css" href="css/editCard.css">
 		<meta charset="UTF-8">
 		<title>カード情報確認</title>

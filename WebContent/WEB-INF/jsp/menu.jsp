@@ -39,6 +39,9 @@ if(list != null){
 		<meta name="robots" content="noindex,nofollow">
 		<link rel="stylesheet" type="text/css" href="css/menu.css">
 
+		<!-- タブアイコン設定 -->
+		<link rel="shortcut icon" href="css/image/pizzaicon.ico" type="image/vnd.microsoft.icon">
+
 		<!-- ビューポートの設定 -->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<!-- JavaScriptの読み込み -->

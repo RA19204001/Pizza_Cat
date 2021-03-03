@@ -2,7 +2,10 @@
     pageEncoding="UTF-8" isErrorPage="true"%>
 <html>
 
-	<head><title>エラーページ</title>
+	<head>
+	<!-- タブアイコン設定 -->
+	<link rel="shortcut icon" href="css/image/pizzaicon.ico" type="image/vnd.microsoft.icon">
+	<title>エラーページ</title>
 
 	<style>
 			.button {

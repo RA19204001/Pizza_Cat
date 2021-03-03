@@ -6,6 +6,8 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<!-- タブアイコン設定 -->
+		<link rel="shortcut icon" href="css/image/pizzaicon.ico" type="image/vnd.microsoft.icon">
 	    <!-- css適用 -->
         <link rel="stylesheet" type="text/css" href="css/editUser.css">
 

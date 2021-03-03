@@ -5,6 +5,8 @@
 <html>
 <head>
 <title>管理者ログインページ</title>
+<!-- タブアイコン設定 -->
+<link rel="shortcut icon" href="css/image/pizzaicon.ico" type="image/vnd.microsoft.icon">
 </head>
 <body>
 <%

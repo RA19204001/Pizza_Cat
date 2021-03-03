@@ -34,6 +34,8 @@ if(list != null){
 %>
 <html>
 <head>
+<!-- タブアイコン設定 -->
+<link rel="shortcut icon" href="css/image/pizzaicon.ico" type="image/vnd.microsoft.icon">
 
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="css/confim.css">

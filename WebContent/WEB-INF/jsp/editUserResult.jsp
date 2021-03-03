@@ -6,6 +6,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<!-- タブアイコン設定 -->
+<link rel="shortcut icon" href="css/image/pizzaicon.ico" type="image/vnd.microsoft.icon">
 <link rel="stylesheet" type="text/css" href="css/editUserResult.css">
 <title>ユーザー情報の変更完了</title>
 </head>
