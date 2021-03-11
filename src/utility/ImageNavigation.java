@@ -45,7 +45,7 @@ public class ImageNavigation {
 	            if ((filename != null) && (!filename.equals(""))) {
 	            	id=(Integer.toString(Integer.parseInt(id)+1));
 	            	System.out.println(id);
-	              item.write(new File("C:\\pizza\\" + id + ".jpg"));
+	              item.write(new File("\\\\172.19.253.32\\public\\2020\\卒業制作\\PizzaCat\\WebContent\\pizza\\" + id + ".jpg"));
 
 	              //ファイルの名前をMapに格納
 	              fields.put("itemImage",filename);
